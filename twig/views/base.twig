@@ -1,0 +1,81 @@
+{% block html_head_container %}
+    {% include 'html-header.twig' %}
+    {% block head %}
+    {% endblock %}
+	</head>
+{% endblock %}
+<body class="{{body_class}}" data-template="base.twig">
+<!-- Leader -->
+<div id="loader-wrapper">
+	<div id="loader"></div>
+	<div class="loader-section section-left"></div>
+	<div class="loader-section section-right"></div>
+	<img class="logo-loader" src="https://via.placeholder.com/100x100">
+</div>
+<!-- /.leader -->
+<!-- Header -->
+<header>
+    {% block header %}
+		<!-- Menu -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+			<a class="navbar-brand" href="{{ home }}"><img class="logo" src="https://via.placeholder.com/100x40" height="40"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+                {% include "menu.twig" with {'menu': menu.get_items} %}
+			</div>
+		</nav>
+		<!-- /.menu -->
+    {% endblock %}
+</header>
+<!-- /.header -->
+<!-- Main Content -->
+<section id="content" role="main" class="content-wrapper">
+	<!-- Page Content -->
+
+	<div class="{{ main_container }}">
+		<div class="row">
+			<!-- Page Content Column -->
+			<div class="{% if sidebar_primary %} col-md-8 {% else %} col-md-12 {% endif %}">
+                {% block content %}
+					Sorry, no content
+                {% endblock %}
+			</div>
+            {% if sidebar_primary %}
+				<!-- Sidebar Widgets Column -->
+				<div class="col-md-4">
+					<aside class="layout-sidebar">
+						<h2>sidebar {{sidebar_class}}</h2>
+                        {{ sidebar_primary }}
+					</aside>
+				</div>
+            {% endif %}
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.page container -->
+	<!-- Pre Footer -->
+    {% if pre_footer %}
+	<section class="bg-primary">
+		<div class="container ">
+			{{ pre_footer }}
+		</div>
+		<!-- /.container -->
+	</section>
+    {% endif %}
+	<!-- /.pre footer -->
+</section>
+<!-- /.main content -->
+<!-- Footer -->
+{% block footer %}
+	<footer id="footer" class="bg-dark text-light p-5">
+        {% include 'footer.twig' %}
+	</footer>
+    {{ function('wp_footer') }}
+{% endblock %}
+<!-- /.footer -->
+</body>
+<!-- /.body -->
+</html>
+<!-- /.html -->

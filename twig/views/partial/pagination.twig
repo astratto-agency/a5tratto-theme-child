@@ -1,0 +1,113 @@
+{% if posts.pagination.pages is not empty %}
+    <div class="pagination-block">
+        <ul class="pagination">
+            {% if pagination.pages|first and pagination.pages|first.current != true %}
+                <li class="first btn">
+                    <a href="{{ pagination.pages|first.link }}">First</a>
+                </li>
+            {% else %}
+                <li class="first btn disabled">
+                    <a>First</a>
+                </li>
+            {% endif %}
+
+            {% if pagination.prev %}
+                <li class="prev btn">
+                    <a href="{{ pagination.prev.link }}">Previous</a>
+                </li>
+            {% else %}
+                <li class="prev btn disabled">
+                    <a>Previous</a>
+                </li>
+            {% endif %}
+
+            {% for page in pagination.pages %}
+                {% if page.link %}
+                    <li>
+                        <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                    </li>
+                {% else %}
+                    <li class="current">
+                        <a class="{{ page.class }}">{{ page.title }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if pagination.next %}
+                <li class="next btn">
+                    <a href="{{ pagination.next.link }}">
+                        Next
+                    </a>
+                </li>
+            {% else %}
+                <li class="next btn disabled">
+                    <a>
+                        Next
+                    </a>
+                </li>
+            {% endif %}
+            {% if pagination.pages|last and pagination.pages|last.current != true %}
+                <li class="last btn">
+                    <a href="{{ pagination.pages|last.link }}">Last</a>
+                </li>
+            {% else %}
+                <li class="last btn disabled">
+                    <a>Last</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}
+</div>
+{% if posts.pagination.pages is not empty %}
+    <nav class="toolbox toolbox-pagination">
+        <div class="toolbox-item toolbox-show">
+            <label>Vista dei risultati da <b>{{startpost}}</b> a <b>{{endpost}}</b> di <b>{{found_posts}}</b></label>
+        </div><!-- End .toolbox-item -->
+        <ul class="pagination">
+            {% if pagination.prev %}
+                <li class="page-item ">
+                    <a class="page-link page-link-btn" href="{{ pagination.prev.link }}"><i class="icon-angle-left"></i></a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link page-link-btn" href="#"><i class="icon-angle-left"></i></a>
+                </li>
+            {% endif %}
+
+
+
+
+            {% for page in pagination.pages %}
+                {% if page.link %}
+                    <li class="page-item">
+                        <a class="page-link" class="{{ page.class }}" href="{{ page.link }}">{{ page.title }}</a>
+                    </li>
+                {% else %}
+
+                    <li class="page-item active">
+                        <a class="page-link {{ page.class }}" href="#">{{ page.title }}<span class="sr-only"></span></a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+
+
+
+
+
+            {% if pagination.next %}
+                <li class="page-item">
+                    <a class="page-link page-link-btn" href="{{ pagination.next.link }}"><i class="icon-angle-right"></i></a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link page-link-btn" href="#"><i class="icon-angle-right"></i></a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+
+
+{% endif %}
