@@ -1,14 +1,20 @@
-<h1>A5tratto-Theme-Child-Origin-Master-73.51</h1>
-======================
+<h1>A5tratto-Theme</h1>
+<h1>CHILD</h1>
+<h2>O/M V.73.00.0.1</h2>
+<h3></h3>
+
+<p>Numero Versione</p>
+<p>Tipologia ( origin 0, master 1)</p>
+<p>Posizionemanto ( locale 0, remoto 1)</p>
+<p>serie</p>
+<i>numero</p>
 <h2>Variabili</h2>
-----
 <code>{{v-dominio}}</code>
 <p>dominio.com</p>
 <br>
 <code>{{v-dominio-old}}</code>  
 <p>dominio-old.com</p>
 <h2>Tematiche</h2>
-----
 <ul>
 	<li id="01" class="cat-macro-mamp">MAMP / XAMPP
 		<ul>
