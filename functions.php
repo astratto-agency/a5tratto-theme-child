@@ -4,57 +4,193 @@
 /*  A5T-Framework Child core 
 /*-----------------------------------------------------------------------------------*/
 
-
-/* enqueue script for parent theme stylesheeet */
-add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS WP Enqueue style with child
+::::::::::::::      enqueue script for parent theme stylesheeet
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 function my_theme_enqueue_styles()
 {
-    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+    $parenthandle = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
+    $theme = wp_get_theme();
+    wp_enqueue_style($parenthandle, get_template_directory_uri() . '/style.css',
+        array(),  // if the parent theme code has a dependency, copy it to here
+        $theme->parent()->get('Version')
+    );
+    wp_enqueue_style('child-style', get_stylesheet_uri(),
+        array($parenthandle),
+        $theme->get('Version') // this only works if you have Version in the style header
+    );
 }
+
+add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles', 105);
 
 $a5t_includes = array(
     'functions.php',                          // function.php
 );
 
-add_filter('timber/context', 'add_to_context_child');
-function add_to_context_child($context)
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS CONTEXT
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+add_filter('timber/context', 'add_to_context');
+
+function add_to_context($context)
 {
-    $context['child']            = "child";
-    // $context['slider'] = get_field('slider');
-    // $context['home']            = site_url();
-    // $context['menu']            = new Timber\Menu('primary-menu');
-    // $context['content']         = get_the_content();
-    // $context['title']           = get_the_title();
-    // $context['post_class']	    = get_post_class()[0];
-    // $context['time']			= get_the_time('c');
-    // $context['date']		    = get_the_date();
-    // $context['author_url']	    = get_author_posts_url(get_the_author_meta('ID'));
-    // $context['author']		    = get_the_author();
-    // $context['urltema']		    = get_template_directory_uri();
-    // $context['imgpage']		    = get_the_post_thumbnail_url();
-    // $context['urlpage']		    = get_page_link();
-    // $context['intro']    = get_the_excerpt();
-    // $context['footer_col_1']    = Timber::get_widgets('footer_col_1');
-    // $context['footer_col_2']    = Timber::get_widgets('footer_col_2');
-    // $context['footer_col_3']    = Timber::get_widgets('footer_col_3');
-    // $context['footer_col_4']    = Timber::get_widgets('footer_col_4');
-    // $context['footer_bottom']   = Timber::get_widgets('footer_bottom');
-    // $context['sidebar_primary']   = Timber::get_widgets('sidebar_primary');
-    // $context['pre_footer']   = Timber::get_widgets('pre_footer');
-    // $context['main_container']           = get_theme_mod("a5t_setting_main_container");
-    // $context['setting_intestazione']           = get_theme_mod("a5t_setting_intestazione");
-    // $context['setting_piva']           = get_theme_mod("a5t_setting_piva");
-    // $context['setting_indirizzo']           = get_theme_mod("a5t_setting_indirizzo");
-    // $context['setting_telefono']           = get_theme_mod("a5t_setting_telefono");
-    // $context['setting_mail']           = get_theme_mod("a5t_setting_mail");
-    // if ( function_exists( 'yoast_breadcrumb' ) ) {
-    //     $context['breadcrumbs'] = yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumb center mb-50">','</div>', false );
-    // }
-    // $context['menu_pricipale'] = new Timber\Menu( 'menu-principale' );
-    // $context['menuu'] = new \Timber\Menu( 'primary-menu' );
-    // $context['menu'] = new \Timber\Menu( 'primary-menu' );
-    // $context['menu_servizi'] = new \Timber\Menu( 'Servizi' );
-    // $context['menu'] = new \Timber\Menu( 'primary-menu' );
-    // $context['menu_servizi'] = new \Timber\Menu( 'Servizi' );
+    $context['placeholder'] = 'https://via.placeholder.com/';
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Site
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $context['home'] = site_url();
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Menu
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $context['menu'] = new Timber\Menu('primary-menu');
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Theme Dir
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $context['tema_url'] = get_template_directory_uri();
+    $context['urltema'] = get_template_directory_uri();
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Post
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $context['post_class'] = get_post_class()[0];
+    $context['post_title'] = get_the_title();
+
+    $context['title'] = get_the_title();
+    $context['the_title'] = get_the_title();
+
+    $context['content'] = get_the_content();
+    $context['the_content'] = get_the_content();
+
+    $context['imgpage'] = get_the_post_thumbnail_url();
+    $context['post_image'] = get_the_post_thumbnail_url();
+
+    $context['intro'] = get_the_excerpt();
+    $context['the_excerpt'] = get_the_excerpt();
+
+    $context['urlpage'] = get_page_link();
+    $context['page_link'] = get_page_link();
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Time & Data
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $context['time'] = get_the_time('c');
+    $context['date'] = get_the_date();
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS User
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $context['author_url'] = get_author_posts_url(get_the_author_meta('ID'));
+    $context['author'] = get_the_author();
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS User WooCommerce Memberships
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+
+        $context['memberships'] = $memberships = wc_memberships_get_user_active_memberships(get_current_user_id());
+    }
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Footer
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $context['pre_footer'] = Timber::get_widgets('pre_footer');
+    $context['footer_col_1'] = Timber::get_widgets('footer_col_1');
+    $context['footer_col_2'] = Timber::get_widgets('footer_col_2');
+    $context['footer_col_3'] = Timber::get_widgets('footer_col_3');
+    $context['footer_col_4'] = Timber::get_widgets('footer_col_4');
+    $context['footer_bottom'] = Timber::get_widgets('footer_bottom');
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Sidebar
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $context['sidebar_primary'] = Timber::get_widgets('sidebar_primary');
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Slide
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    $context['slider'] = get_field('slider');
+
+
+    $context['main_container'] = get_theme_mod("a5t_setting_main_container");
+
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Setting
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $context['setting_intestazione'] = get_theme_mod("a5t_setting_intestazione");
+    $context['setting_piva'] = get_theme_mod("a5t_setting_piva");
+    $context['setting_indirizzo'] = get_theme_mod("a5t_setting_indirizzo");
+    $context['setting_telefono'] = get_theme_mod("a5t_setting_telefono");
+    $context['setting_mail'] = get_theme_mod("a5t_setting_mail");
+
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS If Plugin is active
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    /*if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+        echo 'WooCommerce is active.';
+    } else {
+        echo 'WooCommerce is not Active.';
+    }*/
+
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS WooCommerce
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+
+        if (WC()->cart->get_cart_contents_count() == 0) {
+            $context['carrello'] = '';
+        } else {
+            $context['carrello'] = '1';
+        }
+
+    }
+
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Google Maps
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $key = get_theme_mod('a5t_setting_maps');
+    $context['googleapis'] = 'http://maps.googleapis.com/maps/api/js?key=' . $key . '&amp;sensor=false';
+
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Yoast Breadcrumb
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    if (function_exists('yoast_breadcrumb')) {
+        $context['breadcrumbs'] = yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumb center mb-50">', '</div>', false);
+    }
+
+
+    /*
+   $custom_logo_id = get_theme_mod( 'custom_logo' );
+   $context['logo'] = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+   */
+
+// $context['menu_pricipale'] = new Timber\Menu( 'menu-principale' );
+// $context['menuu'] = new \Timber\Menu( 'primary-menu' );
+// $context['menu'] = new \Timber\Menu( 'primary-menu' );
+// $context['menu_servizi'] = new \Timber\Menu( 'Servizi' );
+// $context['menu'] = new \Timber\Menu( 'primary-menu' );
+// $context['menu_servizi'] = new \Timber\Menu( 'Servizi' );
+
+
     return $context;
 }
