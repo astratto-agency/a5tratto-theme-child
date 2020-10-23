@@ -32,9 +32,8 @@ $a5t_includes = array(
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS CONTEXT
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-add_filter('timber/context', 'add_to_context');
-
-function add_to_context($context)
+add_filter('timber/context', 'add_to_context_child');
+function add_to_context_child($context)
 {
     $context['placeholder'] = 'https://via.placeholder.com/';
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
