@@ -32,10 +32,11 @@ $a5t_includes = array(
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS CONTEXT
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-add_filter('timber/context', 'add_to_context_child');
-function add_to_context_child($context)
+add_filter('timber/context', 'add_to_context');
+
+function add_to_context($context)
 {
-    $context['placeholder'] = 'https://via.placeholder.com/';
+
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Site
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -74,6 +75,14 @@ function add_to_context_child($context)
 
     $context['urlpage'] = get_page_link();
     $context['page_link'] = get_page_link();
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Placeholder
+    ::::::::::::::      https://source.unsplash.com/
+
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $context['placeholder'] = 'https://source.unsplash.com/';
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Time & Data
@@ -128,11 +137,27 @@ function add_to_context_child($context)
     ::::::::::::::    * A_SETTINGS Setting
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $context['setting_intestazione'] = get_theme_mod("a5t_setting_intestazione");
-    $context['setting_piva'] = get_theme_mod("a5t_setting_piva");
-    $context['setting_indirizzo'] = get_theme_mod("a5t_setting_indirizzo");
-    $context['setting_telefono'] = get_theme_mod("a5t_setting_telefono");
-    $context['setting_mail'] = get_theme_mod("a5t_setting_mail");
+    // intestazioni
+    $context['setting_intestazione'] = get_theme_mod('a5t_setting_intestazione');
+    $context['setting_piva'] = get_theme_mod('a5t_setting_piva');
+    $context['setting_rea'] = get_theme_mod('a5t_setting_rea');
+    $context['setting_cap_soc'] = get_theme_mod('a5t_setting_cap_soc');
+    // indirizzo
+    $context['setting_indirizzo_1'] = get_theme_mod('a5t_setting_indirizzo_1');
+    $context['setting_indirizzo_2'] = get_theme_mod('a5t_setting_indirizzo_2');
+    $context['setting_indirizzo_3'] = get_theme_mod('a5t_setting_indirizzo_3');
+    // tel
+    $context['setting_tel_1'] = get_theme_mod('a5t_setting_tel_1');
+    $context['setting_tel_2'] = get_theme_mod('a5t_setting_tel_2');
+    $context['setting_tel_3'] = get_theme_mod('a5t_setting_tel_3');
+    $context['setting_fax'] = get_theme_mod('a5t_setting_fax');
+    // mail
+    $context['setting_mail_1'] = get_theme_mod('a5t_setting_mail_1');
+    $context['setting_mail_2'] = get_theme_mod('a5t_setting_mail_2');
+    $context['setting_mail_3'] = get_theme_mod('a5t_setting_mail_3');
+    // social
+    $context['setting_facebook'] = get_theme_mod('a5t_setting_facebook');
+    $context['setting_linkedin'] = get_theme_mod('a5t_setting_linkedin');
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
