@@ -1,11 +1,11 @@
 <h1>A5tratto-Theme</h1>
 <h1>CHILD</h1>
-<h2>V.7.3.00.1.4</h2>
+<h2>V.7.3.3.7</h2>
 <h3></h3>
 
 <p>Numero Versione</p>
 <p>Tipologia ( origin 0, master 1)</p>
-<p>Posizionemanto ( locale 0, remoto 1)</p>
+<h2>git@github.com:a5tratto/a5tratto-theme.git</h2>
 <p>serie</p>
 <i>numero</p>
 <h2>Variabili</h2>
@@ -103,6 +103,8 @@
 						<code>git rm --cached wp-config.php</code>
 					</li>
 					<li id="14">Impostazione GIT</li>
+					<p>se devi cancellare la cartella git perche viene caricato il sito web con le cartelle dei timi vuoti ricordati di canellare subito la cartella .git di ogni directory clonata con la seguente dicitura</p>
+				    <code>rm -rf nomecartella</code>
 				</ul>
 			</li>
 			<li id="15">Creazione Utente SSH
@@ -189,6 +191,10 @@
 		<li id="55">A5T Theme
 			<ul>
 				<li id="56">Installazione A5T Theme</li>
+				    <p>Per intallare nuova versione della repository del tema A5T Theme</p>
+				    <p>Git: git clone git@github.com:a5tratto/a5tratto-theme.git</p>
+				    <p>Per intallare nuova versione della repository del tema A5T Theme Child</p>
+                    <p>Git: git clone git@github.com:a5tratto/a5tratto-theme-child.git</p>
 				<li id="57">Aggioranmento A5T Theme</li>
 				<li id="58">Creazione Child A5T Theme
 					<a href="https://kinsta.com/it/blog/child-theme-wordpress/">link</a>
