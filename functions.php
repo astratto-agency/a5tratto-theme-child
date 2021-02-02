@@ -22,7 +22,7 @@ function my_theme_enqueue_styles()
     );
 }
 
-add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles', 105);
+add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles', 115);
 
 $a5t_includes = array(
     'functions.php',                          // function.php
