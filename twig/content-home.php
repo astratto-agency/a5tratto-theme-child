@@ -1,4 +1,3 @@
-<h1>riciao</h1>
 <?php
 /**
  * The template for displaying all pages.
@@ -36,6 +35,7 @@ if( $fields ):
         $context[$name_id] = $value_id;
     endforeach;
 endif;
+
 
 // $context['categorie_principali'] = Timber::get_terms(array('taxonomy' => 'categoria-prodotti' ,'parent' => 0 , ));
 // $context['sub_categorie'] = Timber::get_terms(array('taxonomy' => 'categoria-prodotti' ,'child' => 0 , ));

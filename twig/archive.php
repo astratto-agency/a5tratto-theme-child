@@ -83,12 +83,12 @@ $args = array(
     'posts_per_page'        => $paginazione, // Numero custom post ( -1 = tutti )
     'paged'                 => $paged,
 );
-$context['posts'] = $wp_query = new Timber\PostQuery($args);
+$context['posts'] = $query_posts = new Timber\PostQuery($args);
 /* paginato */
-$context['found_posts' ] = $wp_query->found_posts;
+$context['found_posts'] = $query_posts->found_posts;
 $context['startpost'] = $startpost = 1;
 $context['startpost'] = $startpost =  $paginazione*($paged - 1)+1;
-$context['endpost']   = $endpost =  ($paginazione*$paged < $wp_query->found_posts ? $paginazione*$paged : $wp_query->found_posts);
+$context['endpost'] = $endpost = ($paginazione * $paged < $query_posts->found_posts ? $paginazione * $paged : $query_posts->found_posts);
 
 Timber::render( $templates, $context );
 
