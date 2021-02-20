@@ -8,25 +8,41 @@
 ::::::::::::::    * A_SETTINGS WP Enqueue style with child
 ::::::::::::::      enqueue script for parent theme stylesheeet
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-function my_theme_enqueue_styles()
+function theme_child_enqueue_styles()
 {
-    $parenthandle = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
-    $theme = wp_get_theme();
-    wp_enqueue_style($parenthandle, get_template_directory_uri() . '/style.css',
-        array(),  // if the parent theme code has a dependency, copy it to here
-        $theme->parent()->get('Version')
-    );
-    wp_enqueue_style('child-style', get_stylesheet_uri(),
-        array($parenthandle),
-        $theme->get('Version') // this only works if you have Version in the style header
-    );
+    // $parenthandle = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
+    // $theme = wp_get_theme();
+    // wp_enqueue_style($parenthandle, get_template_directory_uri() . '/style.css',
+    //     array(),  // if the parent theme code has a dependency, copy it to here
+    //     $theme->parent()->get('Version')
+    // );
+    // wp_enqueue_style('child-style', get_stylesheet_uri(),
+    //     array($parenthandle),
+    //     $theme->get('Version') // this only works if you have Version in the style header
+    // );
+    // wp_enqueue_style('child-custom', get_stylesheet_uri() . '/assets/custom.css',
+    //     array($parenthandle),
+    //     $theme->get('Version') // this only works if you have Version in the style header
+    // );
+
+    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css');
+    wp_enqueue_style('child-custom', get_stylesheet_directory_uri() . '/assets/custom.css');
 }
 
-add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles', 115);
+add_action('wp_enqueue_scripts', 'theme_child_enqueue_styles', 115);
 
 $a5t_includes = array(
     'functions.php',                          // function.php
 );
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS Stampo log nome thempalte e versione
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+$theme = wp_get_theme();
+$theme_name = $theme->get('Name');
+$theme_version = $theme->get('Version');
+echo "<script>console.log('$theme_name $theme_version');</script>";
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

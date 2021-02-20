@@ -1,6 +1,6 @@
 <h1>A5tratto-Theme</h1>
 <h1>CHILD</h1>
-<h2>V.7.3.4.0</h2>
+<h2>V.7.3.4.1</h2>
 <h3></h3>
 
 <p>Numero Versione</p>
