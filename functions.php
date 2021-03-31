@@ -211,8 +211,12 @@ function add_to_context_child($context)
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Yoast Breadcrumb
+    ::::::::::::::    * A_SETTINGS Yoast
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $context['metatitle'] = get_post_meta(get_the_ID(), '_yoast_wpseo_title', true);
+
+    $context['metadesc'] = get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true);
 
     if (function_exists('yoast_breadcrumb')) {
         $context['breadcrumbs'] = yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumb center mb-50">', '</div>', false);
