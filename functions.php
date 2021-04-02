@@ -80,8 +80,10 @@ function add_to_context_child($context)
     $context['title'] = get_the_title();
     $context['the_title'] = get_the_title();
 
-    $context['content'] = get_the_content();
-    $context['the_content'] = get_the_content();
+    if (is_page() || is_single()) {
+        $context['content'] = get_the_content();
+        $context['the_content'] = get_the_content();
+    }
 
     $context['imgpage'] = get_the_post_thumbnail_url();
     $context['post_image'] = get_the_post_thumbnail_url();

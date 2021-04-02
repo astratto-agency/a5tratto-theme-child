@@ -17,12 +17,15 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 $post = Timber::query_post();
 $context = Timber::get_context();
-/* themplates */
+
+/* A_SETTINGS Assegnazione dei template  */
 $templates = array( 'archive.twig', 'index.twig' );
-/* definizco il numero di paginazione */
+
+/* A_SETTINGS Assegnazione del numero di paginazione di post per pagina */
 $paginazione = 2;
-/* elaboro la paginazione */
-preg_match('%/page/([0-2]+)%', $_SERVER['REQUEST_URI'], $matches );
+
+/* A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione */
+preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches);
 if ( get_query_var( 'paged' ) ) {
     $paged = get_query_var( 'paged' );
 } elseif ( get_query_var( 'page' ) ) {
@@ -33,7 +36,8 @@ if ( get_query_var( 'paged' ) ) {
 if (!isset($paged) || !$paged) {
     $paged = 1;
 }
-/* smisto le impaginazioni */
+
+/* A_SETTINGS Smistamento delle impaginazioni ai relativi template di pagina */
 $context['title'] = 'Archive';
 if ( is_day() ) {
     $context['title'] = 'Archive: '.get_the_date( 'D M Y' );
@@ -65,9 +69,8 @@ if ( is_day() ) {
     array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-
-
-/* assegno tutte le variabili di ACF */
+/*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
+    in caso avessi necessità puoi sostituire il valore $post con l'ID della pagina */
 $fields = get_field_objects( $post );
 if( $fields ):
     foreach( $fields as $field ):
@@ -93,9 +96,9 @@ $args = array(
     'tax_query' => array(                     //(array) - use taxonomy parameters (available with Version 3.1).
         'relation' => 'AND',                      //(string) - Possible values are 'AND' or 'OR' and is the equivalent of ruuning a JOIN for each taxonomy
         array(
-            'taxonomy' => $term->id,
+            'taxonomy' => $term->taxonomy,
             'terms'      => $term->slug,                 // Tassonomia
-            // 'field' => 'slug',                       // Cosa usare per selezionare la tassonomie (id o slug)
+            'field' => 'slug',                       // Cosa usare per selezionare la tassonomie (id o slug)
             // 'terms' => array( 'rosso', 'verde' ),    // Termini della tassonomia. Possibili valori stringa/intero/array
             // 'include_children' => true,              // Includere o meno le i termini annidati nelle tassonomie gerarchiche
             // 'operator' => 'IN'                       // Testare la corrispondenza del termine. Possibili valori 'IN', 'NOT IN', 'AND'.
@@ -111,7 +114,11 @@ $args = array(
         */
     ),
 );
-$context['posts'] = $wp_query = new Timber\PostQuery($args);
+$context['posts'] = $posts_query = new Timber\PostQuery($args);
+
+
+
+
 // Stampa child della categoria
 $context['childs'] = $childs = get_terms(
     $term->taxonomy, array(
@@ -128,10 +135,10 @@ $context['parents'] = $parents = get_terms(
 
 
 /* paginato */
-$context['found_posts' ] = $wp_query->found_posts;
+$context['found_posts'] = $posts_query->found_posts;
 $context['startpost'] = $startpost = 1;
 $context['startpost'] = $startpost =  $paginazione*($paged - 1)+1;
-$context['endpost']   = $endpost =  ($paginazione*$paged < $wp_query->found_posts ? $paginazione*$paged : $wp_query->found_posts);
+$context['endpost'] = $endpost = ($paginazione * $paged < $posts_query->found_posts ? $paginazione * $paged : $posts_query->found_posts);
 
 Timber::render( $templates, $context );
 

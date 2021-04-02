@@ -18,12 +18,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $context = Timber::get_context();
 $post = Timber::query_post();
 
-/* themplates */
+/* A_SETTINGS Assegnazione dei template  */
 $templates = array( 'archive.twig', 'index.twig' );
-/* definizco il numero di paginazione */
+
+/* A_SETTINGS Assegnazione del numero di paginazione di post per pagina */
 $paginazione = 2;
-/* elaboro la paginazione */
-preg_match('%/page/([0-2]+)%', $_SERVER['REQUEST_URI'], $matches );
+
+/* A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione */
+preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches);
 if ( get_query_var( 'paged' ) ) {
     $paged = get_query_var( 'paged' );
 } elseif ( get_query_var( 'page' ) ) {
@@ -34,7 +36,8 @@ if ( get_query_var( 'paged' ) ) {
 if (!isset($paged) || !$paged) {
     $paged = 1;
 }
-/* smisto le impaginazioni */
+
+/* A_SETTINGS Smistamento delle impaginazioni ai relativi template di pagina */
 $context['title'] = 'Archive';
 if ( is_day() ) {
     $context['title'] = 'Archive: '.get_the_date( 'D M Y' );
@@ -52,7 +55,7 @@ if ( is_day() ) {
     $context['title'] = single_cat_title( '', false );
     $context['term'] = $term = new Timber\Term( get_queried_object_id() );
     /* array_unshift( $templates, 'category-' . $term->slug . '.twig' ); */
-    $templates = array( 'category-' . $term->slug . '.twig', 'category.twig', 'archive.twig', 'index.twig' );
+    $templates = array('category-' . $term->slug . '.twig', 'categoy.twig', 'archive.twig', 'index.twig');
     // var_dump($term);
 } else if ( is_tax() ) {
     $context['title'] = single_cat_title( '', false );
@@ -66,8 +69,8 @@ if ( is_day() ) {
     array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-
-/* assegno tutte le variabili di ACF */
+/*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
+    in caso avessi necessità puoi sostituire il valore $post con l'ID della pagina */
 $fields = get_field_objects( $post );
 if( $fields ):
     foreach( $fields as $field ):
@@ -99,7 +102,9 @@ $args = array(
     'category__not_in' => array( 3, 6 ),
     */
 );
-$context['posts'] = new Timber\PostQuery($args);
+$context['posts'] = $posts_query = new Timber\PostQuery($args);
+
+
 // Stampa child della categoria
 $context['childs'] = $childs = get_terms(
     $term->taxonomy, array(
@@ -118,10 +123,10 @@ $context['parents'] = $parents = get_terms(
 
 
 /* paginato */
-$context['found_posts' ] = $wp_query->found_posts;
+$context['found_posts'] = $posts_query->found_posts;
 $context['startpost'] = $startpost = 1;
 $context['startpost'] = $startpost =  $paginazione*($paged - 1)+1;
-$context['endpost']   = $endpost =  ($paginazione*$paged < $wp_query->found_posts ? $paginazione*$paged : $wp_query->found_posts);
+$context['endpost'] = $endpost = ($paginazione * $paged < $posts_query->found_posts ? $paginazione * $paged : $posts_query->found_posts);
 
 Timber::render( $templates, $context );
 
