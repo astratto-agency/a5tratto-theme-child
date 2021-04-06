@@ -37,15 +37,6 @@ $a5t_includes = array(
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A_SETTINGS Stampo log nome thempalte e versione
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-$theme = wp_get_theme();
-$theme_name = $theme->get('Name');
-$theme_version = $theme->get('Version');
-echo "<script>console.log('$theme_name $theme_version');</script>";
-
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS CONTEXT
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 add_filter('timber/context', 'add_to_context_child');
