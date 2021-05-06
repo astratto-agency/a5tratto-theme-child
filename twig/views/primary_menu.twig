@@ -1,6 +1,6 @@
-{% if menu %}
-	<ul id="menu" class="nav navbar-nav ml-auto">
-		{% for item in menu %}
+{% if primary_menu %}
+	<ul id="primary_menu" class="nav navbar-nav ml-auto">
+		{% for item in primary_menu %}
 			{% if (item.get_children) %}
 				<li class="dropdown nav-item">
 					<a href="{{ item.get_link }}" >{{item.title}}</a>
@@ -35,7 +35,7 @@
 					<a href="{{item.get_link}}">
 						<span data-letters="{{item.title}}">{{item.title}}</span>
 					</a>
-					{% include "menu.twig" with {'menu': item.get_children} %}
+					{% include "primary_menu.twig" with {'primary_menu': item.get_children} %}
 				</li>
 			{% endif %}
 		{% endfor %}

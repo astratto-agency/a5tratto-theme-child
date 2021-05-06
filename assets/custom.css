@@ -193,17 +193,17 @@ li {
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS menu
+:::::::::::::: 11 * A_SETTINGS primary_menu
 ::::::::::::::      Impostazioni per css
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 
-#menu li {
+#primary_menu li {
     list-style: none;
     display: inline-block;
 }
 
-#menu li a {
+#primary_menu li a {
     text-decoration: none;
     position: relative;
     color: red;

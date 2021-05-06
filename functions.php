@@ -80,7 +80,9 @@ function add_to_context_child($context)
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Menu
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-    $context['menu'] = new Timber\Menu('primary-menu');
+    $context['primary_menu'] = new Timber\Menu('Primary Navigation');
+    // $context['footer_menu'] = new Timber\Menu('Footer Navigation 1');
+
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Theme Dir
@@ -266,7 +268,7 @@ function add_to_context_child($context)
    $context['logo'] = wp_get_attachment_image_src( $custom_logo_id , 'full' );
    */
 
-// $context['menu_pricipale'] = new Timber\Menu( 'menu-principale' );
+
 // $context['menuu'] = new \Timber\Menu( 'primary-menu' );
 // $context['menu'] = new \Timber\Menu( 'primary-menu' );
 // $context['menu_servizi'] = new \Timber\Menu( 'Servizi' );
