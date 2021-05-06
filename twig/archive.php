@@ -83,17 +83,22 @@ if ($fields):
 endif;
 
 //  A_SETTINGS Controllo se la pagina è un CPT con slug simile
-$cpt_args = array(
-    'public' => true,
-    '_builtin' => false
-);
-$post_types = get_post_types($cpt_args, 'object'); // use 'names' if you want to get only name of the post type.
-$post_type = 'post';
-foreach ($post_types as $item_post_type) {
-    if ($post->slug == $item_post_type->rewrite['slug'] || $post->slug == $item_post_type->name) {
-        $post_type = $item_post_type->name;
-        $context['title'] = $item_post_type->label;
+if (get_post_type() == 'page') {
+    $context['title'] = $post->title;
+    $cpt_args = array(
+        'public' => true,
+        '_builtin' => false
+    );
+    $post_types = get_post_types($cpt_args, 'object'); // use 'names' if you want to get only name of the post type.
+    foreach ($post_types as $item_post_type) {
+        if ($post->slug == $item_post_type->rewrite['slug'] || $post->slug == $item_post_type->name) {
+            $post_type = $item_post_type->name;
+            $context['title'] = $item_post_type->label;
+        }
     }
+} else {
+    $post_type = get_post_type();
+    $context['content'] = get_the_post_type_description();
 }
 $obj_post_type = get_post_type_object($post_type);
 
