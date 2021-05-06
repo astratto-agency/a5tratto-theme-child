@@ -1,81 +1,190 @@
+{# A_SETTINGS html header #}
+<!-- html -->
 {% block html_head_container %}
     {% include 'html-header.twig' %}
     {% block head %}
     {% endblock %}
-	</head>
+    </head>
 {% endblock %}
-<body class="{{body_class}}" data-template="base.twig">
-<!-- Leader -->
-<div id="loader-wrapper">
-	<div id="loader"></div>
-	<div class="loader-section section-left"></div>
-	<div class="loader-section section-right"></div>
-	<img class="logo-loader" src="https://via.placeholder.com/100x100">
-</div>
-<!-- /.leader -->
-<!-- Header -->
-<header>
-    {% block header %}
-		<!-- Menu -->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-			<a class="navbar-brand" href="{{ home }}"><img class="logo" src="https://via.placeholder.com/100x40" height="40"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-                {% include "menu.twig" with {'menu': menu.get_items} %}
-			</div>
-		</nav>
-		<!-- /.menu -->
-    {% endblock %}
-</header>
-<!-- /.header -->
-<!-- Main Content -->
-<section id="content" role="main" class="content-wrapper">
-	<!-- Page Content -->
 
-	<div class="{{ main_container }}">
-		<div class="row">
-			<!-- Page Content Column -->
-			<div class="{% if sidebar_primary %} col-md-8 {% else %} col-md-12 {% endif %}">
-                {% block content %}
-					Sorry, no content
+{# A_SETTINGS body #}
+<body class="{{ body_class }}" {# TODO attivare impostazione per butter-js #} data-template="base.twig">
+
+
+{#  A_SETTINGS attivazione Go To Top Button #}
+{% if a5t_setting_gototop %}
+    <button onclick="topFunction()" id="gototop-btn" title="Go to top">Top</button>
+    <script>
+        //Get the button
+        var gototop_btn = document.getElementById("gototop-btn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                gototop_btn.style.display = "block";
+            } else {
+                gototop_btn.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <style>
+        #gototop-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+    </style>
+{% endif %}
+
+
+
+
+{#  A_SETTINGS attivazione butter-js #}
+<div id="butter-active">
+
+    {# A_SETTINGS loader #}
+    <!-- loader-->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        <img class="logo-loader"
+             src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ placeholder }}/100x100/?logo{% endif %}"
+             height="40">
+    </div>
+    <!-- /.loader -->
+
+
+    {# A_SETTINGS header#}
+    <!-- header -->
+    <header>
+        {% block header %}
+            <section class="section-header shadow-sm">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            {# A_SETTINGS menu #}
+                            <!-- menu -->
+                            <nav class="navbar navbar-expand-sm navbar-light bg-white py-3 ">
+                                {# A_SETTINGS logo #}
+                                <a class="navbar-brand" href="{{ home }}"><img class="logo"
+                                                                               src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ placeholder }}/300x100/?logo{% endif %}"
+                                                                               height="40"></a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                        data-target="#navbarResponsive" aria-controls="navbarNav" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarResponsive">
+                                    {% include "menu.twig" with {'menu': menu.get_items} %}
+                                </div>
+                            </nav>
+                            <!-- /.menu -->
+                            {# end A_SETTINGS menu #}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endblock %}
+    </header>
+    <!-- /.header -->
+    {# end A_SETTINGS header#}
+
+
+    {# A_SETTINGS content #}
+    <!-- main content -->
+    <section id="main-content" role="main" class="content-wrapper">
+
+        {#<div class="{{ main_container }}">#}
+        <div class=" ">
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
+
+            {#<div class="row">
+                <!-- Page Content Column -->
+                <div class="{% if sidebar_primary %} col-md-8 {% else %} col-md-12 {% endif %}">
+                    {% block content %}
+                        Sorry, no content
+                    {% endblock %}
+                </div>
+                {% if sidebar_primary %}
+                    <!-- Sidebar Widgets Column -->
+                    <div class="col-md-4">
+                        <aside class="layout-sidebar">
+                            <h2>sidebar {{ sidebar_class }}</h2>
+                            {{ sidebar_primary }}
+                        </aside>
+                    </div>
+                {% endif %}
+            </div>#}
+            <div class="row">
+                <!-- Pre Footer -->
+                {% if pre_footer %}
+                    <section class="bg-primary">
+                        <div class="container ">
+                            {{ pre_footer }}
+                            {# A_FIXME #}
+                            <a class="magic-hover magic-hover__square">download</a>
+                        </div>
+                        <!-- /.container -->
+                    </section>
+                {% endif %}
+                <!-- /.pre footer -->
+
+
+                {# A_SETTINGS footer #}
+                <!-- footer -->
+                {% block footer %}
+                    <footer id="footer" class="bg-dark text-light">
+                        {% include 'footer.twig' %}
+                    </footer>
                 {% endblock %}
-			</div>
-            {% if sidebar_primary %}
-				<!-- Sidebar Widgets Column -->
-				<div class="col-md-4">
-					<aside class="layout-sidebar">
-						<h2>sidebar {{sidebar_class}}</h2>
-                        {{ sidebar_primary }}
-					</aside>
-				</div>
-            {% endif %}
-		</div>
-		<!-- /.row -->
-	</div>
-	<!-- /.page container -->
-	<!-- Pre Footer -->
-    {% if pre_footer %}
-	<section class="bg-primary">
-		<div class="container ">
-			{{ pre_footer }}
-		</div>
-		<!-- /.container -->
-	</section>
-    {% endif %}
-	<!-- /.pre footer -->
-</section>
-<!-- /.main content -->
-<!-- Footer -->
-{% block footer %}
-	<footer id="footer" class="bg-dark text-light p-5">
-        {% include 'footer.twig' %}
-	</footer>
-    {{ function('wp_footer') }}
-{% endblock %}
-<!-- /.footer -->
+                <!-- /.footer -->
+                {# end A_SETTINGS footer #}
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.page container -->
+
+
+    </section>
+    <!-- /.main content -->
+    {# end A_SETTINGS content #}
+
+
+</div>
+{#  end A_SETTINGS attivazione butter-js #}
+
+{# A_SETTINGS footer #}
+{{ function('wp_footer') }}
+{# end A_SETTINGS footer #}
+
 </body>
 <!-- /.body -->
+{# end A_SETTINGS body #}
+
+
 </html>
 <!-- /.html -->
+{# end A_SETTINGS html #}{# end A_SETTINGS html #}

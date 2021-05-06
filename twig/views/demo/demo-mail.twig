@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="my-1 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <p class="field-form">[text* nome placeholder "Nome"]</p>
+    </div>
+    <div class="my-1 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <p class="field-form">[text* cognome placeholder "Cognome"]</p>
+    </div>
+    <div class="my-1 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <p class="field-form">[tel telefono placeholder "Telefono"]</p>
+    </div>
+    <div class="my-1 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <p class="field-form">[email* email placeholder "Email"]</p>
+    </div>
+    <div class="my-1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p class="field-form">[text* oggetto placeholder "Oggetto"]</p>
+    </div>
+    <div class="my-1 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <p class="field-form">[textarea* richiesta placeholder x3 "Scrivici la tua richiesta"]</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Acconsento al trattamento dei dati personali<br></label>
+                [acceptance privacy class:form-check-input ] Accetto Informativa <a
+                        href="https://www.sitowebdemo.it/privacy-policy/"> Privacy Policy</a>[/acceptance]
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <br>[anr_nocaptcha g-recaptcha-response] <br>
+                [submit class:btn class:btn-rounded class:btn-secondary "INVIA RICHIESTA" ]
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0"
+      style="background-color: rgb(36,32,76,0.10); padding-top: 60px; padding-bottom: 60px; margin: 0;">
+<table align="center" width="100%" border="0" cellspacing="0" cellpadding="0"
+       style="color: #747474; height: 100%; width: 100%; font-family: 'Arial', sans-serif; font-size: 14px;">
+    <tr>
+        <td align="center" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" width="600"
+                   style="background-color: #fff; width: 600px; border: 1px solid #e0e0e0;">
+                <tr>
+                    <td id="mainHeader">
+                        <header style="min-height: 100px;">
+                            <span style="float: left; padding: 15px 30px;"><img
+                                        src="http://logo-del-cliente.it/logo.png" style="height:60px;"/></span>
+                            <span style="float: right; padding: 15px 30px; color: #787878;text-align:right; font-size:25px;"><b> </span>
+                        </header>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 30px;">
+                        <h3 style="color: #787878; font-size: 18px; font-weight: normal; text-align: left;">Grazie
+                            [nome] [cognome]</h3>
+                        <p style="color: #787878; font-size: 14px; font-weight: normal; text-align: left;">La tua
+                            richiesta è stata inviata con successo. NomedelCliente ti ricontatterà a breve.</p>
+                        <br>
+                        <h4 style="color: #787878; font-size: 18px; font-weight: normal; text-align: left;">
+                            Riepilogo</h4>
+                        <p style="color: #787878; font-size: 14px; font-weight: normal; text-align: left;"><b>Nome e
+                                Cognome</b><br>[nome] [cognome]</p>
+                        <p style="color: #787878; font-size: 14px; font-weight: normal; text-align: left;">
+                            <b>Telefono</b><br>[telefono]</p>
+                        <p style="color: #787878; font-size: 14px; font-weight: normal; text-align: left;">
+                            <b>eMail</b><br>[email]</p>
+                        <p style="color: #787878; font-size: 14px; font-weight: normal; text-align: left;"><b>Oggetto
+                                della tua richiesta</b><br>[oggetto]</p>
+                        <p style="color: #787878; font-size: 14px; font-weight: normal; text-align: left;">
+                            <b>Richiesta</b><br>[richiesta]</p>
+                        <p style="color: #787878; font-size: 14px; font-weight: normal; text-align: left;">Accettazione
+                            Privacy Policy: [privacy] in data [_date]</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0 30px 30px 30px; text-align: center;">
+                        <p style="color: #787878; font-size: 11px;"><img class="loghi"
+                                                                         src="http://sitowebdemo.it/logo.png"
+                                                                         style="height:60px;"/></p>
+                        <div class="footer testo">
+                            <div class="prefooter">
+                                <h3 style="margin-bottom: 10px; color: #787878; color: #787878;">NomedelCliente</h3><br>
+                                <p style="color: #787878;"><a style="color: #787878;" href="https://www.sitowebdemo.it">www.sitowebdemo.it</a><br><a
+                                            style="color: #787878;" href="mailto:studio@sitowebdemo.it">studio@sitowebdemo.it</a>
+                                </p><br><br> Copyright &copy; 2020 Tutti i diritti riservati
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+

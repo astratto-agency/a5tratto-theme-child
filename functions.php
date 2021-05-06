@@ -35,6 +35,25 @@ $a5t_includes = array(
     'functions.php',                          // function.php
 );
 
+function theme_child_enqueue_scripts()
+{
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Carico il JS custom
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    wp_enqueue_script('child-scripts', get_stylesheet_directory_uri() . '/assets/custom.js', array(), '1.0.0', true);
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Carico i Credits
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    wp_enqueue_script('child-credits', get_stylesheet_directory_uri() . '/assets/credits.js', array(), '1.0.0', true);
+
+}
+
+add_action('wp_enqueue_scripts', 'theme_child_enqueue_scripts', 120);
+
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS CONTEXT
@@ -51,6 +70,14 @@ function add_to_context_child($context)
     $context['home'] = site_url();
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Logo
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $custom_logo_url = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+    $context['custom_logo_url'] = $custom_logo_url;
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Menu
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     $context['menu'] = new Timber\Menu('primary-menu');
@@ -65,15 +92,21 @@ function add_to_context_child($context)
     ::::::::::::::    * A_SETTINGS Post
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $context['post_class'] = get_post_class()[0];
+
     $context['post_title'] = get_the_title();
 
     $context['title'] = get_the_title();
     $context['the_title'] = get_the_title();
 
     if (is_page() || is_single()) {
+
+        $context['post_class'] = get_post_class()[0];
+
         $context['content'] = get_the_content();
         $context['the_content'] = get_the_content();
+
+        $context['urlpage'] = get_page_link();
+        $context['page_link'] = get_page_link();
     }
 
     $context['imgpage'] = get_the_post_thumbnail_url();
@@ -82,8 +115,7 @@ function add_to_context_child($context)
     $context['intro'] = get_the_excerpt();
     $context['the_excerpt'] = get_the_excerpt();
 
-    $context['urlpage'] = get_page_link();
-    $context['page_link'] = get_page_link();
+
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Placeholder
@@ -207,9 +239,22 @@ function add_to_context_child($context)
     ::::::::::::::    * A_SETTINGS Yoast
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $context['metatitle'] = get_post_meta(get_the_ID(), '_yoast_wpseo_title', true);
+    $id = get_the_ID();
 
-    $context['metadesc'] = get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true);
+    $post         = get_post( $id, ARRAY_A );
+    $yoast_title = get_post_meta( $id, '_yoast_wpseo_title', true );
+    $yoast_desc = get_post_meta( $id, '_yoast_wpseo_metadesc', true );
+
+    $metatitle_val = wpseo_replace_vars($yoast_title, $post );
+    $metatitle_val = apply_filters( 'wpseo_title', $metatitle_val );
+
+    $metadesc_val = wpseo_replace_vars($yoast_desc, $post );
+    $metadesc_val = apply_filters( 'wpseo_metadesc', $metadesc_val );
+
+
+    $context['metatitle'] = $metatitle_val;
+
+    $context['metadesc'] = $metadesc_val;
 
     if (function_exists('yoast_breadcrumb')) {
         $context['breadcrumbs'] = yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumb center mb-50">', '</div>', false);
@@ -231,3 +276,7 @@ function add_to_context_child($context)
 
     return $context;
 }
+
+
+
+

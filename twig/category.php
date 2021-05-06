@@ -14,18 +14,19 @@
  * @since   Timber 0.2
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
-$context = Timber::get_context();
-$post = Timber::query_post();
 
-/* A_SETTINGS Assegnazione dei template  */
+if ( ! defined( 'ABSPATH' ) ) exit;
+$post = Timber::query_post();
+$context = Timber::get_context();
+
+// A_SETTINGS Assegnazione dei template
 $templates = array( 'archive.twig', 'index.twig' );
 
-/* A_SETTINGS Assegnazione del numero di paginazione di post per pagina */
-$paginazione = 2;
+// A_SETTINGS Assegnazione del numero di paginazione di post per pagina
+$paginazione = 4;
 
-/* A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione */
-preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches);
+// A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione
+preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches );
 if ( get_query_var( 'paged' ) ) {
     $paged = get_query_var( 'paged' );
 } elseif ( get_query_var( 'page' ) ) {
@@ -37,41 +38,41 @@ if (!isset($paged) || !$paged) {
     $paged = 1;
 }
 
-/* A_SETTINGS Smistamento delle impaginazioni ai relativi template di pagina */
+//  A_SETTINGS TERM QUERY elaboro query base per term
+$context['term'] = $term = new Timber\Term(get_queried_object_id());
+
+// A_SETTINGS Smistamento delle impaginazioni ai relativi template di pagina
 $context['title'] = 'Archive';
 if ( is_day() ) {
-    $context['title'] = 'Archive: '.get_the_date( 'D M Y' );
+    // A_SETTINGS day
+    $context['title'] = 'Archive: ' . get_the_date('D M Y'); // Update title
 } else if ( is_month() ) {
-    $context['title'] = 'Archive: '.get_the_date( 'M Y' );
+    // A_SETTINGS month
+    $context['title'] = 'Archive: ' . get_the_date('M Y'); // Update title
 } else if ( is_year() ) {
-    $context['title'] = 'Archive: '.get_the_date( 'Y' );
+    // A_SETTINGS year
+    $context['title'] = 'Archive: ' . get_the_date('Y'); // Update title
 } else if ( is_tag() ) {
-    $context['title'] = single_tag_title( '', false );
-    $context['term'] = $term = new Timber\Term( get_queried_object_id() );
-    /* array_unshift( $templates, 'tag-' . $term->slug . '.twig' ); */
-    $templates = array( 'tag-' . $term->slug . '.twig', 'tag.twig', 'archive.twig', 'index.twig' );
-    // var_dump($term);
+    // A_SETTINGS tag
+    $context['title'] = single_tag_title('', false); // Update title
+    array_unshift($templates, 'tag-' . $term->slug . '.twig', 'tag.twig'); // Update templates
 } else if ( is_category() ) {
-    $context['title'] = single_cat_title( '', false );
-    $context['term'] = $term = new Timber\Term( get_queried_object_id() );
-    /* array_unshift( $templates, 'category-' . $term->slug . '.twig' ); */
-    $templates = array('category-' . $term->slug . '.twig', 'categoy.twig', 'archive.twig', 'index.twig');
-    // var_dump($term);
+    // A_SETTINGS category
+    $context['title'] = single_cat_title('', false); // Update title
+    array_unshift($templates, 'category-' . $term->slug . '.twig', 'category.twig');// Update templates
 } else if ( is_tax() ) {
-    $context['title'] = single_cat_title( '', false );
-    $context['term'] = $term = new Timber\Term( get_queried_object_id() );
-    /* array_unshift( $templates, 'taxonomy-' . $term->slug . '.twig' ); */
-    $templates = array( 'taxonomy-' . $term->slug . '.twig', 'taxonomy.twig', 'archive.twig', 'index.twig' );
-    // var_dump($term);
+    // A_SETTINGS taxonomy
+    $context['title'] = single_cat_title('', false); // Update title
+    array_unshift($templates, 'taxonomy-' . $term->slug . '.twig', 'taxonomy.twig'); // Update templates
 } else if ( is_post_type_archive() ) {
-    $context['title'] = post_type_archive_title( '', false );
-    $context['term'] = $term = new Timber\Term( get_queried_object_id() );
-    array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+    // A_SETTINGS archive
+    $context['title'] = post_type_archive_title('', false); // Update title
+    array_unshift($templates, 'archive-' . get_post_type() . '.twig'); // Update templates
 }
 
 /*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
     in caso avessi necessità puoi sostituire il valore $post con l'ID della pagina */
-$fields = get_field_objects( $post );
+$fields = get_field_objects( $post->id );
 if( $fields ):
     foreach( $fields as $field ):
         $name_id = $field['name'];
@@ -81,9 +82,7 @@ if( $fields ):
 endif;
 
 
-
-
-/* elaboro la query */
+//  A_SETTINGS QUERY elaboro query base
 $args = array(
     'post_type'             => 'any', // Nome del custom post
     /*
@@ -102,17 +101,17 @@ $args = array(
     'category__not_in' => array( 3, 6 ),
     */
 );
-$context['posts'] = $posts_query = new Timber\PostQuery($args);
+$context['posts'] = $query_posts = new Timber\PostQuery($args);
 
 
-// Stampa child della categoria
+//  A_SETTINGS  Stampa child della categoria
 $context['childs'] = $childs = get_terms(
     $term->taxonomy, array(
     'parent'    => $term->term_id,
     'hide_empty' => false
 ) );
 
-// Stampa parent della categoria
+//  A_SETTINGS  Stampa parent della categoria
 $parent_id = $term->parent;
 $context['parents'] = $parents = get_terms(
     $term->taxonomy, array(
@@ -122,15 +121,18 @@ $context['parents'] = $parents = get_terms(
 ) );
 
 
-/* paginato */
-$context['found_posts'] = $posts_query->found_posts;
+//  A_SETTINGS Gestisco la numerazione della pagine e i corrispettivi valori trovati
+$context['found_posts'] = $query_posts->found_posts;
 $context['startpost'] = $startpost = 1;
 $context['startpost'] = $startpost =  $paginazione*($paged - 1)+1;
-$context['endpost'] = $endpost = ($paginazione * $paged < $posts_query->found_posts ? $paginazione * $paged : $posts_query->found_posts);
+$context['endpost'] = $endpost = ($paginazione * $paged < $query_posts->found_posts ? $paginazione * $paged : $query_posts->found_posts);
 
+//  A_SETTINGS Elaboro template a Twig
 Timber::render( $templates, $context );
 
-
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_ISTRUCTIONS
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 //      Parametri WP_Query
 //      Post e pagine
 //      Mostrare i contenuti in base ad alcune caratteristiche dei post o pagine. I numeri rappresentano un indice mentre quando usiamo del testo ci riferiamo a uno slug.

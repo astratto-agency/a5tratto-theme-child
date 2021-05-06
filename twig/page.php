@@ -20,11 +20,25 @@
  * @subpackage  Timber
  * @since    Timber 0.1
  */
-
 if ( ! defined( 'ABSPATH' ) ) exit;
-
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );
 
+
+/*  A_SETTINGS Assegno tutte le variabili di ACF a Twig
+    in caso avessi necessità puoi sostituire il valore $post con l'ID della pagina */
+$fields = get_field_objects( $post );
+if( $fields ):
+    foreach( $fields as $field ):
+        $name_id = $field['name'];
+        $value_id = $field['value'];
+        $context[$name_id] = $value_id;
+    endforeach;
+endif;
+
+// $context['categorie_principali'] = Timber::get_terms(array('taxonomy' => 'categoria-prodotti' ,'parent' => 0 , ));
+// $context['sub_categorie'] = Timber::get_terms(array('taxonomy' => 'categoria-prodotti' ,'child' => 0 , ));
+
+
+Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

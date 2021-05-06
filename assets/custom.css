@@ -1,57 +1,460 @@
-/*:::::::::::::::::::::::::::::::
-:::::::::::::::  01 - SECTION
-:::::::::::::::::::::::::::::::*/
+/* TODO readme paletta colori dedicata alle note todo */
+/*
+f94144,f3722c,f8961e,f9844a,f9c74f,90be6d,43aa8b,4d908e,577590,277da1
+https://coolors.co/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-577590-277da1
+*/
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS Media query
+::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+/*
+// Small devices (landscape phones, 576px and up) 			// Extra small devices (portrait phones, less than 576px)
+@media (min-width: 576px) { ... } 							@media (max-width: 575.98px) { ... }
+
+// Medium devices (tablets, 768px and up)					// Small devices (landscape phones, 576px and up)
+@media (min-width: 768px) { ... }							@media (min-width: 576px) and (max-width: 767.98px) { ... }
+
+// Large devices (desktops, 992px and up)					// Medium devices (tablets, 768px and up)
+@media (min-width: 992px) { ... }							@media (min-width: 768px) and (max-width: 991.98px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)		// Large devices (desktops, 992px and up)
+@media (min-width: 1200px) { ... }							@media (min-width: 992px) and (max-width: 1199.98px) { ... }
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) { ... }
+
+// No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
+@include media-breakpoint-only(xs) { ... }	@include media-breakpoint-up(sm) { ... }	@include media-breakpoint-down(xs) { ... }
+@include media-breakpoint-only(sm) { ... }	@include media-breakpoint-up(md) { ... }	@include media-breakpoint-down(sm) { ... }
+@include media-breakpoint-only(md) { ... }	@include media-breakpoint-up(lg) { ... }	@include media-breakpoint-down(md) { ... }
+@include media-breakpoint-only(lg) { ... }	@include media-breakpoint-up(xl) { ... }	@include media-breakpoint-down(lg) { ... }
+
+*/
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * Mportal
+::::::::::::::      Impostazioni per css per M portal
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+/*
+@import url("style-custom.css");
+ */
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS INDEX CSS
+::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS magic-mouse-js
+::::::::::::::      Impostazioni per togliere il cursore definitivamente
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/*html, * {
+    cursor: none;
+}*/
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS Color
+::::::::::::::      Impostazioni colori
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+:root {
+
+    --a5t-primary: #783d66;
+    --a5t-secondary: #20785a;
+
+    --red-salsa: #f94144ff;
+    --orange-red: #f3722cff;
+    --yellow-orange-color-wheel: #f8961eff;
+    --mango-tango: #f9844aff;
+    --maize-crayola: #f9c74fff;
+    --pistachio: #90be6dff;
+    --zomp: #43aa8bff;
+    --cadet-blue: #4d908eff;
+    --queen-blue: #577590ff;
+    --cg-blue: #277da1ff;
+}
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS Section
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 body {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
-header  {
+
+header {
 
 }
-footer{
 
+footer {
+    position: relative;
+    width: 100%;
 }
-/*:::::::::::::::::::::::::::::::
-:::::::::::::::  01 - FONT
-:::::::::::::::::::::::::::::::*/
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS font
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 p {
+    margin-bottom: 0;
+}
+
+.a5t-p-sx {
+    font-size: 9px;
+    line-height: 11px;
+    margin-bottom: 0;
+}
+
+.a5t-p-sm {
 
 }
+
+.a5t-p-md {
+
+}
+
+.a5t-p-lg {
+
+}
+
+
 span {
 
 }
+
 b {
 
 }
-h1,h2,h3,h4,h5,h6{
+
+h1, h2, h3, h4, h5, h6 {
 
 }
+
 a {
 
 }
-a:hover{
+
+a:hover {
 
 }
+
+.a5t-underline {
+    color: #049FAF !important;
+    text-decoration: solid;
+    text-decoration-line: underline;
+    text-decoration-style: inherit;
+    text-decoration-color: #049FAF;
+}
+
 ul {
 
 }
-li{
+
+li {
 
 }
 
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS shadow
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.a5t-shadow-1 {
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
 
-/*:::::::::::::::::::::::::::::::
-:::::::::::::::  02 - LOADER
-:::::::::::::::::::::::::::::::*/
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS radius
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.a5t-radius-10 {
+    border-radius: 10px;
+}
+
+.a5t-img-radius-top-10 {
+    border-radius: 0 0 10px 10px;
+}
+
+.a5t-img-radius-bottom-10 {
+    border-radius: 10px 10px 0 0;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS menu
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 
+#menu li {
+    list-style: none;
+    display: inline-block;
+}
+
+#menu li a {
+    text-decoration: none;
+    position: relative;
+    color: red;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: sans-serif;
+    display: block;
+    overflow: hidden;
+    transition: 0.7s all;
+    padding: 14px 30px;
+    text-transform: uppercase;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-toggle:hover:after {
+    display: inline-block;
+}
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS button
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.btn {
+    border-radius: 4px;
+    padding: 0.545em 1em;
+    text-align: center;
+    display: inline-block;
+    letter-spacing: .02em;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid;
+    line-height: 1;
+    position: relative;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    /*Standard*/
+    /*
+    border-radius: 10px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.375rem 1.75rem;
+    transition: all 0.3s ease-in-out;*/
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #EF424E;
+    border-color: #EF424E;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #FC3854;
+    border-color: #FC3854;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #C73C48;
+    border-color: #C73C48;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: #C73C48;
+    border-color: #C73C48;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(199, 60, 72, 0.5);
+}
+
+
+.btn-colored {
+    color: #FDC75A;
+    background-color: transparent;
+    border-color: #FDC75A;
+}
+
+.tease:hover .btn-colored {
+    background-color: transparent;
+}
+
+.btn-colored:not(:disabled):not(.disabled).active, .btn-colored:not(:disabled):not(.disabled):active, .show > .btn-colored.dropdown-toggle {
+    color: #fff;
+    background-color: transparent;
+    border-color: #FDC75A;
+}
+
+.btn-colored.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(253, 199, 90, 0.5);
+}
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS equal cols
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+
+.row.equal-cols {
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-flex-wrap: wrap !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap;
+}
+
+.row.equal-cols:before,
+.row.equal-cols:after {
+    display: block;
+}
+
+.row.equal-cols > [class*='col-'] {
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+
+.row.equal-cols > [class*='col-'] > * {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.row.equal-cols .tease {
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS cf7
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.wpcf7-form input, .wpcf7-form textarea {
+    width: auto;
+}
+
+
+select {
+    line-height: 20px;
+    font-size: 20px;
+    border: solid 3px #000;
+    padding: 6px;
+    border-radius: 4px !important;
+    width: auto;
+}
+
+.wpcf7-text {
+    background: rgba(255, 255, 255, 0.51);
+    line-height: 20px;
+    font-size: 20px;
+    border: none;
+    border-bottom: solid 3px #000;
+    padding: 6px;
+    border-radius: 0px !important;
+    width: auto;
+}
+
+.wpcf7-textarea {
+    background: rgba(255, 255, 255, 0.51);
+    line-height: 20px;
+    font-size: 20px;
+    border: none;
+    border-bottom: solid 3px #000;
+    padding: 6px;
+    border-radius: 0px !important;
+    width: auto;
+}
+
+.wpcf7-form :focus {
+    border: none;
+    outline: none;
+    outline-color: #10768F;
+    outline-style: solid;
+    outline-width: 0px;
+    line-height: 20px;
+    font-size: 20px;
+    border-bottom: solid 3px #10768F;
+    padding: 6px;
+    border-radius: 0px !important;
+    width: auto;
+    transition: all 0.3s ease-in-out;
+
+}
+
+select {
+    background-color: #fff;
+    width: auto;
+    border-radius: 0px !important;
+}
+
+input.wpcf7-form-control.wpcf7-submit, input.form-check-input {
+    width: auto;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #222222;
+    opacity: 0.5; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #222222;
+    opacity: 0.5;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #222222;
+    opacity: 0.5;
+}
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS loader
+::::::::::::::      impostazioni per modificare il loader
+::::::::::::::      effetto al caricamento della pagina composto da logo sezioni e loader
+::::::::::::::      L'evento che fa avviare è la classe 'loaded' posizionato nel body
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .preload {
-    width:100px;
+    width: 100px;
     height: 100px;
     position: fixed;
     top: 50%;
     left: 50%;
 }
+
 #loader-wrapper {
     position: fixed;
     top: 0;
@@ -60,7 +463,8 @@ li{
     height: 100%;
     z-index: 80;
 }
-/* ruote loader */
+
+/* loader medium */
 #loader {
     display: block;
     position: relative;
@@ -75,6 +479,8 @@ li{
     z-index: 81;
     animation: spin 2s linear infinite;
 }
+
+/* loader small */
 #loader:before {
     content: "";
     position: absolute;
@@ -87,6 +493,8 @@ li{
     border-top-color: #01a6c2;
     animation: spin 3s linear infinite;
 }
+
+/* loader big */
 #loader:after {
     content: "";
     position: absolute;
@@ -99,6 +507,8 @@ li{
     border-top-color: #01a6c2;
     animation: spin 1.5s linear infinite;
 }
+
+/* loader logo */
 .logo-loader {
     z-index: 82;
     position: absolute;
@@ -107,9 +517,9 @@ li{
     top: 0;
     bottom: 0;
     margin: auto;
-
 }
-/* logo loader */
+
+/* loader sections */
 #loader-wrapper .loader-section {
     position: fixed;
     top: 0;
@@ -119,13 +529,16 @@ li{
     z-index: 80;
     transform: translateX(0);
 }
-/* sezioni loader */
+
+/* loader sections directions */
 #loader-wrapper .loader-section.section-left {
     left: 0;
 }
+
 #loader-wrapper .loader-section.section-right {
     right: 0;
 }
+
 @keyframes spin {
     0% {
         transform: rotate(-0deg);
@@ -142,65 +555,79 @@ li{
         -o-transform: rotate(360deg);
     }
 }
-/* uscita pagina loader */
+
+/* loader loaded effect exit */
 .loaded #loader-wrapper .loader-section.section-left {
     transform: translateX(-100%);
     transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
 .loaded #loader-wrapper .loader-section.section-right {
     transform: translateX(100%);
     transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
 .loaded #loader {
     opacity: 0;
     transition: all 0.3s ease-out;
 }
+
 .loaded #loader-wrapper {
     visibility: hidden;
     transform: translateY(-100%);
     transition: all 0.3s 1s ease-out;
 }
+
 .loaded .logo-loader {
     opacity: 0;
     transition: all 0.3s ease-out;
 }
 
 
+/*
+####################################################
+M E D I A  Q U E R I E S
+####################################################
+*/
 
-/*:::::::::::::::::::::::::::::::
-:::::::::::::::  03 - MENU
-:::::::::::::::::::::::::::::::*/
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
 
-#menu li {
-    list-style:none;
-    display:inline-block;
+/*
+Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
 }
 
-#menu li a {
-    text-decoration:none;
-    position:relative;
-    color: red;
-    font-size:14px;
-    font-weight:700;
-    font-family:sans-serif;
-    display:block;
-    overflow:hidden;
-    transition:0.7s all;
-    padding:14px 30px;
-    text-transform:uppercase;
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+
 }
 
-.dropdown:hover>.dropdown-menu {
-    display: block;
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
 }
 
-.dropdown-toggle:hover:after {
-    display: inline-block;
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }
 
 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Custom media queries
+*/
 
+/* Set width to make card deck cards 100% width */
+@media (max-width: 950px) {
 
-
-
-
+}

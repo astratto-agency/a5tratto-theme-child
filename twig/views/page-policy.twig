@@ -1,0 +1,169 @@
+{% extends "base.twig" %}
+{% block content %}
+	<style>
+		@import url("{{ home }}/wp-content/plugins/complianz-gdpr/assets/css/document.min.css");
+		#cmplz-document {
+			max-width: 100%;
+			text-justify: inter-word;
+		}
+	</style>
+	{# SECTION - section-slider #}
+	<section class="section-privacy py-5">
+		<div class="container py-4">
+			<div class="row">
+				<div class="col-12 py-2 my-2">
+					<h1 class="pb-3">{{ post.title }}</h1>
+					{{ breadcrumbs }}
+				</div>
+				<div class="col-12 col-md-12 py-2 my-2"  id="cmplz-document">
+
+					{% if post.slug == "cookie-policy" %}
+						{% filter shortcodes %}
+							[cmplz-document type="cookie-statement" region="eu"]
+						{% endfilter %}
+					{% elseif %}
+						<div class="cmplz-document cookie-statement" id="cmplz-document">
+							{% if content is empty %}
+								<h3>INFORMATIVA PER IL TRATTAMENTO DEI DATI PERSONALI RESA AI SENSI DEGLI ART. 13 e 14 DEL
+									REGOLAMENTO (UE) 2016/679-GDPR (GENERAL DATA PROTECTION REGULATION) </h3>
+								<p>Gentile Utente,</p>
+								<p>{{ setting_intestazione }}, con sede legale in {{ setting_indirizzo }}, P.IVA
+									{{ setting_piva }}, ai sensi del Regolamento UE n. 2016/679 (di seguito “Regolamento”) è tenuta a
+									fornirLe alcune informazioni in merito all’utilizzo dei dati personali.</p>
+								<p>La presente informativa si intende resa per il sito {{ home }} (di seguito il “Sito”), e non
+									anche per altri siti web eventualmente consultabili dall'utente tramite link e costituisce parte
+									integrante del Sito e dei servizi che offriamo; l’Informativa è resa ai sensi dell’art. 13 del
+									Regolamento a coloro che interagiscono con i servizi web del Sito.</p>
+								<p>I Suoi dati personali verranno trattati in accordo alle disposizioni legislative del Regolamento
+									e degli obblighi di riservatezza ivi previsti. Il trattamento dei suoi dati personali, pertanto,
+									sarà improntato ai principi di correttezza, liceità, trasparenza, limitazione delle finalità e
+									della conservazione, minimizzazione ed esattezza, integrità e riservatezza, nonché al principio
+									di responsabilizzazione di cui all’art. 5 del Regolamento.</p>
+								<br>
+								<h3>TITOLARE E RESPONSABILI DEL TRATTAMENTO </h3>
+								<p>Il Titolare del trattamento è la <a>società</a> {{ setting_intestazione }} come sopra identificato.
+									L’elenco aggiornato dei soggetti Responsabili potrà essere richiesto al seguente indirizzo di
+									posta elettronica <a href="mailto:{{ setting_mail_1 }}">{{ setting_mail_1 }}</a>.</p>
+								<br>
+								<h3>TIPOLOGIA DI DATI TRATTATI </h3>
+								<br>
+								<h4>Dati di navigazione</h4>
+								<p>I sistemi informatici e le procedure software preposte al funzionamento di questo sito web
+									acquisiscono, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione è
+									implicita nell'uso dei protocolli di comunicazione di Internet. Si tratta di informazioni che
+									non sono raccolte per essere associate a interessati identificati, ma che per loro stessa natura
+									potrebbero, attraverso elaborazioni ed associazioni con dati detenuti da terzi, permettere di
+									identificare gli utenti. In questa categoria di dati rientrano gli indirizzi IP o i nomi a
+									dominio dei computer utilizzati dagli utenti che si connettono al sito, gli indirizzi in
+									notazione URI (Uniform Resource Identifier) delle risorse richieste, l'orario della richiesta,
+									il metodo utilizzato nel sottoporre la richiesta al server, la dimensione del file ottenuto in
+									risposta, il codice numerico indicante lo stato della risposta data dal server (buon fine,
+									errore, ecc.) ed altri parametri relativi al sistema operativo e all'ambiente informatico
+									dell'utente. Allo stato i dati sui contatti web non persistono per più di sette giorni.</p>
+								<br>
+								<h4>Dati forniti volontariamente dall'utente</h4>
+								<p>L’invio facoltativo, esplicito e volontario di dati personali in specifiche sezioni del sito (ad
+									esempio nella sezione “Contatti”) nonché degli eventuali altri dati personali inseriti nel
+									messaggio, saranno trattati esclusivamente per le finalità strettamente correlate alla richiesta
+									(ad esempio: rispondere alle richieste di informazioni inviate). Fatti salvi eventuali
+									trattamenti obbligatori per legge, ogni altra finalità è esclusa.</p>
+								<br>
+								<h4>Cookies</h4>
+								<p>I dettagli sui cookie utilizzati sul Sito sono disponibili nella “cookie policy” consultabile al
+									seguente link, ove potrete personalizzare l’esperienza d’uso del Sito.</p>
+								<br>
+								<h3>FINALITÀ E BASE GIURIDICA DEL TRATTAMENTO</h3>
+								<p>I dati personali verranno trattati per le seguenti finalità:</p>
+								<ol type="a">
+									<li>Gestione operativa e finalità a questa strettamente connesse per l’accesso al sito web;</li>
+								</ol>
+								<p>Base giuridica del trattamento: consenso e esecuzione di un contratto.</p>
+								<ul>
+									<li>Elaborazione a fini statistici in forma anonima ed aggregata sull’uso del sito e controllo
+										circa il corretto funzionamento dello stesso;
+									</li>
+								</ul>
+								<p>Base giuridica del trattamento: consenso e interesse legittimo del Titolare del trattamento.</p>
+								<ul>
+									<li>Assolvimento di eventuali obblighi previsti dalle leggi vigenti, da regolamenti o dalla
+										normativa comunitaria, soddisfacimento di richieste provenienti dalle autorità;
+									</li>
+								</ul>
+								<p>Base giuridica del trattamento: adempimento di un obbligo di legge.</p>
+								<ul>
+									<li>Finalità funzionali a rispondere a vostre richieste inviate attraverso la sezione contatti
+										presente sul sito.
+									</li>
+								</ul>
+								<p>Base giuridica del trattamento: consenso dell’interessato</p>
+								<br>
+								<h3>NATURA DEL CONFERIMENTO DEI DATI E CONSEGUENZE DEL RIFIUTO </h3>
+								<p>Il conferimento dei dati personali, pur non essendo obbligatorio, potrebbe risultare
+									indispensabile per consentire lo svolgimento dei nostri servizi. </p>
+								<p>In particolare per le finalità di cui al punto d. il conferimento è sempre facoltativo, potrà
+									quindi decidere di non conferire alcun dato o di negare successivamente la possibilità di
+									trattare dati già forniti, revocando in qualsiasi momento il consenso già prestato inviando una
+									specifica richiesta al Titolare nelle modalità descritte nella presente informativa. Tuttavia
+									negare il consenso può comportare l’impossibilità acquisire i Suoi dati e di rispondere quindi
+									alle sue richieste. </p>
+								<br>
+								<h3>MODALITA' DEL TRATTAMENTO</h3>
+								<p>I Suoi dati personali saranno trattati con l’ausilio di strumenti cartacei e/o informatici
+									automatizzati, da Responsabili del trattamento nominati ai sensi dell’art. 28 del Reg. (UE)
+									2016/679 o da persone autorizzate al trattamento per il tempo necessario al conseguimento delle
+									finalità per le quali sono raccolti o per qualsiasi altra legittima finalità collegata (salva la
+									revoca da parte Sua del consenso). Al termine di detto periodo, i dati verranno conservati per
+									ottemperare a specifici obblighi normativi o contrattuali, nonché per finalità di tipo
+									amministrativo e/o per far valere o difendere un proprio diritto, in caso di contenziosi e
+									precontenziosi. </p>
+								<p>In ogni caso il Titolare si impegna ad adottare misure di sicurezza tecniche e organizzative
+									adeguate per prevenire la distruzione o perdita dei dati, eventuali usi non consentiti ed
+									accessi non autorizzati, ai sensi dell’art. 32 del Reg. (UE) 2016/679.</p>
+								<p>I Suoi dati non saranno in alcun modo diffusi ma potranno essere comunicati a soggetti terzi la
+									cui attività sia necessaria e correlata al conseguimento delle finalità sopra indicate (quali a
+									titolo esemplificativo: professionisti, autorità amministrative e giudiziarie competenti, studi
+									professionali di consulenza legale, autorità pubbliche nazionali e/o internazionali che ne
+									abbiano facoltà).</p>
+								<p>Nell’ambito del trattamento non sono previsti processi decisionali automatizzati, ivi compresa la
+									profilazione di cui all'articolo 22, paragrafi 1 e 4 Reg. UE 2016/679.</p>
+								<br>
+								<h3>TRASFERIMENTO DEI DATI PERSONALI</h3>
+								<p>I dati personali trattati dal presente Sito non sono oggetto di trasferimento al di fuori dello
+									Spazio Economico Europeo. Resta in ogni caso inteso che il Titolare, ove si rendesse necessario,
+									avrà facoltà di spostare l’ubicazione dei server in Paesi extra-UE. In tal caso, il Titolare
+									assicura sin d’ora che il trasferimento dei dati avverrà in conformità alle disposizioni di
+									legge applicabili stipulando, se necessario, accordi che garantiscano un livello di protezione
+									adeguato.</p>
+								<br>
+								<h3>DIRITTI DELL'INTERESSATO</h3>
+								<p>In qualità di interessato si potrà rivolgere al Titolare del Trattamento per far valere i Suoi
+									diritti, così come previsti dagli articoli da 15 a 22 del Reg. UE 2016/679, che riportiamo qui
+									di seguito:</p>
+								<ul>
+									<li>diritto di chiedere al titolare del trattamento l’accesso ai dati personali (art. 15);</li>
+									<li>diritto di chiedere al titolare del trattamento la rettifica (art. 16);</li>
+									<li>diritto di chiedere al titolare del trattamento la cancellazione degli stessi (art. 17);
+									</li>
+									<li>diritto di chiedere al titolare del trattamento la limitazione dei trattamenti che La
+										riguardano (art. 18)
+									</li>
+									<li>diritto alla portabilità dei dati (art. 20);</li>
+									<li>diritto di opporsi al trattamento (art. 21)</li>
+									<li>diritto in relazione a processi decisionali automatizzati (art. 22).</li>
+								</ul>
+								<p>Qualora il trattamento sia basato sull’articolo 6, paragrafo 1, lettera a), Lei ha il diritto di
+									revocare il consenso in qualsiasi momento senza pregiudicare la liceità del trattamento basata
+									sul consenso prestato prima della revoca.</p>
+								<p>Lei ha, inoltre, il diritto di proporre reclamo al Garante per la Protezione dei Dati
+									Personali.</p>
+								<p>Per esercitare i Suoi diritti può inviare una raccomandata a.r. alla società {{ setting_intestazione }},
+									con sede legale in {{ setting_indirizzo_1 }} o una e-mail all’indirizzo
+									<a href="mailto:{{ setting_mail_1 }}">{{ setting_mail_1 }}</a></p>
+							{% endif %}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

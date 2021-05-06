@@ -1,0 +1,331 @@
+{# Section Gmaps #}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Hotspot</h1>
+            <p>In questa zione trovi un esempio di hotspot</p>
+        </div>
+        <div class="col-md-6">
+            <div class="lg-container">
+                <img class="img-fluid"
+                     src="{{ placeholder }}/collection/people/1500x2000"/>
+
+                <div style="top: 21%; left: 93%;" class="lg-hotspot lg-hotspot--top-right" rel="1">
+                    <div class="lg-hotspot__button"></div>
+                    <div class="lg-hotspot__label">
+                        <h4>Fence</h4>
+                        <p>
+                            It's a fence to keep pupper safe.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="top: 60%; left: 25%;" class="lg-hotspot lg-hotspot--top-left" rel="2">
+                    <div class="lg-hotspot__button"></div>
+                    <div class="lg-hotspot__label">
+                        <h4>Grass</h4>
+                        <p>Feels good on pupper's paws.</p>
+                    </div>
+                </div>
+
+                <div style="top: 13.5%; left: 58%;" class="lg-hotspot lg-hotspot--top-right" rel="3">
+                    <div class="lg-hotspot__button"></div>
+                    <div class="lg-hotspot__label">
+                        <h4>Smol boi</h4>
+                        <p>
+                            Smol boi is a good pupper.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 col-12 p-5  ">
+            <div class="inner py-3">
+                <h3>titolo</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores doloribus ducimus ipsam mollitia
+                    nesciunt non officiis quasi rem! Impedit, laudantium minima nisi officia perspiciatis porro quod
+                    recusandae suscipit voluptate voluptates?</p>
+            </div>
+            <div class="row pr-5 pt-5 pr-md-5 pr-sm-2 pr-2 lg-box">
+                <div class="col-12 item-tecnico lg-div" id="lg-box-id-1">
+                    <p class="item-tecnico-luogo txt-blue">Valcamonica1</p>
+                    <div class="item-tecnico-circle">
+                        <h1 class="item-tecnico-numero txt-orange">01</h1>
+                    </div>
+                    <div class="item-tecnico-descrizione text-right pt-5">
+                        <div class="row">
+                            <div class="col-10 pt-3">
+                                <p class="">Lorem ipsum dolor sit amet, <br>
+                                    Lorem ipsum dolor sit amet, consectetur .<br>
+                                    Lorem ipsum dolor sit amet, .<br>
+                                    Lorem ipsum dolor sit amet, consectetur.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row pr-5 pt-5 pr-md-5 pr-sm-2 pr-2 lg-box">
+                <div class="col-12 item-tecnico lg-div" id="lg-box-id-2">
+                    <p class="item-tecnico-luogo txt-blue">Valcamonica2</p>
+                    <div class="item-tecnico-circle">
+                        <h1 class="item-tecnico-numero txt-orange">02</h1>
+                    </div>
+                    <div class="item-tecnico-descrizione text-right pt-5">
+                        <div class="row">
+                            <div class="col-10 pt-3">
+                                <p class="">Lorem ipsum dolor sit amet, <br>
+                                    Lorem ipsum dolor sit amet, consectetur .<br>
+                                    Lorem ipsum dolor sit amet, .<br>
+                                    Lorem ipsum dolor sit amet, consectetur.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row pr-5 pt-5 pr-md-5 pr-sm-2 pr-2 lg-box">
+                <div class="col-12 item-tecnico lg-div" id="lg-box-id-3">
+                    <p class="item-tecnico-luogo txt-blue">Valcamonica3</p>
+                    <div class="item-tecnico-circle">
+                        <h1 class="item-tecnico-numero txt-orange">03</h1>
+                    </div>
+                    <div class="item-tecnico-descrizione text-right pt-5">
+                        <div class="row">
+                            <div class="col-10 pt-3">
+                                <p class="">Lorem ipsum dolor sit amet, <br>
+                                    Lorem ipsum dolor sit amet, consectetur .<br>
+                                    Lorem ipsum dolor sit amet, .<br>
+                                    Lorem ipsum dolor sit amet, consectetur.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .item-tecnico {
+        border-top: 3px solid #274798;
+    }
+
+    .item-tecnico-luogo {
+        position: absolute;
+        top: -30px;
+        left: 15px;
+        font-weight: 800;
+    }
+
+    .item-tecnico-circle {
+        position: absolute;
+        top: -45px;
+        right: 0;
+        width: 90px;
+        height: 90px;
+        background: #274798;
+        border-radius: 50%;
+    }
+
+    .item-tecnico-numero {
+        position: absolute;
+        right: -33px;
+        bottom: -41px;
+        font-weight: 300;
+        font-size: 90px;
+    }
+
+    .item-tecnico::before {
+        content: '';
+        position: absolute;
+        top: -12px;
+        left: -12px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 20px 10px 0;
+        border-color: transparent #274798 transparent transparent;
+
+    }
+
+</style>
+<style>
+    .lg-box {
+        position: absolute;
+        width: 90%;
+        min-height: 480px;
+    }
+
+    #lg-box-id-1 {
+        display: block;
+    }
+
+    [id^="lg-box-id-"] {
+        display: none;
+    }
+
+    .lg-container {
+        max-width: 1000px;
+        position: relative;
+        margin: 1rem;
+        padding: 0;
+    }
+
+    .lg-hotspot {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+    }
+
+    .lg-hotspot:hover .lg-hotspot__button, .lg-hotspot:active .lg-hotspot__button {
+        border-color: #ff774c;
+    }
+
+    .lg-hotspot:hover .lg-hotspot__button:after, .lg-hotspot:active .lg-hotspot__button:after {
+        background-color: #ff774c;
+    }
+
+    .lg-hotspot--selected {
+        z-index: 999;
+    }
+
+    .lg-hotspot--selected .lg-hotspot__label {
+        opacity: 1;
+    }
+
+    .lg-hotspot__button {
+        height: 48px;
+        width: 48px;
+        padding: 0;
+        border-radius: 100%;
+        border: 1px solid #ff6000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        animation: button-pulse 7s ease-in-out infinite;
+    }
+
+    .lg-hotspot__button:after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        content: "";
+        display: block;
+        height: 16.8px;
+        width: 16.8px;
+        border-radius: 100%;
+        border: 3px solid white;
+        background-color: #ff6000;
+        transition: border-color 1s linear;
+    }
+
+    .lg-hotspot__label {
+        position: absolute;
+        padding: 0 0 1.1em 0;
+        width: 16em;
+        max-width: 50vw;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        font-family: "Open Sans", sans-serif;
+        font-size: 14.5px;
+        line-height: 1.45em;
+        z-index: -1;
+        pointer-events: none;
+        border-radius: 2px;
+        user-select: none;
+        opacity: 0;
+        transition: all 0.1s linear;
+    }
+
+    .lg-hotspot__label h4 {
+        margin: 0;
+        padding: 0.65em 24px;
+        background-color: #555;
+        font-size: 1.1em;
+        font-weight: normal;
+        letter-spacing: 0.02em;
+        color: white;
+        border-radius: 2px 2px 0 0;
+    }
+
+    .lg-hotspot__label p {
+        margin: 0;
+        padding: 1.1em 24px 0 24px;
+        color: #333;
+    }
+
+    .lg-hotspot--top-left .lg-hotspot__label {
+        top: 24px;
+        left: 24px;
+    }
+
+    .lg-hotspot--top-right .lg-hotspot__label {
+        top: 24px;
+        right: 24px;
+    }
+
+    .lg-hotspot--bottom-right .lg-hotspot__label {
+        right: 24px;
+        bottom: 24px;
+    }
+
+    .lg-hotspot--bottom-left .lg-hotspot__label {
+        bottom: 24px;
+        left: 24px;
+    }
+
+    @keyframes button-pulse {
+        0% {
+            transform: scale(1, 1);
+            opacity: 1;
+        }
+        40% {
+            transform: scale(1.15, 1.15);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1, 1);
+            opacity: 1;
+        }
+    }
+
+</style>
+<script>
+    jQuery(document).ready(function () {
+        jQuery(".lg-hotspot").mouseenter(function () {
+            var lg_hotspot_id = jQuery(this).attr("rel");
+            jQuery("div.lg-div").delay(50).fadeOut(50);
+            jQuery("div#lg-box-id-" + lg_hotspot_id).delay(100).fadeIn(100);
+
+        });
+    });
+
+    const selectHotspot = (e) => {
+        const clickedHotspot = e.target.parentElement;
+        const container = clickedHotspot.parentElement;
+
+        // only include hotspots within same image to allow one open hotspot per image; change "container" to "document" to allow only one open hotspot for entire page:
+        const hotspots = container.querySelectorAll(".lg-hotspot");
+        hotspots.forEach(hotspot => {
+            if (hotspot === clickedHotspot) {
+                hotspot.classList.toggle("lg-hotspot--selected");
+            } else {
+                hotspot.classList.remove("lg-hotspot--selected");
+            }
+        });
+    };
+
+    (() => {
+        const buttons = document.querySelectorAll(".lg-hotspot__button");
+        buttons.forEach(button => {
+            button.addEventListener("click", selectHotspot);
+        });
+    })();
+
+</script>
+
+{# end Section HotSpot #}

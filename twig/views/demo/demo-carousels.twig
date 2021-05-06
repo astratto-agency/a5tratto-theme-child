@@ -1,0 +1,91 @@
+{# Section Carousels #}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Carouels</h1>
+            <p>Carouels Esempi</p>
+        </div>
+        <div class="col-12">
+            {% for item in items %}
+            <div class="owl-carousel" id="carousel-demo-1">
+                {% for item in items %}
+                    <div class="item-demo-1">
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #carousel-posts .owl-nav {
+        position: absolute;
+        top: -48px;
+        right: 15px;
+    }
+
+    #carousel-posts .owl-nav button.owl-next,
+    #carousel-posts .owl-nav button.owl-prev {
+        background: #ffffff;
+        color: #103c66;
+        width: 30px;
+        height: 30px;
+        border: none;
+        margin: 3px;
+        border-radius: 50%;
+        font-size: 19px;
+    }
+
+    #carousel-posts .owl-dots {
+        padding: 10px 0px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #carousel-posts .owl-dots .owl-dot {
+        background: #10768F;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        margin: 4px;
+        -webkit-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+
+    #carousel-posts .owl-dots button.owl-dot.active {
+        background: #049FAF;
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        margin: 4px;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $("#carousel-demo-1").owlCarousel({
+            loop: true,
+            margin: 0,
+            responsiveClass: true,
+            nav: true,
+            /*dots:false,*/
+            navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                800: {
+                    items: 3,
+                    nav: false
+                },
+                1000: {
+                    items: 3,
+                    nav: true,
+                    loop: false
+                }
+            },
+        });
+    });
+</script>
+{# end Section Carousels #}

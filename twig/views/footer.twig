@@ -1,27 +1,54 @@
- <div class="container">
+<section class="section-footer p-3">
+    <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget padding-30">
-                {{footer_col_1}}
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget py-3">
+                <img src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ placeholder }}/300x100/?logo{% endif %}"
+                     alt="" class="img-fluid">
+                <h4>Widget footer_col_1</h4>
+                {{ footer_col_1 }}
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget padding-30">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget py-3">
+                <h4>Widget footer_col_2</h4>
                 {{ footer_col_2 }}
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget padding-30">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget py-3">
+                <h4>Widget footer_col_3</h4>
                 {{ footer_col_3 }}
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget padding-30">
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget py-3">
+                <h4>Widget footer_col_4</h4>
                 {{ footer_col_4 }}
             </div>
         </div>
-</div>
- <section class="">
-        <div class="container footer-bottom">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    {{ footer_bottom }} <br>
-                    Intestazione {{ setting_intestazione }} P.IVA {{ setting_piva }} <i class="fas fa-map-marker-alt"></i> {{ setting_indirizzo }} <i class="fas fa-at"></i> {{ setting_mail }} <i class="fas fa-phone"></i> {{ setting_telefono }}<br>
-                    Copyright {{"now"|date('Y')}} - <a href="{{ home }}/privacy-policy/">Privacy Policy</a> - <a href="{{ home }}/cookie-policy/">Cookie Policy</a> - <a target="_black" title="A5TRATTO - Concrete Communication - Agenzia di Comunicazione a Brescia" href="https://www.a5tratto.it">A5TRATTO Concrete Communication</a>
+    </div>
+</section>
+<section class="section-footer-bottom bg-light text-dark p-3">
+    <div class="container-fluid">
+        <div class="row">
+            {% if footer_bottom %}
+                <div class="col">
+                    <h4>Widget footer_bottom</h4>
+                    {{ footer_bottom }}
                 </div>
+            {% endif %}
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <p class="a5t-p-sx">
+
+                    Copyright {{ "now"|date('Y') }} - <span class="text-uppercase">{{ setting_intestazione }}</span>
+                    P.IVA {{ setting_piva }}<br>
+                    <i class="fas fa-map-marker-alt"></i> {{ setting_indirizzo_1 }} <i class="fas fa-at"></i>
+                    <a href="mailto:{{ setting_mail_1 }}">{{ setting_mail_1 }}</a> <i class="fas fa-phone"></i>
+                    <a href="tel:{{ setting_tel_1 }}">{{ setting_tel_1 }}</a><br>
+                </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <p class="a5t-p-sx text-md-right">
+                    <a href="{{ home }}/privacy-policy/">Privacy Policy</a> - <a href="{{ home }}/cookie-policy/">Cookie
+                        Policy</a><br>
+                    Credits <a target="_black" title="A5TRATTO - Concrete Communication - Web Agency"
+                               href="https://www.a5tratto.it">A5TRATTO Concrete Communication</a>
+                </p>
             </div>
         </div>
- </section>
+    </div>
+</section>

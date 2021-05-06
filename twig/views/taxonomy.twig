@@ -1,66 +1,65 @@
 {% extends "index.twig" %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>Taxonomy</h1>
-                <h3>title: {{ title }}</h3>
-                <p>Descrizione {{ term.description }}</p>
-                <p>Field: {{ term.meta('filed') }}</p>
-
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            {% if parents %}
-                <div class="col-6">
-                    <h1>Categorie Parent </h1>
-                    <ul>
-                        {% for parent in parents %}
-                            <li>
-                                <a href="{{ parent.slug }}">
-                                    <h2>{{ parent.name }}</h2>
-                                    <p>Descrizione {{ parent.description }}</p>
-                                    <p>Field parent: {{ function('get_field', 'field_name', parent) }}</p>
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
+    <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+        <section class="section-category">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 py-2 my-2">
+                        <h1>Taxonomyss</h1>
+                        <h2>{{ title }}</h2>
+                        {{ term.description }}
+                        <p>Field: {{ term.meta('filed') }}</p>
+                    </div>
                 </div>
-            {% endif %}
-            {% if childs %}
-                <div class="col-6">
-                    <h1>Categorie Child</h1>
-                    <ul>
-                        {% for child in childs %}
-                            <li>
-                                <a href="{{ child.slug }}">
-                                    <h2>{{ child.name }}</h2>
-                                    <p>Descrizione {{ child.description }}</p>
-                                    <p>Field child: {{ function('get_field', 'field_name', child) }}</p>
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <label>Vista dei risultati da <b>{{ startpost }}</b> a <b>{{ endpost }}</b> di <b>{{ found_posts }}</b>
-                </label>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            {% for post in posts %}
-                {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
-            {% endfor %}
-            {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-        </div>
-    </div>
+            <div class="container">
+                <div class="row">
+                    {% if parents %}
+                        <div class="col-12 col-md-6">
+                            <h3>Taxonomy Parent </h3>
+                            <ul>
+                                {% for parent in parents %}
+                                    <li>
+                                        <a href="{{ parent.link }}">
+                                            <b>{{ parent.name }}</b>
+                                        </a><br>
+                                        Descrizione {{ parent.description }}<br>
+                                        Field parent: {{ function('get_field', 'field_name', parent) }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    {% if childs %}
+                        <div class="col-12 col-md-6">
+                            <h3>Taxonomy Child </h3>
+                            <ul>
+                                {% for child in childs %}
+                                    <li>
+                                        <a href="{{ child.slug }}">
+                                            <b>{{ child.name }}</b>
+                                        </a><br>
+                                        Descrizione {{ child.description }}<br>
+                                        Field parent: {{ function('get_field', 'field_name', child) }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 py-2 my-2 bg-light ">
+                        <label>Vista dei risultati da <b>{{ startpost }}</b> a <b>{{ endpost }}</b> di
+                            <b>{{ found_posts }}</b> </label>
+                    </div>
+                    {% for post in posts %}
+                        {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+                    {% endfor %}
+                    {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+                </div>
+            </div>
+        </section>
+    </article>
 {% endblock %}
