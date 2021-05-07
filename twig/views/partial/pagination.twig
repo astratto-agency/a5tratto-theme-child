@@ -23,11 +23,11 @@
 
             {% for page in pagination.pages %}
                 {% if page.link %}
-                    <li>
+                    <li class="current">
                         <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
                     </li>
                 {% else %}
-                    <li class="current">
+                    <li>
                         <a class="{{ page.class }}">{{ page.title }}</a>
                     </li>
                 {% endif %}
@@ -58,7 +58,6 @@
         </ul>
     </div>
 {% endif %}
-</div>
 {% if posts.pagination.pages is not empty %}
     <nav class="toolbox toolbox-pagination">
         <div class="toolbox-item toolbox-show">
@@ -80,12 +79,12 @@
 
             {% for page in pagination.pages %}
                 {% if page.link %}
-                    <li class="page-item">
+                    <li class="page-item active">
                         <a class="page-link" class="{{ page.class }}" href="{{ page.link }}">{{ page.title }}</a>
                     </li>
                 {% else %}
 
-                    <li class="page-item active">
+                    <li class="page-item">
                         <a class="page-link {{ page.class }}" href="#">{{ page.title }}<span class="sr-only"></span></a>
                     </li>
                 {% endif %}
