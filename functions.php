@@ -201,6 +201,7 @@ function add_to_context_child($context)
     // social
     $context['setting_facebook'] = get_theme_mod('a5t_setting_facebook');
     $context['setting_linkedin'] = get_theme_mod('a5t_setting_linkedin');
+    $context['setting_instagram'] = get_theme_mod('a5t_setting_instagram');
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
