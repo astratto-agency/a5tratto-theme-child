@@ -65,7 +65,7 @@
         </div><!-- End .toolbox-item -->
         <ul class="pagination">
             {% if pagination.prev %}
-                <li class="page-item ">
+                <li class="page-item active">
                     <a class="page-link page-link-btn" href="{{ pagination.prev.link }}"><i class="icon-angle-left"></i></a>
                 </li>
             {% else %}
@@ -96,7 +96,7 @@
 
 
             {% if pagination.next %}
-                <li class="page-item">
+                <li class="page-item active">
                     <a class="page-link page-link-btn" href="{{ pagination.next.link }}"><i class="icon-angle-right"></i></a>
                 </li>
             {% else %}
