@@ -96,7 +96,7 @@
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                                    {% include "primary_menu.twig" with {'primary_menu': primary_menu.get_items} %}
+                                    {% include "primary-menu.twig" with {'primary_menu': primary_menu.get_items} %}
                                 </div>
                             </nav>
                             <!-- /.menu -->
@@ -116,8 +116,7 @@
     <section id="main-content" role="main" class="content-wrapper">
 
         {#<div class="{{ main_container }}">#}
-        {{ dump(primary_menu) }}
-        {{ dump(footer_menu) }}
+
         <div class=" ">
             {% block content %}
                 Sorry, no content
