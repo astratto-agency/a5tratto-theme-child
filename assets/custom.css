@@ -193,29 +193,79 @@ li {
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS primary_menu
+:::::::::::::: 11 * A_SETTINGS primary-menu
 ::::::::::::::      Impostazioni per css
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 
-#primary_menu li {
+#primary-menu li {
     list-style: none;
     display: inline-block;
 }
 
-#primary_menu li a {
+#primary-menu li a {
     text-decoration: none;
     position: relative;
-    color: red;
+    color: black;
     font-size: 14px;
     font-weight: 700;
     font-family: sans-serif;
     display: block;
     overflow: hidden;
-    transition: 0.7s all;
+    transition: 0.7s all ease-in-out;
     padding: 14px 30px;
-    text-transform: uppercase;
 }
+
+#primary-menu li:hover a {
+    color: red;
+}
+
+#primary-menu li a:before {
+    content: '';
+    width: 20%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 2px;
+    background: red;
+    position: absolute;
+    transition: 0.7s all ease-in-out;
+}
+
+
+#primary-menu li:hover > a:before {
+    content: '';
+    width: 80%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 2px;
+    background: green;
+    position: absolute;
+    transition: 0.7s all ease-in-out;
+}
+
+#primary-menu li.current_page_item a:before {
+    content: '';
+    width: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 2px;
+    background: blue;
+    position: absolute;
+    transition: 0.7s all ease-in-out;
+}
+
+#primary-menu li.current_page_item a {
+    color: blue;
+    transition: 0.7s all ease-in-out;
+}
+
+
 
 .dropdown:hover > .dropdown-menu {
     display: block;
@@ -224,7 +274,6 @@ li {
 .dropdown-toggle:hover:after {
     display: inline-block;
 }
-
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::: 11 * A_SETTINGS button
