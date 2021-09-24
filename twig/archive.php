@@ -38,6 +38,27 @@ if (!isset($paged) || !$paged) {
     $paged = 1;
 }
 
+//  A_SETTINGS Controllo se la pagina è un CPT con slug simile
+if (get_post_type() == 'page') {
+    $context['title'] = $post->title;
+    $cpt_args = array(
+        'public' => true,
+        '_builtin' => false
+    );
+    $post_types = get_post_types($cpt_args, 'object'); // use 'names' if you want to get only name of the post type.
+    foreach ($post_types as $item_post_type) {
+        if ($post->slug == $item_post_type->rewrite['slug'] || $post->slug == $item_post_type->name) {
+            $post_type = $item_post_type->name;
+            $context['title'] = $item_post_type->label;
+        }
+    }
+    array_unshift($templates, 'archive-' . $post_type . '.twig'); // Update templates
+} else {
+    $post_type = get_post_type();
+    $context['content'] = get_the_post_type_description();
+}
+$obj_post_type = get_post_type_object($post_type);
+
 //  A_SETTINGS TERM QUERY elaboro query base per term
 $context['term'] = $term = new Timber\Term(get_queried_object_id());
 
@@ -68,6 +89,10 @@ if (is_day()) {
     // A_SETTINGS archive
     $context['title'] = post_type_archive_title('', false); // Update title
     array_unshift($templates, 'archive-' . get_post_type() . '.twig'); // Update templates
+} else if (is_page()) {
+    // A_SETTINGS page
+    $context['title'] = $obj_post_type->label; // Update title
+    array_unshift($templates, 'archive-' . $obj_post_type->name . '.twig'); // Update templates
 }
 
 
@@ -81,28 +106,6 @@ if ($fields):
         $context[$name_id] = $value_id;
     endforeach;
 endif;
-
-//  A_SETTINGS Controllo se la pagina è un CPT con slug simile
-if (get_post_type() == 'page') {
-    $context['title'] = $post->title;
-    $cpt_args = array(
-        'public' => true,
-        '_builtin' => false
-    );
-    $post_types = get_post_types($cpt_args, 'object'); // use 'names' if you want to get only name of the post type.
-    foreach ($post_types as $item_post_type) {
-        if ($post->slug == $item_post_type->rewrite['slug'] || $post->slug == $item_post_type->name) {
-            $post_type = $item_post_type->name;
-            $context['title'] = $item_post_type->label;
-        }
-    }
-    array_unshift($templates, 'archive-' . $post_type . '.twig'); // Update templates
-} else {
-    $post_type = get_post_type();
-    $context['content'] = get_the_post_type_description();
-}
-$obj_post_type = get_post_type_object($post_type);
-
 
 
 //  A_SETTINGS QUERY elaboro query base
