@@ -1,98 +1,114 @@
 {% extends "base.twig" %}
 {% block content %}
-	<article class="single single-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-		<section class="section-single">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 py-2 my-2">
-						<h1>{{ title }}</h1>
-						<p>{{ post.excerpt }}</p>
-					</div>
-					<div class="col-12 py-2 my-2">
-
-						<img src="{% if post.thumbnail %}{{ post.thumbnail.src|resize(1400, 600) }}{% else %}{{ placeholder }}/1400x600/?wordpress{% endif %}" alt="" class="img-fluid my-2">
-						{# Section single-{{ post.post_type }}-header #}
-						<section class="single-{{ post.post_type }}-header">
-							<p class="single-{{ post.post_type }}-author pb-3">
-								<b class="text-uppercase">{{ post.post_type }}</b> scritta da <a
-										href="{{ post.author.path }}"> {{ post.author.name }} </a>
-							</p>
-							<p class="single-{{ post.post_type }}-date pb-3">
-								Data {{ post.published_at|date("d/M/Y g:ia") }}
-							</p>
-
-							<h5 class="single-{{ post.post_type }}-category">Category:
-								{% for category in post.terms('category') %}
-									<a href="{{ category.link }}"
-									   title="{{ post.title }} - {{ category.name }}">{{ category.name }}</a>
-								{% endfor %}
-							</h5>
-
-							<h5 class="single-{{ post.post_type }}-tag">Tag:
-								{% for tag in post.terms('post_tag') %}
-									<a href="{{ tag.link }}"
-									   title="{{ post.title }} - {{ tag.name }}">{{ tag.name }}</a>
-								{% endfor %}
-							</h5>
-
-							<h5 class="single-{{ post.post_type }}-tax">Tax:
-								{% for tax in post.terms('custom_taxonomy') %}
-									<a href="{{ tax.link }}"
-									   title="{{ post.title }} - {{ tax.name }}">{{ tax.name }}</a>
-								{% endfor %}
-							</h5>
-
-						</section>
-						{# .end Section single-{{ post.post_type }}-header #}
+    <article class="single single-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+        <section class="section-single">
 
 
-						<div class="single-{{ post.post_type }}-body">
-							{{ post.content }}
-						</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 py-2 my-2">
+                        <h1>{{ title }}</h1>
+                        <p>{{ post.excerpt }}</p>
+                    </div>
+                    <div class="col-12 py-2 my-2">
+
+                        <img src="{% if post.thumbnail %}{{ post.thumbnail.src|resize(1400, 600) }}{% else %}{{ placeholder }}/1400x600/?wordpress{% endif %}"
+                             alt="" class="img-fluid my-2">
+                        {# Section single-{{ post.post_type }}-header #}
+                        <section class="single-{{ post.post_type }}-header">
+                            <p class="single-{{ post.post_type }}-author pb-3">
+                                <b class="text-uppercase">{{ post.post_type }}</b> scritta da <a
+                                        href="{{ post.author.path }}"> {{ post.author.name }} </a>
+                            </p>
+                            <p class="single-{{ post.post_type }}-date pb-3">
+                                Data {{ post.published_at|date("d/M/Y g:ia") }}
+                            </p>
+
+                            <h5 class="single-{{ post.post_type }}-category">Category:
+                                {% for category in post.terms('category') %}
+                                    <a href="{{ category.link }}"
+                                       title="{{ post.title }} - {{ category.name }}">{{ category.name }}</a>
+                                {% endfor %}
+                            </h5>
+
+                            <h5 class="single-{{ post.post_type }}-tag">Tag:
+                                {% for tag in post.terms('post_tag') %}
+                                    <a href="{{ tag.link }}"
+                                       title="{{ post.title }} - {{ tag.name }}">{{ tag.name }}</a>
+                                {% endfor %}
+                            </h5>
+
+                            <h5 class="single-{{ post.post_type }}-tax">Tax:
+                                {% for tax in post.terms('custom_taxonomy') %}
+                                    <a href="{{ tax.link }}"
+                                       title="{{ post.title }} - {{ tax.name }}">{{ tax.name }}</a>
+                                {% endfor %}
+                            </h5>
+
+                        </section>
+                        {# .end Section single-{{ post.post_type }}-header #}
 
 
-						{% if post.post_type == 'sections' %}
-							<section class="section-post">
-								{% include "views/sections/" ~ post.slug ~ ".twig" %}
-							</section>
-						{% endif %}
+                        <div class="single-{{ post.post_type }}-body">
+                            {{ post.content }}
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
 
-						<hr>
-						<p>function('comment_form')</p>
-						<div class="comments">
-							{% for comment in post.comments %}
-								<article class="comment" id="comment-{{ comment.id }}">
-									<h5 class="comment-author">{{ comment.author.name }} says</h5>
-									{{ comment.content }}
-								</article>
-							{% endfor %}
-							{{ function('comment_form') }}
-						</div>
+            {% if post.post_type == 'sections' %}
+                <section class="section-post">
+                    {% include "views/sections/" ~ post.slug ~ ".twig" %}
+                </section>
+            {% endif %}
 
-						<p>Twig Comment</p>
-						<!-- comment box -->
-						<section class="comment-box">
-							<!-- comments -->
-							<div class="comments">
-								{% if post.comments %}
-									<h3> Comments </h3>
-									{% for cmt in post.comments %}
-										{% include "comment.twig" with {comment:cmt} %}
-									{% endfor %}
-								{% endif %}
-							</div>
 
-							{% if post.comment_status == "closed" %}
-								<p> Comments for this post are closed </p>
-							{% else %}
-								<!-- comment form -->
-								{% include "comment-form.twig" %}
-							{% endif %}
-						</section>
-					</div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 py-5">
+                        <hr>
+                        <h1>Commenti:</h1>
+                        <p>Area commneti utilizzando function('comment_form')</p>
+                        <section class="comment-box">
+                            <div class="comments">
+                                {% for comment in post.comments %}
+                                    <article class="comment" id="comment-{{ comment.id }}">
+                                        <h5 class="comment-author">{{ comment.author.name }} says</h5>
+                                        {{ comment.content }}
+                                    </article>
+                                {% endfor %}
+                                {{ function('comment_form') }}
+                            </div>
+                        </section>
+                        <hr>
+                        <h1>Commenti:</h1>
+                        <p>Area commneti utilizzando Twig</p>
+                        <!-- comment box -->
+                        <section class="comment-box">
+                            <!-- comments -->
+                            <div class="comments">
+                                {% if post.comments %}
+                                    <h3> Comments </h3>
+                                    {% for cmt in post.comments %}
+                                        {% include "comment.twig" with {comment:cmt} %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
 
-				</div>
-			</div>
-		</section>
-	</article>
+                            {% if post.comment_status == "closed" %}
+                                <p> Comments for this post are closed </p>
+                            {% else %}
+                                <!-- comment form -->
+                                {% include "comment-form.twig" %}
+                            {% endif %}
+                        </section>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </article>
 {% endblock %}

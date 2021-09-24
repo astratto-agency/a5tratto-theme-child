@@ -1,4 +1,12 @@
-{# Section Double Border Rounded #}
+{# Section #section-double-border-rounded #}
+<div class="container-fluid my-5 bg-light">
+    <div class="row">
+        <div class="col-12 my-5">
+            <h1>Section #section-double-border-rounded</h1>
+            <p>id: #section-double-border-rounded</p>
+        </div>
+    </div>
+</div>
 <div style="height: 50px; overflow: hidden;position: relative; width: 100%; z-index: 2; margin-bottom:-49px;">
     <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
         <path d="M0,150 C150,0 350,0 500,150 L500,0 L0,0 Z" style="stroke: none; fill: #fff;"></path>
@@ -22,7 +30,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-5 py-5 img-bg">
-                <div style="height: 100%; overflow: hidden; position: absolute; width: 80PX; z-index: 1;top: 1px; left: -30px;">
+                <div style="height: 100%; overflow: hidden; position: absolute; width: 80PX; z-index: 1;top: -1px; left: -1px;">
                     <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                         <path d="M500,150 C250,100 250,50 500,0 L0,0 L0,150 Z"
                               style="stroke: none; fill: var(--a5t-primary);"></path>
@@ -36,7 +44,7 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-12 col-md-5 py-5 img-bg">
-                <div style="height: 100%; overflow: hidden; position: absolute; width: 80PX; z-index: 1;top: -1px; right: -30px;">
+                <div style="height: 100%; overflow: hidden; position: absolute; width: 80PX; z-index: 1;top: -1px; right: -1px;">
                     <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                         <path d="M0,150 C250,100 250,50 0,0 L500,0 L500,150 Z"
                               style="stroke: none; fill: var(--a5t-secondary);"></path>
@@ -66,13 +74,7 @@
     </svg>
 </div>
 <style>
-    .section-double-border-rounded:before {
-        content: 'section-double-border-rounded';
-        padding: 0.5rem 1rem;
-        background: var(--secondary);
-        z-index: 1000;
-        position: absolute;
-    }
+
 
     .section-double-border-rounded .img-bg {
         width: 100%;
@@ -87,7 +89,7 @@
         position: absolute;
         content: "";
         left: 0;
-        top: 0px;
+        top: 0;
         bottom: 0;
         right: 0;
         width: 100%;
@@ -96,6 +98,5 @@
         background-color: rgba(55, 91, 106, 0.4);
         z-index: 0;
     }
-
 </style>
-{# end Section CTA Border Rounded #}
+{# end Section #section-double-border-rounded #}

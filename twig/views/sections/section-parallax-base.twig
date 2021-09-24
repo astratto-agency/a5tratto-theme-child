@@ -1,0 +1,51 @@
+{# Section #section-parallax-base #}
+<div class="container my-5 bg-light">
+    <div class="row ">
+        <div class="col-12 my-5">
+            <h1>Section #section-parallax-base</h1>
+            <p>id: #section-parallax-base</p>
+        </div>
+        <div class="col-12 my-5" id="section-parallax-base">
+            <div class="jarallax-keep-img " data-speed="0.8">
+                <img src="{{ placeholder }}/o2TRWThve_I/1400x1000/" alt="" class="jarallax-img">
+            </div>
+        </div>
+        <div class="col-12">
+
+            <!-- Background Image Parallax -->
+            <div class="jarallax-keep-img">
+                <img class="jarallax-img" src="{{ placeholder }}/VAJEea9u6k8/1200x500/" alt="">
+                Your content here...
+            </div>
+
+            <!-- Alternate: Background Image Parallax -->
+            <div class="jarallax-keep-img" style="background-image: url('{{ placeholder }}/VAJEea9u6k8/1200x600/');">
+                Your content here...
+            </div>
+
+        </div>
+    </div>
+</div>
+{# end Section #section-parallax-base #}
+
+
+
+
+<style>
+
+    .jarallax-keep-img {
+        position: relative;
+        z-index: 0;
+    }
+
+    .jarallax-keep-img > .jarallax-img {
+        position: relative;
+        display: block;
+        max-width: 100%;
+        height: auto;
+        z-index: -100;
+    }
+
+</style>
+
+

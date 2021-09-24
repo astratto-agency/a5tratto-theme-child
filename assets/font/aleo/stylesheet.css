@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Aleo';
+    src: url('Aleo-LightItalic.eot');
+    src: local('Aleo Light Italic'), local('Aleo-LightItalic'),
+        url('Aleo-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aleo-LightItalic.woff2') format('woff2'),
+        url('Aleo-LightItalic.woff') format('woff'),
+        url('Aleo-LightItalic.ttf') format('truetype'),
+        url('Aleo-LightItalic.svg#Aleo-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aleo';
+    src: url('Aleo-BoldItalic.eot');
+    src: local('Aleo Bold Italic'), local('Aleo-BoldItalic'),
+        url('Aleo-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Aleo-BoldItalic.woff2') format('woff2'),
+        url('Aleo-BoldItalic.woff') format('woff'),
+        url('Aleo-BoldItalic.ttf') format('truetype'),
+        url('Aleo-BoldItalic.svg#Aleo-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aleo';
+    src: url('Aleo-Regular.eot');
+    src: local('Aleo Regular'), local('Aleo-Regular'),
+        url('Aleo-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Aleo-Regular.woff2') format('woff2'),
+        url('Aleo-Regular.woff') format('woff'),
+        url('Aleo-Regular.ttf') format('truetype'),
+        url('Aleo-Regular.svg#Aleo-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aleo';
+    src: url('Aleo-Light.eot');
+    src: local('Aleo Light'), local('Aleo-Light'),
+        url('Aleo-Light.eot?#iefix') format('embedded-opentype'),
+        url('Aleo-Light.woff2') format('woff2'),
+        url('Aleo-Light.woff') format('woff'),
+        url('Aleo-Light.ttf') format('truetype'),
+        url('Aleo-Light.svg#Aleo-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aleo';
+    src: url('Aleo-Italic.eot');
+    src: local('Aleo Italic'), local('Aleo-Italic'),
+        url('Aleo-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Aleo-Italic.woff2') format('woff2'),
+        url('Aleo-Italic.woff') format('woff'),
+        url('Aleo-Italic.ttf') format('truetype'),
+        url('Aleo-Italic.svg#Aleo-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aleo';
+    src: url('Aleo-Bold.eot');
+    src: local('Aleo Bold'), local('Aleo-Bold'),
+        url('Aleo-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Aleo-Bold.woff2') format('woff2'),
+        url('Aleo-Bold.woff') format('woff'),
+        url('Aleo-Bold.ttf') format('truetype'),
+        url('Aleo-Bold.svg#Aleo-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

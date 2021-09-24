@@ -1,28 +1,73 @@
-<section class="section-footer p-3">
-    <div class="container">
+<section class="section-cta ">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget py-3">
-                <img src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ placeholder }}/300x100/?logo{% endif %}"
-                     alt="" class="img-fluid">
-                <h4>Widget footer_col_1</h4>
-                {{ footer_col_1 }}
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget py-3">
-                <h4>Widget footer_col_2</h4>
-                {{ footer_col_2 }}
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget py-3">
-                <h4>Widget footer_col_3</h4>
-                {{ footer_col_3 }}
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 footer-widget py-3">
-                <h4>Widget footer_col_4</h4>
-                {{ footer_col_4 }}
+            <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 bg-secondary p-5">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-sm-center text-md-left ">
+                        <p>Ci piacerebbe conoscere il tuo marchio e le tue sfide aziendali, anche se non sei sicuro di quale sia il tuo prossimo passo. Siamo pronti ad ascoltarvi.</p>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center align-self-center ">
+                        <a href="{{ home }}/contatti"><h1 class="py-4 py-sm-3 py-md-3">Parliamone!</h1></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<section class="section-footer-bottom bg-light text-dark p-3">
+
+<section class="section-footer p-3 text-light ">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-7 py-5  ">
+                <div class="row">
+                    <div class="col-12 col-md-4 pt-4 ">
+                        <p><b>PROGETTI</b></p>
+                        {{ footer_col_1 }}
+{#                        {% for last_5_progetto in last_5_progetti %}#}
+
+{#                            <p class="py-3"><a href="{{ last_5_progetto.link }}" class="a5t-btn">{{ last_5_progetto.title }}</a></p>#}
+{#                        {% endfor %}#}
+                    </div>
+                    <div class="col-12 col-md-4 pt-4">
+                        <p><b>AGENZIA</b></p>
+                        {{ footer_col_2 }}
+                        <p class="py-3"><a href="" class="a5t-btn">About</a></p>
+                        <p class="py-3"><a href="" class="a5t-btn">Workflow</a></p>
+                        <p class="py-3"><a href="" class="a5t-btn">Lavora con noi</a></p>
+                        <p class="py-3"><a href="" class="a5t-btn">Contatti</a></p>
+                    </div>
+                    <div class="col-12 col-md-4 pt-4">
+                        <p><b>SOCIAL</b></p>
+                        <p class="py-3"><a href="" class="a5t-btn">Linkedin</a></p>
+                        <p class="py-3"><a href="" class="a5t-btn">Facebook</a></p>
+                        <p class="py-3"><a href="" class="a5t-btn">Instagram</a></p>
+                        <p class="py-3"><a href="" class="a5t-btn">Dribble</a></p>
+                        {{ footer_col_3 }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 offset-md-1 py-5  ">
+                <p class="text-light pt-4"><b>ISCRIVITI ALLA NOSTRA NEWSLETTER (OCCASIONALE)</b></p>
+                <form onsubmit="location.href='{{ home }}/newsletter/?mailnewsletter=' + document.getElementById('mailnewsletter').value; return false;">
+                    <div class="row">
+                        <div class="col-6 my-1"><input
+                                    type="email" class="form-control " name="mailnewsletter" value=""
+                                    size="30" id="mailnewsletter" aria-required="true"
+                                    aria-invalid="false" placeholder="Indirizzo Mail" required></div>
+                        <div class="col-6 my-2 mt-md-1 ">
+                            <input type="submit" class="a5t-btn " value="ISCRIVITI">ISCRIVITI</input>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 py-5 text-center">
+                <img src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ stylesheet_directory_uri }}/img/logo-astratto-v2-w.png{% endif %}"
+                     alt="" class=" " height="60px">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-footer-bottom bg-secondary   p-2">
     <div class="container-fluid">
         <div class="row">
             {% if footer_bottom %}
@@ -45,8 +90,8 @@
                 <p class="a5t-p-sx text-md-right">
                     <a href="{{ home }}/privacy-policy/">Privacy Policy</a> - <a href="{{ home }}/cookie-policy/">Cookie
                         Policy</a><br>
-                    Credits <a target="_black" title="A5TRATTO - Concrete Communication - Web Agency"
-                               href="https://www.a5tratto.it">A5TRATTO Concrete Communication</a>
+                    <a target="_black" title="A5TRATTO - Concrete Communication - Web Agency"
+                       href="https://www.a5tratto.it">A5TRATTO Concrete Communication</a>
                 </p>
             </div>
         </div>

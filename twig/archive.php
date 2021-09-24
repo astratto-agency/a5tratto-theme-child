@@ -96,6 +96,7 @@ if (get_post_type() == 'page') {
             $context['title'] = $item_post_type->label;
         }
     }
+    array_unshift($templates, 'archive-' . $post_type . '.twig'); // Update templates
 } else {
     $post_type = get_post_type();
     $context['content'] = get_the_post_type_description();

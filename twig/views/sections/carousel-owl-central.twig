@@ -1,0 +1,119 @@
+{# Section #carousel-owl-central #}
+<div class="container-fluid my-5 bg-light">
+    <div class="row">
+        <div class="col-12 my-5">
+            <h1>Section #carousel-owl-central</h1>
+            <p>id: #carousel-owl-central</p>
+        </div>
+        <div class="col-sm-12 col-md-8 offset-md-2 py-5">
+            <div class="owl-carousel" id="carousel-owl-central">
+                {% for item_post in archive_posts %}
+                    <div class="item-{{ loop.index }} text-center">
+                        <div class="row">
+                            <div class="col-sm-12  col-md-6 offset-md-3">
+                                <div class="row">
+                                    <div class="col-6 offset-3 col-sm-6 offset-sm-3 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                                        <img src="{{ placeholder }}/1400x1000/?wallpapers" alt=""
+                                             class="img-fluid p-md-5">
+                                    </div>
+                                </div>
+                                <h1 class="py-5"><i class="fas fa-chevron-down"></i></h1>
+                                <h2>{{ item_post.title }}</h2>
+                                <p>{{ item_post.content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #carousel-owl-central button:focus,
+    #carousel-owl-central button:focus-visible {
+        outline: none;
+    }
+    /* owl-nav */
+    #carousel-owl-central .owl-nav {
+        width: 100%;
+        top: 45%;
+        position: absolute;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    #carousel-owl-central .owl-nav button svg {
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        font-size: 40px;
+    }
+
+    #carousel-owl-central .owl-prev {
+        position: absolute;
+        display: flex;
+        left: 0px;
+    }
+
+    #carousel-owl-central .owl-next {
+        position: absolute;
+        display: flex;
+        right: 0px;
+    }
+
+    #carousel-owl-central .owl-nav button.owl-next,
+    #carousel-owl-central .owl-nav button.owl-prev {
+        background: transparent;
+        color: #000000;
+        width: 30px;
+        height: 30px;
+        border: none;
+        margin: 3px;
+        border-radius: 50%;
+        font-size: 19px;
+    }
+
+    /* owl-dots */
+    #carousel-owl-central .owl-dots {
+        padding: 10px 0px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #carousel-owl-central .owl-dots .owl-dot {
+        background: rgba(0, 0, 0, 0.5);
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        margin: 4px;
+        -webkit-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+
+    #carousel-owl-central .owl-dots button.owl-dot.active {
+        background: rgb(0, 0, 0);
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        margin: 4px;
+    }
+
+</style>
+<script>
+    $(document).ready(function () {
+        $("#carousel-owl-central").owlCarousel({
+            loop: true,
+            margin: 0,
+            responsiveClass: true,
+            nav: true,
+            dots: true,
+            items: 1,
+            navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        });
+    });
+</script>
+{# end Section #carousel-owl-central   #}

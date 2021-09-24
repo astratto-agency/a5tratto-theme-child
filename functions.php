@@ -10,23 +10,28 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 function theme_child_enqueue_styles()
 {
-    // $parenthandle = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
-    // $theme = wp_get_theme();
-    // wp_enqueue_style($parenthandle, get_template_directory_uri() . '/style.css',
-    //     array(),  // if the parent theme code has a dependency, copy it to here
-    //     $theme->parent()->get('Version')
-    // );
-    // wp_enqueue_style('child-style', get_stylesheet_uri(),
-    //     array($parenthandle),
-    //     $theme->get('Version') // this only works if you have Version in the style header
-    // );
-    // wp_enqueue_style('child-custom', get_stylesheet_uri() . '/assets/custom.css',
-    //     array($parenthandle),
-    //     $theme->get('Version') // this only works if you have Version in the style header
-    // );
+    $parenthandle = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
+    $theme = wp_get_theme();
 
-    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css');
-    wp_enqueue_style('child-custom', get_stylesheet_directory_uri() . '/assets/custom.css');
+    wp_enqueue_style($parenthandle, get_template_directory_uri() . '/style.css',
+        array(),  // if the parent theme code has a dependency, copy it to here
+        $theme->parent()->get('Version')
+    );
+
+    wp_enqueue_style('child-style', get_stylesheet_uri(),
+        array($parenthandle),
+        $theme->get('Version') // this only works if you have Version in the style header
+    );
+    wp_enqueue_style('child-custom', get_template_directory_uri() . '-child/assets/custom.css',
+        array($parenthandle),
+        $theme->get('Version') // this only works if you have Version in the style header
+    );
+    // wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css');
+    // wp_enqueue_style('child-custom', get_stylesheet_directory_uri() . '/assets/custom.css');
+
+    wp_enqueue_style('main', get_stylesheet_directory_uri() . '/assets/main.css');
+
+
 }
 
 add_action('wp_enqueue_scripts', 'theme_child_enqueue_styles', 115);
@@ -34,6 +39,8 @@ add_action('wp_enqueue_scripts', 'theme_child_enqueue_styles', 115);
 $a5t_includes = array(
     'functions.php',                          // function.php
 );
+
+
 
 function theme_child_enqueue_scripts()
 {
@@ -73,8 +80,8 @@ function add_to_context_child($context)
     ::::::::::::::    * A_SETTINGS Logo
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $custom_logo_id = get_theme_mod( 'custom_logo' );
-    $custom_logo_url = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+    $custom_logo_id = get_theme_mod('custom_logo');
+    $custom_logo_url = wp_get_attachment_image_src($custom_logo_id, 'full');
     $context['custom_logo_url'] = $custom_logo_url;
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -89,6 +96,10 @@ function add_to_context_child($context)
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
     $context['tema_url'] = get_template_directory_uri();
     $context['urltema'] = get_template_directory_uri();
+
+    $context['template_directory_uri'] = get_template_directory_uri() ;
+    $context['stylesheet_directory_uri'] = get_stylesheet_directory_uri() ;
+
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     ::::::::::::::    * A_SETTINGS Post
@@ -116,7 +127,6 @@ function add_to_context_child($context)
 
     $context['intro'] = get_the_excerpt();
     $context['the_excerpt'] = get_the_excerpt();
-
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -174,6 +184,25 @@ function add_to_context_child($context)
 
 
     $context['main_container'] = get_theme_mod("a5t_setting_main_container");
+
+    $context['a5t_setting_gototop'] = get_theme_mod("a5t_setting_gototop");
+    $context['a5t_setting_butter'] = get_theme_mod("a5t_setting_butter");
+    $context['a5t_setting_magic_mouse'] = get_theme_mod("a5t_setting_magic_mouse");
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    ::::::::::::::    * A_SETTINGS Google Fonts
+                        // Attiva Google Fonts per ogni riga fonts.google.com
+    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+    /*    $a5t_setting_google_fonts = get_theme_mod("a5t_setting_google_fonts");
+        $google_fonts = explode("\n", $a5t_setting_google_fonts);
+        $google_fonts = array_filter($google_fonts, 'trim'); // remove any extra \r characters left behind
+
+
+
+        Sgoogle_fonts[] rows = textArea.getText().split("\n");
+        $a5t_setting_google_fonts
+        $context['a5t_setting_google_fonts'] =*/
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -234,8 +263,8 @@ function add_to_context_child($context)
     ::::::::::::::    * A_SETTINGS Google Maps
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-    $key = get_theme_mod('a5t_setting_maps');
-    $context['googleapis'] = 'http://maps.googleapis.com/maps/api/js?key=' . $key . '&amp;sensor=false';
+    $gmaps_api_key = get_theme_mod('a5t_setting_maps');
+    $context['google_maps_api'] = 'http://maps.googleapis.com/maps/api/js?key=' . $gmaps_api_key . '&amp;sensor=false';
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -244,15 +273,15 @@ function add_to_context_child($context)
 
     $id = get_the_ID();
 
-    $post         = get_post( $id, ARRAY_A );
-    $yoast_title = get_post_meta( $id, '_yoast_wpseo_title', true );
-    $yoast_desc = get_post_meta( $id, '_yoast_wpseo_metadesc', true );
+    $post = get_post($id, ARRAY_A);
+    $yoast_title = get_post_meta($id, '_yoast_wpseo_title', true);
+    $yoast_desc = get_post_meta($id, '_yoast_wpseo_metadesc', true);
 
-    $metatitle_val = wpseo_replace_vars($yoast_title, $post );
-    $metatitle_val = apply_filters( 'wpseo_title', $metatitle_val );
+    $metatitle_val = wpseo_replace_vars($yoast_title, $post);
+    $metatitle_val = apply_filters('wpseo_title', $metatitle_val);
 
-    $metadesc_val = wpseo_replace_vars($yoast_desc, $post );
-    $metadesc_val = apply_filters( 'wpseo_metadesc', $metadesc_val );
+    $metadesc_val = wpseo_replace_vars($yoast_desc, $post);
+    $metadesc_val = apply_filters('wpseo_metadesc', $metadesc_val);
 
 
     $context['metatitle'] = $metatitle_val;

@@ -1,0 +1,28 @@
+<section class="shadow-sm" id="header-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {# A_SETTINGS menu #}
+                <!-- menu -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 ">
+                    {# A_SETTINGS logo #}
+                    <a class="navbar-brand" href="{{ home }}">
+                        <img class="logo"
+                             src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ stylesheet_directory_uri }}/img/logo-astratto-v1-b.png{% endif %}"
+                             height="40"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarResponsive" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse text-center" id="navbarResponsive">
+                        {% include "/views/headers/header-1/header-1-menu.twig" with {'primary_menu': primary_menu.get_items} %}
+                    </div>
+                </nav>
+                <!-- /.menu -->
+                {# end A_SETTINGS menu #}
+
+            </div>
+        </div>
+    </div>
+</section>

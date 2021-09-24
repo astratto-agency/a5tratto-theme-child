@@ -1,0 +1,153 @@
+{# Section #section-gallery-lightbox #}
+
+{% set image_ids = '' %}
+{% for image in section_gallery %}
+    {% set image_ids = image_ids ~ ',' ~ image.id %}
+{% endfor %}
+
+<div class="container-fluid bg-light p-5">
+    <div class="row">
+        <div class="col-12 py-5">
+            <h1>Section: #section-gallery-lightbox</h1>
+            <p>id #section-gallery-lightbox</p>
+        </div>
+        <div class="col-12" id="section-gallery-lightbox">
+            {{ function('do_shortcode', '[gallery ids="' ~ image_ids ~ '" columns="'~ section_gallery_col ~'" size="' ~ section_gallery_size ~ '" ]') }}
+        </div>
+    </div>
+</div>
+
+<style>
+    #section-gallery-lightbox .gallery-item {
+        margin: 0 !important;
+        margin-top: 0 !important;
+        padding: 5px;
+    }
+
+    #section-gallery-lightbox .gallery .gallery-item img {
+        width: 100% !important;
+        height: auto !important;
+        border: none !important;
+        -webkit-box-shadow: 3px 2px 10px -2px rgba(214, 214, 214, 1);
+        -moz-box-shadow: 3px 2px 10px -2px rgba(214, 214, 214, 1);
+        box-shadow: 3px 2px 10px -2px rgba(214, 214, 214, 1);
+    }
+
+    /* For displaying 3 columns on tablet */
+    @media only screen and (max-width: 768px) {
+        .gallery-columns-3 .gallery-item {
+            width: 33% !important;
+        }
+    }
+
+    /* For displaying single column on mobile */
+    @media only screen and (max-width: 576px) {
+        .gallery-columns-3 .gallery-item {
+            width: 50% !important;
+        }
+    }
+
+    .gallery-columns-3 .gallery-item:nth-child(3n+1) {
+        clear: none !important;
+    }
+
+    /* For displaying 3 columns on tablet */
+    @media only screen and (max-width: 768px) {
+        .gallery-columns-4 .gallery-item {
+            width: 33% !important;
+        }
+    }
+
+    /* For displaying single column on mobile */
+    @media only screen and (max-width: 576px) {
+        .gallery-columns-4 .gallery-item {
+            width: 50% !important;
+        }
+    }
+
+    .gallery-columns-4 .gallery-item:nth-child(4n+1) {
+        clear: none !important;
+    }
+</style>
+
+
+{# <style>
+    .gallery-item {
+        margin: 0 !important;
+        padding: 5px;
+    }
+
+    .gallery .gallery-item img {
+        width: 100% !important;
+        height: auto !important;
+        border: none !important;
+        -webkit-box-shadow: 3px 2px 10px -2px rgba(214, 214, 214, 1);
+        -moz-box-shadow: 3px 2px 10px -2px rgba(214, 214, 214, 1);
+        box-shadow: 3px 2px 10px -2px rgba(214, 214, 214, 1);
+    }
+
+    .gallery:after {content:"";display:table;clear:both;}
+
+    img.aligncenter, div.aligncenter, figure.aligncenter, img.wp-post-image {display:block; margin:1em auto;}
+    img.alignright, div.alignright, figure.alignright {float:right; margin:1em 0 1em 2em;}
+    img.alignleft, div.alignleft, figure.alignleft, img.wp-post-image.attachment-thumb {float:left; margin:1em 1em 2em 0;}
+    figure {max-width: 100%; height: auto; margin:1em 0;}
+    p img.alignright, p img.alignleft {margin-top:0;}
+
+
+    .gallery figure img {max-width:100%; height:auto; margin:0 auto; display:block;}
+
+
+    .gallery figure {float:left; margin:0 2% 1em 0;}
+
+
+    .gallery.gallery-columns-1 figure {width:100%; margin:0 0 1em 0; float:none;}
+
+
+    .gallery.gallery-columns-3 figure {width:32%;}
+    .gallery.gallery-columns-3 figure:nth-of-type(3n+3) {margin-right:0;}
+    .gallery.gallery-columns-3 figure:nth-of-type(3n+4) {clear:left;}
+
+
+    .gallery.gallery-columns-2 figure {width:49%;}
+    .gallery.gallery-columns-2 figure:nth-of-type(even) {margin-right:0;}
+    .gallery.gallery-columns-2 figure:nth-of-type(odd) {clear:left;}
+
+
+    .gallery.gallery-columns-4 figure {width:23.25%;}
+    .gallery.gallery-columns-4 figure:nth-of-type(4n+4) {margin-right:0;}
+    .gallery.gallery-columns-4 figure:nth-of-type(4n+5) {clear:left;}
+
+
+    .gallery.gallery-columns-5 figure {width:18%;}
+    .gallery.gallery-columns-5 figure:nth-of-type(5n+5) {margin-right:0;}
+    .gallery.gallery-columns-5 figure:nth-of-type(5n+6) {clear:left;}
+
+
+    .gallery.gallery-columns-6 figure {width:14.2%;}
+    .gallery.gallery-columns-6 figure:nth-of-type(6n+6) {margin-right:0;}
+    .gallery.gallery-columns-6 figure:nth-of-type(6n+7) {clear:left;}
+
+
+    .gallery.gallery-columns-7 figure {width:12%;}
+    .gallery.gallery-columns-7 figure:nth-of-type(7n+7) {margin-right:0;}
+    .gallery.gallery-columns-7 figure:nth-of-type(7n+8) {clear:left;}
+
+
+    .gallery.gallery-columns-8 figure {width:10.2%;}
+    .gallery.gallery-columns-8 figure:nth-of-type(8n+8) {margin-right:0;}
+    .gallery.gallery-columns-8 figure:nth-of-type(8n+9) {clear:left;}
+
+
+    .gallery.gallery-columns-9 figure {width:8.85%;}
+    .gallery.gallery-columns-9 figure:nth-of-type(9n+9) {margin-right:0;}
+    .gallery.gallery-columns-9 figure:nth-of-type(9n+10) {clear:left;}
+
+
+    @media (max-width:767px) {
+        img.alignright, div.alignright, figure.alignright, img.alignleft, div.alignleft, figure.alignleft, img.wp-post-image.attachment-thumb {display:block; margin:1em auto; float:none;}
+        .gallery.gallery-columns-4 figure, .gallery.gallery-columns-5 figure, .gallery.gallery-columns-6 figure, .gallery.gallery-columns-7 figure, .gallery.gallery-columns-8 figure, .gallery.gallery-columns-9 figure {width:100%; margin:0 0 1em 0; float:none;}
+    }
+</style> #}
+{# end Section Gallery #}
+

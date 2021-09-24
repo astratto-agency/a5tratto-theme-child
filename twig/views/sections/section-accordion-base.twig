@@ -1,0 +1,32 @@
+{# Section #section-accordion-base #}
+<div class="container my-5 bg-light">
+    <div class="row ">
+        <div class="col-12 my-5">
+            <h1>Section #section-accordion-base</h1>
+            <p>id: #section-accordion-base</p>
+        </div>
+        <div class="col-12 my-5" id="section-accordion-base">
+            {% for item in archive_posts %}
+                <div class="card-header bg-dark text-light">
+                    <p class="collapsed"
+                       data-toggle="collapse"
+                       data-target="#collapse-{{ loop.index }}"
+                       aria-expanded="true"
+                       aria-controls="collapse-{{ loop.index }}">
+                        Titolo: {{ item.title }}<i class=" ml-3 fa fa-angle-down"></i>
+                    </p>
+                </div>
+                <div id="collapse-{{ loop.index }}"
+                     class="collapse bg-light "
+                     aria-labelledby="heading-{{ loop.index }}"
+                     data-parent="#section-accordion-base">
+                    <div class="card-body">
+                        <p>Descrizione: <br>{{ item.content }}<br></p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{# end Section #section-accordion-base #}
+

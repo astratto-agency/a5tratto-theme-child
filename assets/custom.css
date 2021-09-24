@@ -40,9 +40,9 @@ https://coolors.co/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-57759
 ::::::::::::::      Impostazioni per css per M portal
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-/*
-@import url("style-custom.css");
- */
+
+
+
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -69,8 +69,10 @@ https://coolors.co/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-57759
 
 :root {
 
-    --a5t-primary: #783d66;
-    --a5t-secondary: #20785a;
+    --a5t-primary: #0000E5;
+    --a5t-secondary: #FFFF33;
+    --a5t-tertiary: #8080F2;
+    --a5t-quaternary: #CCCCFA;
 
     --red-salsa: #f94144ff;
     --orange-red: #f3722cff;

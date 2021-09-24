@@ -38,31 +38,11 @@ if ($terms) {
 
 /*  A_SETTINGS Elaboro una query per i related con escluso i post corrente per categoria corrente */
 $args = array(
-    'post_type' => get_post_type(), // Nome del custom post
-    'posts_per_page' => 3, // Numero custom post ( -1 = tutti )
-    'cat' => $cat_id,
-    'post__not_in' => array($post->ID),
+    'post_type' => get_post_type(''), // Nome del custom post
+    'orderby' => 'date',
+    'order' => 'ASC',
 );
-$query_posts = new WP_Query($args);
-
-
-
-
-if ($query_posts->have_posts()) {
-
-    $query_posts = new Timber\PostQuery($args);
-
-} else {
-    /*  A_SETTINGS Elaboro una query per i related incaso non la prima quesry fosse vuota */
-    $args_empty = array(
-        'post_type' => get_post_type(), // Nome del custom post
-        'posts_per_page' => 3, // Numero custom post ( -1 = tutti )
-    );
-    $query_posts = new WP_Query($args_empty);
-}
-
-/*  A_SETTINGS Assegno query definitiva */
-$context['posts'] = $query_posts;
+$context['archive_posts'] = $archive_posts = new Timber\PostQuery($args);
 
 
 

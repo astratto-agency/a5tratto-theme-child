@@ -8,59 +8,15 @@
 {% endblock %}
 
 {# A_SETTINGS body #}
-<body class="{{ body_class }}" {# TODO attivare impostazione per butter-js #} data-template="base.twig">
-
+<body class="{{ body_class }}" {#  A_SETTINGS attivazione butter-js #} {% if a5t_setting_butter %} id="butter" {% endif %} data-template="base.twig">
 
 {#  A_SETTINGS attivazione Go To Top Button #}
 {% if a5t_setting_gototop %}
-    <button onclick="topFunction()" id="gototop-btn" title="Go to top">Top</button>
-    <script>
-        //Get the button
-        var gototop_btn = document.getElementById("gototop-btn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                gototop_btn.style.display = "block";
-            } else {
-                gototop_btn.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
-    <style>
-        #gototop-btn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-color: red;
-            color: white;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 4px;
-        }
-    </style>
+    {% include 'partial/gototop.twig' %}
 {% endif %}
 
-
-
-
-{#  A_SETTINGS attivazione butter-js #}
-<div id="butter-active">
+{#  A_SETTINGS attivazione butter-js, magic_mouse-js #}
+<div class="{% if a5t_setting_magic_mouse %} magicmouse_active {% endif %}" {% if a5t_setting_butter %} id="butter-active" {% endif %} >
 
     {# A_SETTINGS loader #}
     <!-- loader-->
@@ -69,8 +25,8 @@
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
         <img class="logo-loader"
-             src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ placeholder }}/100x100/?logo{% endif %}"
-             height="40">
+             src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ stylesheet_directory_uri }}/img/icona-a5tratto-w.png{% endif %}"
+             height="80">
     </div>
     <!-- /.loader -->
 
@@ -79,32 +35,7 @@
     <!-- header -->
     <header>
         {% block header %}
-            <section class="section-header shadow-sm">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            {# A_SETTINGS menu #}
-                            <!-- menu -->
-                            <nav class="navbar navbar-expand-sm navbar-light bg-white py-3 ">
-                                {# A_SETTINGS logo #}
-                                <a class="navbar-brand" href="{{ home }}"><img class="logo"
-                                                                               src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ placeholder }}/300x100/?logo{% endif %}"
-                                                                               height="40"></a>
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                        data-target="#navbarResponsive" aria-controls="navbarNav" aria-expanded="false"
-                                        aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarResponsive">
-                                    {% include "primary-menu.twig" with {'primary_menu': primary_menu.get_items} %}
-                                </div>
-                            </nav>
-                            <!-- /.menu -->
-                            {# end A_SETTINGS menu #}
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {% include "headers/header-2/header-2.twig" %}
         {% endblock %}
     </header>
     <!-- /.header -->
@@ -118,6 +49,8 @@
         {#<div class="{{ main_container }}">#}
 
         <div class=" ">
+
+
             {% block content %}
                 Sorry, no content
             {% endblock %}
@@ -145,8 +78,6 @@
                     <section class="bg-primary">
                         <div class="container ">
                             {{ pre_footer }}
-                            {# A_FIXME #}
-                            <a class="magic-hover magic-hover__square">download</a>
                         </div>
                         <!-- /.container -->
                     </section>
@@ -159,7 +90,7 @@
             {# A_SETTINGS footer #}
             <!-- footer -->
             {% block footer %}
-                <footer id="footer" class="bg-dark text-light">
+                <footer id="footer" class="bg-primary">
                     {% include 'footer.twig' %}
                 </footer>
             {% endblock %}
