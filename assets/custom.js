@@ -1,44 +1,46 @@
-/* A_SETTINGS sticky */
+/* A_SETTINGS loader */
+/* add loaded and set timeout loader */
 $(function () {
     setTimeout(function () {
-        /* inizializzazione loader effect */
+        /* init loader effect */
         $('body').addClass('loaded');
-
     }, 1500);
 });
-
-
-
-$(document).ready(function() {
-
-
-    $('a').click(function(e) {
+$(document).ready(function () {
+    /* setting link disable and set timout at link fot transition loader */
+    $('a').click(function (e) {
         e.preventDefault();
-        if (($(this).is(':not([href^="tel:"]):not([href^="mailto:"])'))) {
-            if (!$(this).hasClass("item-img-gallery")) {
-
-
-                setTimeout(function(url) { window.location = url }, 1000, this.href);
-            }
+        if (
+            ($(this).is(':not([href^="tel:"]):not([href^="mailto:"])')),
+                !$(this).hasClass("item-img-gallery"),
+                !$(this).attr("rel", "lightbox")
+        ) {
+            setTimeout(function (url) {
+                window.location = url
+            }, 1000, this.href);
+            // alert('set timeout');
         }
     });
-
-
+    /* setting link disable and remove loader class at link fot transition loader */
     $('a').click(function () {
-        if (($(this).is(':not([href^="tel:"]):not([href^="mailto:"])'))) {
-            if (!$(this).hasClass("item-img-gallery")) {
-
-
-                $('body').removeClass('loaded');
-            }
+        if (
+            ($(this).is(':not([href^="tel:"]):not([href^="mailto:"])')),
+                !$(this).hasClass("item-img-gallery"),
+                !$(this).attr("rel", "lightbox")
+        ) {
+            $('body').removeClass('loaded');
+            // alert('remove loaded');
         }
     });
+});
 
-
-    jQuery('.in__animate') .addClass("hidden") .viewportChecker({
+/* A_SETTINGS animate */
+$(document).ready(function () {
+    /* init animate and add visibile item in viewport after with offset */
+    jQuery('.in__animate').addClass("hidden").viewportChecker({
         classToAdd: 'visible animate__animated animate__fadeIn animate__slow ',
         offset: 300,
-        repeat:true,
+        repeat: true,
     });
 });
 
@@ -57,34 +59,21 @@ $(function () {
             } else {
                 header.removeClass("sticky-in").addClass('sticky');
             }
-
         } else {
-
             header.removeClass("sticky-in").addClass('sticky');
         }
         lastScrollTop = scrolltop;
-
     });
 });
 
-
+/* A_SETTINGS magicMouse */
 $(document).ready(function () {
-
-
-    $(".menu-icon").on("click", function () {
-        $("nav ul").toggleClass("showing");
-    });
-
-
-    /* A_SETTINGS attivazione magicMouse */
     // Attivo su tutte le immagini
-    $("img").addClass("magic-hover","magic-hover__square");
-    $("a").addClass("magic-hover","magic-hover__square");
-
+    // $("img").addClass("magic-hover","magic-hover__square");
+    // $("a").addClass("magic-hover","magic-hover__square");
     var magicmouse_active = document.getElementsByClassName("magicmouse_active");
     if (magicmouse_active != null) {
         document.body.style.cursor = 'none';
-
         //cursorOuter	Default: "circle-basic", other options : "disable"
         // hoverEffect	default: "circle-move", other options : "pointer-blur", "pointer-overlay"
         options = {
@@ -97,8 +86,10 @@ $(document).ready(function () {
         };
         magicMouse(options);
     }
+});
 
-    /* A_SETTINGS attivazione butter-js  */
+/* A_SETTINGS butter-js  */
+$(document).ready(function () {
     var butter_active = document.getElementById("butter");
     if (butter_active != null) {
         /* inizializzazione butter-js standard */
@@ -114,23 +105,29 @@ $(document).ready(function () {
         };
         butter.init(options);
     }
-
-
 });
 
 
+/* A_SETTINGS menu showing  */
+$(document).ready(function () {
+    $(".menu-icon").on("click", function () {
+        $("nav ul").toggleClass("showing");
+        // alert('showing menu-icon');
+    });
+});
+
+/* A_SETTINGS jarallax-js  */
 /* inizializzazione jarallax-js con una classe originale */
 $('.jarallax').jarallax({
     keepImg: true,
 });
-
 /* inizializzazione jarallax-js con una classe specifica */
 $('.jarallax-keep-img').jarallax({
     keepImg: true,
 });
 
+/* A_SETTINGS NProgress-js standard */
 
-/* inizializzazione NProgress-js standard */
 $('body').show();
 $('.version').text(NProgress.version);
 NProgress.start();
