@@ -264,7 +264,7 @@ function add_to_context_child($context)
     :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
     $gmaps_api_key = get_theme_mod('a5t_setting_maps');
-    $context['google_maps_api'] = 'http://maps.googleapis.com/maps/api/js?key=' . $gmaps_api_key . '&amp;sensor=false';
+    $context['google_maps_api'] = 'https://maps.googleapis.com/maps/api/js?key=' . $gmaps_api_key . '&amp;sensor=false&callback=initMap';
 
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
