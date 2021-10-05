@@ -15,15 +15,14 @@
         {% endif %}
     </title>
     <meta name="description"
-          content="{% if metadesc %}{{ metadesc }}{% elseif content_text %}{{ content_text | slice (0, 300) }}{% else %}{{ site.description }}{% endif %}">
+          content="{% if metadesc %}{{ metadesc }}{% elseif content %}{{ content|striptags| slice (0, 300) }}{% else %}{{ site.description }}{% endif %}">
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="author" href="{{ site.theme.link }}/humans.txt" />
-    <link rel="pingback" href="{{ site.pingback_url }}" />
-
+    <link rel="author" href="{{ site.theme.link }}/humans.txt"/>
+    <link rel="pingback" href="{{ site.pingback_url }}"/>
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
