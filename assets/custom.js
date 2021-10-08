@@ -1,39 +1,30 @@
 /* A_SETTINGS loader */
 /* add loaded and set timeout loader */
 $(function () {
+
     setTimeout(function () {
         /* init loader effect */
         $('body').addClass('loaded');
     }, 1500);
 });
+
 $(document).ready(function () {
     /* setting link disable and set timout at link fot transition loader */
-    $('a').click(function (e) {
-        e.preventDefault();
-        if (($(this).is(':not([href^="tel:"]):not([href^="mailto:"])'))) {
-            if (!$(this).hasClass("item-img-gallery")) {
-                if (!$(this).is('[data-lightbox-gallery]')) {
-                    setTimeout(function (url) {
-                        window.location = url
-                    }, 1000, this.href);
-                    // alert('set');
-                    $('body').removeClass('loaded');
-                    // alert('remove');
-                }
-            }
-
-
-        }
-    });
     $('a').click(function () {
         if (($(this).is(':not([href^="tel:"]):not([href^="mailto:"])'))) {
             if (!$(this).hasClass("item-img-gallery")) {
                 if (!$(this).is('[data-lightbox-gallery]')) {
 
+                    $('body').removeClass('loaded');
+
+                    setTimeout(function (url) {
+                        window.location = url
+                    }, 1000, this.href);
                 }
             }
         }
     });
+
 });
 
 /* A_SETTINGS animate */
@@ -127,6 +118,12 @@ $('.jarallax').jarallax({
 $('.jarallax-keep-img').jarallax({
     keepImg: true,
 });
+
+/* inizializzazione jarallax-js con una classe specifica dedicata all'overlay */
+$('.jarallax-overlay').jarallax({
+    keepImg: true,
+});
+
 
 /* A_SETTINGS NProgress-js standard */
 

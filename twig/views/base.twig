@@ -21,7 +21,14 @@
     {# A_SETTINGS loader #}
     <!-- loader-->
     <div id="loader-wrapper">
-        <div id="loader"></div>
+        <div id="loader">
+            <!--  A_SETTINGS a5t-loader-spinners-balls
+                  https://codepen.io/a5tratto/pen/OJjLyBZ -->
+            <div class="a5t-loader-spinners-balls">
+                <div class="a5t-spinners-balls-1"></div>
+                <div class="a5t-spinners-balls-2"></div>
+            </div>
+        </div>
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
         <img class="logo-loader"
@@ -90,7 +97,7 @@
             {# A_SETTINGS footer #}
             <!-- footer -->
             {% block footer %}
-                <footer id="footer" class="bg-primary">
+                <footer id="footer" class="bg-black-20">
                     {% include 'footer.twig' %}
                 </footer>
             {% endblock %}

@@ -24,11 +24,19 @@
             </div>
 
         </div>
+        {# backgorund in overlay #}
+
+        <div class="col-12 jarallax-overlay"
+             style="background-image: url('{{ placeholder }}/1900x1200/?energy'),   linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));  ">
+            <div class=" my-5">
+                <h1>Your content here...</h1>
+            </div>
+        </div>
+
+
     </div>
 </div>
 {# end Section #section-parallax-base #}
-
-
 
 
 <style>
@@ -44,6 +52,16 @@
         max-width: 100%;
         height: auto;
         z-index: -100;
+    }
+
+
+    .jarallax-overlay > .jarallax-img {
+    linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    }
+
+
+    .jarallax-overlay div[id*="jarallax-container"] div {
+        background-blend-mode: overlay;
     }
 
 </style>

@@ -153,6 +153,29 @@ $black-5-rgba: rgba(0, 0, 0, 0.05);
   @include bg-custom($quaternary);
 }
 
+.bg-black {
+  @include bg-custom($black);
+}
+
+.bg-black-50 {
+  @include bg-custom($black-50);
+}
+
+.bg-black-20 {
+  @include bg-custom($black-20);
+}
+
+.bg-black-5 {
+  @include bg-custom($black-5);
+}
+
+.bg-primary-half-white {
+  background: $primary;
+  background: -moz-linear-gradient(0deg, $primary 50%, $white 50%);
+  background: -webkit-linear-gradient(0deg, $primary 50%, $white 50%);
+  background: linear-gradient(0deg, $primary 50%, $white 50%);
+}
+
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::: 11 * A_SETTINGS Text Color
 ::::::::::::::      Impostazioni per css
@@ -316,6 +339,107 @@ li {
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS img-hover
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.img-hover .img-hover-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-hover .img-hover-inner img {
+  transition: all 0.7s;
+  transform: scale(1);
+}
+
+.img-hover:hover .img-hover-inner img {
+  transform: scale(1.1);
+}
+
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS jarallax
+::::::::::::::      Impostazioni per css jarallax-keep-img
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+
+.jarallax-keep-img {
+  position: relative;
+  z-index: 0;
+
+}
+
+.jarallax-keep-img > .jarallax-img {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  z-index: -100;
+}
+
+
+.loaded .jarallax-keep-img:before {
+  content: '';
+  opacity: 0;
+  transition: 1s all ease-in-out;
+  transition-delay: 0.9s;
+  z-index: 10;
+}
+
+.jarallax-keep-img:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: $primary;
+  // background: linear-gradient(0deg, rgba(240,250,249,1) 0%, rgba(87,201,187,1) 100%);
+  opacity: 1;
+}
+
+.loaded .img-hover-inner:before {
+  content: '';
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+  transition-delay: 0.9s;
+  z-index: 10;
+}
+
+.img-hover-inner:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: $primary;
+  // background: linear-gradient(0deg, rgba(240,250,249,1) 0%, rgba(87,201,187,1) 100%);
+  opacity: 1;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS animate
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+/* This only changes this particular animation duration */
+.animate__animated.animate__bounce {
+  --animate-duration: 2s;
+}
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::: 11 * A_SETTINGS sticky-menu
 ::::::::::::::      Impostazioni per css
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -332,8 +456,6 @@ header .sticky-fix {
 header .sticky-in {
   top: 0;
   background: $white;
-
-
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -483,9 +605,9 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   transition: all 0.7s;
 }
 
-footer .a5t-btn {
+/*footer .a5t-btn {
   color: $white;
-}
+}*/
 
 .a5t-btn:hover {
   color: rgba(var(secondary-rgb));
@@ -597,82 +719,164 @@ footer .a5t-btn {
 ::::::::::::::      Impostazioni per css
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
-.wpcf7-form input, .wpcf7-form textarea {
-  width: auto;
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS cf7
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 23px;
+  color: $primary;
+  background-color: transparent;
+  background-clip: padding-box;
+  border-bottom: 2px solid $secondary;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 
 select {
-  line-height: 20px;
-  font-size: 20px;
-  border: solid 3px #000;
+
+  border: solid 3px $primary;
   padding: 6px;
   border-radius: 4px !important;
   width: auto;
 }
 
 .wpcf7-text {
-  background: rgba(255, 255, 255, 0.51);
-  line-height: 20px;
-  font-size: 20px;
+  background: transparent;
+
   border: none;
-  border-bottom: solid 3px #000;
+  border-bottom: solid 3px $secondary;
   padding: 6px;
   border-radius: 0px !important;
   width: auto;
+  margin: 10px 0px 20px 0px;
 }
 
 .wpcf7-textarea {
-  background: rgba(255, 255, 255, 0.51);
-  line-height: 20px;
-  font-size: 20px;
+  background: transparent;
   border: none;
-  border-bottom: solid 3px #000;
+  border-bottom: solid 3px $secondary;
   padding: 6px;
   border-radius: 0px !important;
-  width: auto;
+  width: 100%;
+  margin: 10px 0px 20px 0px;
 }
 
 .wpcf7-form :focus {
   border: none;
   outline: none;
-  outline-color: #10768F;
+  outline-color: $primary;
   outline-style: solid;
   outline-width: 0px;
-  line-height: 20px;
-  font-size: 20px;
-  border-bottom: solid 3px #10768F;
+
+  border-bottom: solid 3px $primary;
   padding: 6px;
   border-radius: 0px !important;
-  width: auto;
+  width: 100%;
   transition: all 0.3s ease-in-out;
 
 }
 
+
+.wpcf7-form input,
+.wpcf7-form textarea,
+.wpcf7-form textarea :focus {
+  width: 100%;
+}
+
+
+.wpcf7-form label {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  width: 100%;
+}
+
 select {
-  background-color: #fff;
+  background-color: $white;
   width: auto;
   border-radius: 0px !important;
 }
 
-input.wpcf7-form-control.wpcf7-submit, input.form-check-input {
-  width: auto;
+
+.form-control:focus {
+  color: $primary;
+  background-color: transparent;
+  border-bottom: 2px solid $primary;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.25);
 }
 
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #222222;
-  opacity: 0.5; /* Firefox */
+  color: $primary;
+  opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #222222;
-  opacity: 0.5;
+  color: $primary;
+  opacity: 1;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-  color: #222222;
-  opacity: 0.5;
+  color: $primary;
+  opacity: 1;
+}
+
+
+input.wpcf7-form-control.wpcf7-submit,
+input.form-check-input,
+input.form-check-input:focus {
+  width: auto;
+}
+
+
+input.wpcf7-form-control.wpcf7-submit {
+  font-size: 60px;
+  border: none;
+  color: $primary;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+input.wpcf7-form-control.wpcf7-submit:hover {
+  border: none;
+  color: $primary;
+}
+
+
+input.wpcf7-form-control.wpcf7-submit:before {
+  content: '';
+  display: block;
+  width: 30px;
+  margin-top: 28px;
+  height: 2px;
+  background: $secondary;
+  position: absolute;
+  transition: 0.7s all ease-in-out;
+}
+
+
+input.wpcf7-form-control.wpcf7-submit:hover::before {
+  width: 80px;
+  background: $primary;
+}
+
+.wpcf7 .wpcf7-submit:disabled {
+  opacity: 0.4;
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

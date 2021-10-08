@@ -23,7 +23,7 @@
         // Create the Google Map using our element and options defined above
 
         var locations = [
-                {% for location in section_maps %}['{{ location.section_maps_title }}', '{{ location.section_maps_description }}',{{ location.section_maps_pin.lat }},{{ location.section_maps_pin.lng }} , 4],{% endfor %}
+                {% for location in section_maps %}["{{ location.section_maps_title }}", "{{ location.section_maps_description }}",{{ location.section_maps_pin.lat }},{{ location.section_maps_pin.lng }} , 4],{% endfor %}
         ];
 
         var map = new google.maps.Map(document.getElementById('section-maps-multi-base'), {
