@@ -1,33 +1,33 @@
-{# A_SETTINGS html header #}
-<!-- html -->
+{# ::::::::::::::  * A_SETTINGS html-header #}
 {% block html_head_container %}
     {% include 'html-header.twig' %}
     {% block head %}
     {% endblock %}
     </head>
 {% endblock %}
+{# :::::::::::::: end * A_SETTINGS html-header #}
 
-{# A_SETTINGS body #}
-<body class="{{ body_class }}" {#  A_SETTINGS attivazione butter-js #} {% if a5t_setting_butter %} id="butter" {% endif %} data-template="base.twig">
+{# ::::::::::::::  * A_SETTINGS body #}
+<body class="{{ body_class }}">
 
-{#  A_SETTINGS attivazione Go To Top Button #}
+{# ::::::::::::::  * A_SETTINGS gototop active #}
 {% if a5t_setting_gototop %}
     {% include 'partial/gototop.twig' %}
 {% endif %}
+{# :::::::::::::: end * A_SETTINGS gototop active #}
 
-{#  A_SETTINGS attivazione butter-js, magic_mouse-js #}
-<div class="{% if a5t_setting_magic_mouse %} magicmouse_active {% endif %}" {% if a5t_setting_butter %} id="butter-active" {% endif %} >
+{# ::::::::::::::  * A_SETTINGS activations magicmouse_active, butter-active #}
+<div class="main">
 
-    {# A_SETTINGS loader #}
-    <!-- loader-->
+    {# :::::::::::::: 11 * A_SETTINGS loader #}
     <div id="loader-wrapper">
         <div id="loader">
-            <!--  A_SETTINGS a5t-loader-spinners-balls
-                  https://codepen.io/a5tratto/pen/OJjLyBZ -->
+            {# :::::::::::::: 11 * A_SETTINGS a5t-spinners-balls https://codepen.io/a5tratto/full/OJjLyBZ #}
             <div class="a5t-loader-spinners-balls">
                 <div class="a5t-spinners-balls-1"></div>
                 <div class="a5t-spinners-balls-2"></div>
             </div>
+            {# :::::::::::::: end * A_SETTINGS a5t-spinners-balls #}
         </div>
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
@@ -35,34 +35,28 @@
              src="{% if custom_logo_url %}{{ custom_logo_url }}{% else %}{{ stylesheet_directory_uri }}/img/icona-a5tratto-w.png{% endif %}"
              height="80">
     </div>
-    <!-- /.loader -->
+    {# :::::::::::::: 11 * A_SETTINGS loader #}
 
-
-    {# A_SETTINGS header#}
-    <!-- header -->
+    {# ::::::::::::::  * A_SETTINGS header #}
     <header>
         {% block header %}
             {% include "headers/header-2/header-2.twig" %}
         {% endblock %}
     </header>
-    <!-- /.header -->
-    {# end A_SETTINGS header#}
+    {# :::::::::::::: end * A_SETTINGS header #}
 
 
-    {# A_SETTINGS content #}
-    <!-- main content -->
+    {# ::::::::::::::  * A_SETTINGS content id:main-content #}
     <section id="main-content" role="main" class="content-wrapper">
 
-        {#<div class="{{ main_container }}">#}
-
-        <div class=" ">
+        {# <div class="{{ main_container }}"> #}
 
 
-            {% block content %}
-                Sorry, no content
-            {% endblock %}
+        {% block content %}
+            Sorry, no content
+        {% endblock %}
 
-            {#<div class="row">
+        {# <div class="row">
                 <!-- Page Content Column -->
                 <div class="{% if sidebar_primary %} col-md-8 {% else %} col-md-12 {% endif %}">
                     {% block content %}
@@ -78,53 +72,39 @@
                         </aside>
                     </div>
                 {% endif %}
-            </div>#}
+            </div> #}
+
+
+        {# ::::::::::::::  * A_SETTINGS pre_footer #}
+        {% if pre_footer %}
             <div class="row">
-                <!-- Pre Footer -->
-                {% if pre_footer %}
-                    <section class="bg-primary">
-                        <div class="container ">
-                            {{ pre_footer }}
-                        </div>
-                        <!-- /.container -->
-                    </section>
-                {% endif %}
-                <!-- /.pre footer -->
-
+                <section class="bg-primary">
+                    <div class="container ">
+                        {{ pre_footer }}
+                    </div>
+                </section>
             </div>
-            <!-- /.row -->
+        {% endif %}
+        {# :::::::::::::: end * A_SETTINGS pre_footer #}
 
-            {# A_SETTINGS footer #}
-            <!-- footer -->
-            {% block footer %}
-                <footer id="footer" class="bg-black-20">
-                    {% include 'footer.twig' %}
-                </footer>
-            {% endblock %}
-            <!-- /.footer -->
-            {# end A_SETTINGS footer #}
-
-        </div>
-        <!-- /.page container -->
+        {# ::::::::::::::  * A_SETTINGS footer #}
+        {% block footer %}
+            <footer id="footer" class="bg-black-20">
+                {% include 'footer.twig' %}
+            </footer>
+        {% endblock %}
+        {# :::::::::::::: end * A_SETTINGS footer #}
 
 
     </section>
-    <!-- /.main content -->
-    {# end A_SETTINGS content #}
-
+    {# :::::::::::::: end * A_SETTINGS content id:main-content #}
 
 </div>
-{#  end A_SETTINGS attivazione butter-js #}
+{# :::::::::::::: end * A_SETTINGS activations magicmouse_active, butter-active #}
 
-{# A_SETTINGS footer #}
+{# ::::::::::::::  * A_SETTINGS footer #}
 {{ function('wp_footer') }}
-{# end A_SETTINGS footer #}
+{# :::::::::::::: end * A_SETTINGS footer #}
 
 </body>
-<!-- /.body -->
-{# end A_SETTINGS body #}
-
-
-</html>
-<!-- /.html -->
-{# end A_SETTINGS html #}{# end A_SETTINGS html #}
+{# :::::::::::::: end * A_SETTINGS body #}

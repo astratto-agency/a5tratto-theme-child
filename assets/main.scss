@@ -693,6 +693,11 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
     background: darken($bg, 30%);
     border-color: darken($bg, 30%);
   }
+  &.disabled, &:disabled {
+    opacity: 0.10;
+    background: darken($bg, 30%);
+    border-color: darken($bg, 30%);
+  }
   &.focus, &:focus {
     box-shadow: 0 0 0 0.2rem lighten($bg, 10%);
   }
@@ -714,169 +719,310 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   @include btn-color($quaternary);
 }
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS cf7
-::::::::::::::      Impostazioni per css
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :::::::::::::: 11 * A_SETTINGS cf7
 ::::::::::::::      Impostazioni per css
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: 11 * A_SETTINGS cf7
+::::::::::::::      Impostazioni per css
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+#contact-form-style-1 {
 
-.form-control {
-  display: block;
-  width: 100%;
-  height: calc(1.5em + .75rem + 2px);
-  padding: .375rem .75rem;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 23px;
-  color: $primary;
-  background-color: transparent;
-  background-clip: padding-box;
-  border-bottom: 2px solid $secondary;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-radius: 0;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  label {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    width: 100%;
+  }
+
+  .wpcf7-form-control,
+  input,
+  .form-control {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: $black;
+    height: auto;
+    padding: .375rem .75rem;
+    margin: 5px 0px 20px;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.8s ease-in-out;
+  }
+
+  .form-check-input {
+    position: absolute;
+    margin-top: .3rem;
+    margin-left: -1.1rem;
+  }
+
+
+  input[type="text"],
+  .wpcf7-text,
+  input[type="textarea"],
+  .wpcf7-textarea,
+  input[type="email"],
+  .wpcf7-email,
+  input[type="tel"],
+  .wpcf7-tel {
+    border: none;
+    border-bottom: solid 3px $black-50;
+    background: $black-5;
+  }
+
+  .wpcf7-select,
+  input[type="select"],
+  .wpcf7-date,
+  input[type="date"],
+  .wpcf7-checkbox,
+  input[type="checkbox"],
+  .wpcf7-radio,
+  input[type="radio"] {
+    width: auto;
+    border: none;
+  }
+
+  .wpcf7-form-control:focus,
+  input:focus,
+  .form-control:focus {
+    background-color: transparent;
+    color: $black;
+    border-bottom: 3px solid $black;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($black-20-rgb, 0.5) !important;
+  }
+
+  .wpcf7-select:focus,
+  input[type="select"]:focus,
+  .wpcf7-date:focus,
+  input[type="date"]:focus,
+  .wpcf7-checkbox:focus,
+  input[type="checkbox"]:focus,
+  .wpcf7-radio:focus,
+  input[type="radio"]:focus,
+  .wpcf7-file:hover,
+  input[type="file"]:focus {
+    border: none;
+    box-shadow: 0 0 0 0.2rem rgba($black-20-rgb, 0);
+  }
+
+  .wpcf7-list-item {
+    display: block;
+  }
+
+  .wpcf7-acceptance .wpcf7-list-item {
+    display: inline-block;
+    margin: 0 0 0 2em;
+  }
+
+  .wpcf7-select,
+  input[type="select"],
+  .wpcf7-date,
+  input[type="date"] {
+    border: none;
+    border-bottom: solid 3px $black-50;
+    background: $black-5;
+  }
+
+  .wpcf7-select:focus,
+  input[type="select"]:focus,
+  .wpcf7-date:focus,
+  input[type="date"]:focus {
+    border-bottom: 3px solid $black;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($black-20-rgb, 0.5) !important;
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $black-50;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $black-50;
+    opacity: 1;
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: $black-50;
+    opacity: 1;
+  }
+
+  .wpcf7 .ajax-loader::before {
+    display: none;
+  }
+
+  .wpcf7 .ajax-loader {
+    background: url('../img/loading.gif') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 124px;
+    height: 36px;
+    bottom: -15px;
+    border-radius: 0;
+    display: inline-block;
+  }
+
+  .wpcf7-submit {
+    width: auto;
+  }
 }
 
 
-select {
+#contact-form-style-2 {
 
-  border: solid 3px $primary;
-  padding: 6px;
-  border-radius: 4px !important;
-  width: auto;
-}
+  label {
+    display: block;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    width: 100%;
+  }
 
-.wpcf7-text {
-  background: transparent;
+  .wpcf7-form-control,
+  input,
+  .form-control {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: $black;
+    height: auto;
+    padding: .375rem .75rem;
+    margin-top: 20px;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 0;
+    transition: all 0.8s ease-in-out;
+  }
 
-  border: none;
-  border-bottom: solid 3px $secondary;
-  padding: 6px;
-  border-radius: 0px !important;
-  width: auto;
-  margin: 10px 0px 20px 0px;
-}
-
-.wpcf7-textarea {
-  background: transparent;
-  border: none;
-  border-bottom: solid 3px $secondary;
-  padding: 6px;
-  border-radius: 0px !important;
-  width: 100%;
-  margin: 10px 0px 20px 0px;
-}
-
-.wpcf7-form :focus {
-  border: none;
-  outline: none;
-  outline-color: $primary;
-  outline-style: solid;
-  outline-width: 0px;
-
-  border-bottom: solid 3px $primary;
-  padding: 6px;
-  border-radius: 0px !important;
-  width: 100%;
-  transition: all 0.3s ease-in-out;
-
-}
+  .form-check-input {
+    position: absolute;
+    margin-top: .3rem;
+    margin-left: -1.1rem;
+  }
 
 
-.wpcf7-form input,
-.wpcf7-form textarea,
-.wpcf7-form textarea :focus {
-  width: 100%;
-}
+  input[type="text"],
+  .wpcf7-text,
+  input[type="textarea"],
+  .wpcf7-textarea,
+  input[type="email"],
+  .wpcf7-email,
+  input[type="tel"],
+  .wpcf7-tel {
+    border: none;
+    border-bottom: solid 3px $secondary;
+  }
 
+  .wpcf7-select,
+  input[type="select"],
+  .wpcf7-date,
+  input[type="date"],
+  .wpcf7-checkbox,
+  input[type="checkbox"],
+  .wpcf7-radio,
+  input[type="radio"] {
+    width: auto;
+    border: none;
+  }
 
-.wpcf7-form label {
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 23px;
-  width: 100%;
-}
+  .wpcf7-form-control:focus,
+  input:focus,
+  .form-control:focus {
+    background-color: transparent;
+    color: $primary;
+    border-bottom: 3px solid $primary;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.5) !important;
+  }
 
-select {
-  background-color: $white;
-  width: auto;
-  border-radius: 0px !important;
-}
+  .wpcf7-select:focus,
+  input[type="select"]:focus,
+  .wpcf7-date:focus,
+  input[type="date"]:focus,
+  .wpcf7-checkbox:focus,
+  input[type="checkbox"]:focus,
+  .wpcf7-radio:focus,
+  input[type="radio"]:focus,
+  .wpcf7-file:hover,
+  input[type="file"]:focus {
+    border: none;
+    box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0);
+  }
 
+  .wpcf7-list-item {
+    display: block;
+  }
 
-.form-control:focus {
-  color: $primary;
-  background-color: transparent;
-  border-bottom: 2px solid $primary;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.25);
-}
+  .wpcf7-acceptance .wpcf7-list-item {
+    display: inline-block;
+    margin: 0 0 0 2em;
+  }
 
+  .wpcf7-select,
+  input[type="select"],
+  .wpcf7-date,
+  input[type="date"] {
+    border: none;
+    border-bottom: solid 3px $secondary;
+  }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: $primary;
-  opacity: 1; /* Firefox */
-}
+  .wpcf7-select:focus,
+  input[type="select"]:focus,
+  .wpcf7-date:focus,
+  input[type="date"]:focus {
+    background-color: transparent;
+    color: $primary;
+    border-bottom: 3px solid $primary;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.5) !important;
+  }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: $primary;
-  opacity: 1;
-}
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $primary;
+    opacity: 1; /* Firefox */
+  }
 
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: $primary;
-  opacity: 1;
-}
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $primary;
+    opacity: 1;
+  }
 
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: $primary;
+    opacity: 1;
+  }
 
-input.wpcf7-form-control.wpcf7-submit,
-input.form-check-input,
-input.form-check-input:focus {
-  width: auto;
-}
+  .wpcf7 .ajax-loader::before {
+    display: none;
+  }
 
+  .wpcf7 .ajax-loader {
+    background: url('../img/loading.gif') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 124px;
+    height: 36px;
+    bottom: -15px;
+    border-radius: 0;
+    display: inline-block;
+  }
 
-input.wpcf7-form-control.wpcf7-submit {
-  font-size: 60px;
-  border: none;
-  color: $primary;
-  background: transparent;
-  transition: all 0.3s ease-in-out;
-  position: relative;
-}
-
-input.wpcf7-form-control.wpcf7-submit:hover {
-  border: none;
-  color: $primary;
-}
-
-
-input.wpcf7-form-control.wpcf7-submit:before {
-  content: '';
-  display: block;
-  width: 30px;
-  margin-top: 28px;
-  height: 2px;
-  background: $secondary;
-  position: absolute;
-  transition: 0.7s all ease-in-out;
-}
-
-
-input.wpcf7-form-control.wpcf7-submit:hover::before {
-  width: 80px;
-  background: $primary;
-}
-
-.wpcf7 .wpcf7-submit:disabled {
-  opacity: 0.4;
+  .wpcf7-submit {
+    width: auto;
+  }
 }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -1301,49 +1447,15 @@ body .magic-hover:hover {
 
 #nprogress .bar {
   background: $secondary;
-  position: absolute;
-  z-index: 2031;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
 }
 
-/* Fancy blur effect */
 #nprogress .peg {
-  display: block;
-  position: absolute;
-  right: 0px;
-  width: 100px;
-  height: 100%;
-  box-shadow: 0 0 10px  $primary, 0 0 5px  $primary;
-  opacity: 1.0;
-  -webkit-transform: rotate(3deg) translate(0px, -4px);
-  -ms-transform: rotate(3deg) translate(0px, -4px);
-  transform: rotate(3deg) translate(0px, -4px);
-}
-
-/* Remove these to get rid of the spinner */
-#nprogress .spinner {
-  display: block;
-  position: fixed;
-  z-index: 2031;
-  top: 15px;
-  right: 15px;
+  box-shadow: 0 0 10px $secondary, 0 0 5px $secondary;
 }
 
 #nprogress .spinner-icon {
-  width: 18px;
-  height: 18px;
-  box-sizing: border-box;
-
-  border: solid 2px transparent;
   border-top-color: $secondary;
   border-left-color: $secondary;
-  border-radius: 50%;
-
-  -webkit-animation: nprogress-spinner 400ms linear infinite;
-  animation: nprogress-spinner 400ms linear infinite;
 }
 
 /*
@@ -1393,4 +1505,5 @@ Custom media queries
 @media (max-width: 950px) {
 
 }
+
 

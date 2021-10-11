@@ -4,62 +4,10 @@
 /*  A5T-Framework Child core 
 /*-----------------------------------------------------------------------------------*/
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A_SETTINGS WP Enqueue style with child
-::::::::::::::      enqueue script for parent theme stylesheeet
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-function theme_child_enqueue_styles()
-{
-    $parenthandle = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
-    $theme = wp_get_theme();
-
-    wp_enqueue_style($parenthandle, get_template_directory_uri() . '/style.css',
-        array(),  // if the parent theme code has a dependency, copy it to here
-        $theme->parent()->get('Version')
-    );
-
-    wp_enqueue_style('child-style', get_stylesheet_uri(),
-        array($parenthandle),
-        $theme->get('Version') // this only works if you have Version in the style header
-    );
-    wp_enqueue_style('child-custom', get_template_directory_uri() . '-child/assets/custom.css',
-        array($parenthandle),
-        $theme->get('Version') // this only works if you have Version in the style header
-    );
-    // wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css');
-    // wp_enqueue_style('child-custom', get_stylesheet_directory_uri() . '/assets/custom.css');
-
-    wp_enqueue_style('main', get_stylesheet_directory_uri() . '/assets/main.css');
-
-
-}
-
-add_action('wp_enqueue_scripts', 'theme_child_enqueue_styles', 115);
 
 $a5t_includes = array(
     'functions.php',                          // function.php
 );
-
-
-
-function theme_child_enqueue_scripts()
-{
-
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Carico il JS custom
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    wp_enqueue_script('child-scripts', get_stylesheet_directory_uri() . '/assets/custom.js', array(), '1.0.0', true);
-
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Carico i Credits
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    wp_enqueue_script('child-credits', get_stylesheet_directory_uri() . '/assets/credits.js', array(), '1.0.0', true);
-
-}
-
-add_action('wp_enqueue_scripts', 'theme_child_enqueue_scripts', 120);
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -267,10 +215,11 @@ function add_to_context_child($context)
     $context['google_maps_api'] = 'https://maps.googleapis.com/maps/api/js?key=' . $gmaps_api_key . '&amp;sensor=false&callback=initMap';
 
 
-    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    ::::::::::::::    * A_SETTINGS Yoast
-    :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
+    /*
+    ::::::::::::::
+    ::::::::::::::  * A_SETTINGS SEO Yoast Setting
+    ::::::::::::::
+    */
     $id = get_the_ID();
 
     $post = get_post($id, ARRAY_A);
@@ -283,7 +232,6 @@ function add_to_context_child($context)
     $metadesc_val = wpseo_replace_vars($yoast_desc, $post);
     $metadesc_val = apply_filters('wpseo_metadesc', $metadesc_val);
 
-
     $context['metatitle'] = $metatitle_val;
 
     $context['metadesc'] = $metadesc_val;
@@ -293,17 +241,6 @@ function add_to_context_child($context)
     }
 
 
-    /*
-   $custom_logo_id = get_theme_mod( 'custom_logo' );
-   $context['logo'] = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-   */
-
-
-// $context['menuu'] = new \Timber\Menu( 'primary-menu' );
-// $context['menu'] = new \Timber\Menu( 'primary-menu' );
-// $context['menu_servizi'] = new \Timber\Menu( 'Servizi' );
-// $context['menu'] = new \Timber\Menu( 'primary-menu' );
-// $context['menu_servizi'] = new \Timber\Menu( 'Servizi' );
 
 
     return $context;
