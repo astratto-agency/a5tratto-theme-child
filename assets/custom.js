@@ -1,4 +1,16 @@
-/* ::::::::::::::  * A_SETTINGS loader
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::    * A_SETTINGS INDEX
+:::::::::::::: 01 * A_SETTINGS loader
+:::::::::::::: 02 * A_SETTINGS animate
+:::::::::::::: 03 * A_SETTINGS sticky
+:::::::::::::: 04 * A_SETTINGS magicMouse
+:::::::::::::: 05 * A_SETTINGS butter-js
+:::::::::::::: 06 * A_SETTINGS menu showing
+:::::::::::::: 07 * A_SETTINGS jarallax-js
+:::::::::::::: 08 * A_SETTINGS NProgress-js
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+/* :::::::::::::: 01 * A_SETTINGS loader
 :::::::::::::::::    add loaded and set timeout loader */
 $(function () {
     setTimeout(function () {
@@ -26,7 +38,7 @@ $(document).ready(function () {
 });
 
 
-/* ::::::::::::::  * A_SETTINGS animate */
+/* :::::::::::::: 02 * A_SETTINGS animate */
 $(document).ready(function () {
     var viewportchecker_active = document.getElementById("viewportchecker-js");
     if (viewportchecker_active) {
@@ -39,7 +51,7 @@ $(document).ready(function () {
     }
 });
 
-/* ::::::::::::::  * A_SETTINGS sticky */
+/* :::::::::::::: 03 * A_SETTINGS sticky */
 $(function () {
     //caches a jQuery object containing the header element
     var header = $(".sticky");
@@ -62,7 +74,7 @@ $(function () {
 });
 
 
-/* ::::::::::::::  * A_SETTINGS magicMouse */
+/* :::::::::::::: 04 * A_SETTINGS magicMouse */
 var magicmouse_active = document.getElementById("magic-mouse-js");
 $(document).ready(function () {
     if (magicmouse_active) {
@@ -86,7 +98,7 @@ $(document).ready(function () {
     }
 });
 
-/* ::::::::::::::  * A_SETTINGS butter-js  */
+/* :::::::::::::: 05 * A_SETTINGS butter-js  */
 var butter_active = document.getElementById("butter-js");
 $(document).ready(function () {
     if (butter_active) {
@@ -108,7 +120,7 @@ $(document).ready(function () {
 });
 
 
-/* ::::::::::::::  * A_SETTINGS menu showing  */
+/* :::::::::::::: 06 * A_SETTINGS menu showing  */
 $(document).ready(function () {
     $(".menu-icon").on("click", function () {
         $("nav ul").toggleClass("showing");
@@ -117,7 +129,7 @@ $(document).ready(function () {
 });
 
 
-/* ::::::::::::::  * A_SETTINGS jarallax-js  */
+/* :::::::::::::: 07 * A_SETTINGS jarallax-js  */
 owl_carousel_active = document.getElementById('owl_carousel-js')
 if (owl_carousel_active) {
     /* init jarallax-js with original class */
@@ -136,7 +148,7 @@ if (owl_carousel_active) {
 }
 
 
-/* ::::::::::::::  * A_SETTINGS NProgress-js */
+/* :::::::::::::: 08 * A_SETTINGS NProgress-js */
 nprogress_active = document.getElementById('nprogress-js')
 if (nprogress_active) {
     $('body').show();
