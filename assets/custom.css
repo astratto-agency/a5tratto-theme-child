@@ -1,16 +1,17 @@
-/* TODO readme paletta colori dedicata alle note todo */
-/*
-f94144,f3722c,f8961e,f9844a,f9c74f,90be6d,43aa8b,4d908e,577590,277da1
-https://coolors.co/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-577590-277da1
-*/
-
-
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A_SETTINGS Media query
-::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+::::::::::::::    * A_SETTINGS INDEX CSS
+:::::::::::::: 01 * A_SETTINGS Media query example
+:::::::::::::: 02 * A_SETTINGS import example.css
+:::::::::::::: 03 * A_SETTINGS Color
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+/*::::::::::::::::::
+:::::::::::::: 01 * A_SETTINGS Media query example
+::::::::::::::::::*/
 
 /*
+
 // Small devices (landscape phones, 576px and up) 			// Extra small devices (portrait phones, less than 576px)
 @media (min-width: 576px) { ... } 							@media (max-width: 575.98px) { ... }
 
@@ -34,38 +35,17 @@ https://coolors.co/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-57759
 
 */
 
+/*::::::::::::::::::
+:::::::::::::: 02 * A_SETTINGS import example.css
+::::::::::::::::::*/
 
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * Mportal
-::::::::::::::      Impostazioni per css per M portal
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/*
+@import url("example.css");
+ */
 
-
-
-
-
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A_SETTINGS INDEX CSS
-::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS magic-mouse-js
-::::::::::::::      Impostazioni per togliere il cursore definitivamente
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/*html, * {
-    cursor: none;
-}*/
-
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS Color
-::::::::::::::      Impostazioni colori
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/*::::::::::::::::::
+:::::::::::::: 03 * A_SETTINGS Color
+::::::::::::::::::*/
 
 :root {
 
@@ -87,50 +67,3 @@ https://coolors.co/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-57759
 }
 
 
-/*
-####################################################
-M E D I A  Q U E R I E S
-####################################################
-*/
-
-/*
-::::::::::::::::::::::::::::::::::::::::::::::::::::
-Bootstrap 4 breakpoints
-*/
-
-/*
-Extra small devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap because it is "mobile first"
-*/
-
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-
-}
-
-/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-@media (min-width: 768px) {
-
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-
-}
-
-
-/*
-::::::::::::::::::::::::::::::::::::::::::::::::::::
-Custom media queries
-*/
-
-/* Set width to make card deck cards 100% width */
-@media (max-width: 950px) {
-
-}
