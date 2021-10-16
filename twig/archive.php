@@ -31,10 +31,11 @@ if (get_query_var('paged')) {
     $paged = get_query_var('paged');
 } elseif (get_query_var('page')) {
     $paged = get_query_var('page');
+} elseif (isset($matches[1])) {
+    $paged = $matches[1];
+} elseif (!isset($paged) || !$paged) {
+    $paged = 1;
 } else {
-    $paged = isset($matches[1]) ? $matches[1] : 1;
-}
-if (!isset($paged) || !$paged) {
     $paged = 1;
 }
 
@@ -91,10 +92,13 @@ if (is_day()) {
     array_unshift($templates, 'archive-' . get_post_type() . '.twig'); // Update templates
 } else if (is_page()) {
     // A_SETTINGS page
-    $context['title'] = $obj_post_type->label; // Update title
-    array_unshift($templates, 'archive-' . $obj_post_type->name . '.twig'); // Update templates
-}
+    if (!empty($obj_post_type)) {
+        $context['title'] = $obj_post_type->label; // Update title
+        array_unshift($templates, 'archive-' . $obj_post_type->name . '.twig'); // Update templates
+    }
 
+
+}
 
 //  A_SETTINGS Assegno tutte le variabili di ACF a Twig
 // inSorry, we couldn't find what you're looking fo caso avessi necessità puoi sostituire il valore $post con l'ID della pagina

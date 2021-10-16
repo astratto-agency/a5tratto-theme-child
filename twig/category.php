@@ -27,14 +27,15 @@ $paginazione = 4;
 
 // A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione
 preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches );
-if ( get_query_var( 'paged' ) ) {
-    $paged = get_query_var( 'paged' );
-} elseif ( get_query_var( 'page' ) ) {
-    $paged = get_query_var( 'page' );
+if (get_query_var('paged')) {
+    $paged = get_query_var('paged');
+} elseif (get_query_var('page')) {
+    $paged = get_query_var('page');
+} elseif (isset($matches[1])) {
+    $paged = $matches[1];
+} elseif (!isset($paged) || !$paged) {
+    $paged = 1;
 } else {
-    $paged = isset( $matches[1] ) ? $matches[1] : 1;
-}
-if (!isset($paged) || !$paged) {
     $paged = 1;
 }
 
