@@ -15,39 +15,45 @@ $post = Timber::query_post();
 $context = Timber::get_context();
 
 // A_SETTINGS Assegnazione dei template
-$templates = array( 'search.twig', 'archive.twig', 'index.twig' );
+$templates = array('search.twig', 'archive.twig', 'index.twig');
 
 // A_SETTINGS Assegnazione del numero di paginazione di post per pagina
 $paginazione = 4;
 
 // A_SETTINGS Elaborazione dell'impaginato impostare il numero successivo qui '%/page/([0-3]+)%' in base al valore assegnato nella paginazione
-preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches );
-if ( get_query_var( 'paged' ) ) {
-    $paged = get_query_var( 'paged' );
-} elseif ( get_query_var( 'page' ) ) {
-    $paged = get_query_var( 'page' );
+preg_match('%/page/([0-3]+)%', $_SERVER['REQUEST_URI'], $matches);
+echo('<br>');
+
+if (get_query_var('paged')) {
+    $paged = get_query_var('paged');
+} elseif (isset($matches[1])) {
+    $paged = $matches[1];
+} elseif (!isset($paged) || !$paged) {
+    $paged = 1;
 } else {
-    $paged = isset( $matches[1] ) ? $matches[1] : 1;
-}
-if (!isset($paged) || !$paged) {
     $paged = 1;
 }
 
+/* ascolta url per prendere campo di ricerca */
+if ($_GET['search_query'] && !empty($_GET['search_query'])) {
+    $search_query = $_GET['search_query'];
+} else {
+    $search_query = '';
+}
 
+$context['search_query'] = $search_query;
 
 /* assegno tutte le variabili di ACF */
-$fields = get_field_objects( $post );
-if( $fields ):
-    foreach( $fields as $field ):
+$fields = get_field_objects($post);
+if ($fields):
+    foreach ($fields as $field):
         $name_id = $field['name'];
         $value_id = $field['value'];
         $context[$name_id] = $value_id;
     endforeach;
 endif;
 
-/* ascolta url per prendere campo di ricerca */
-$s = $_GET['s'];
-$context['s'] = $s;
+
 
 
 /*
@@ -79,10 +85,10 @@ $tax_query = array(
 
 /*  A_SETTINGS Elaboro una query per la ricerca effettuata */
 $args = array(
-    'post_type'             => 'any', //////////// Nome del custom post
-    'posts_per_page'        => $paginazione, //////////// Numero custom post ( -1 = tutti )
-    's'                     => $s,
-    'paged'                 => $paged,  //////////// Impaginazione
+    'post_type' => 'any', //////////// Nome del custom post
+    'posts_per_page' => $paginazione, //////////// Numero custom post ( -1 = tutti )
+    's' => $search_query,
+    'paged' => $paged,  //////////// Impaginazione
     /*'tax_query'             => $tax_query, //////////// Combo ricerca fra due categorie */
 
     /************************ ordinamento per quelle che prima hanno immagini o no
@@ -119,22 +125,20 @@ $args = array(
      */
 
 );
-$query_search = new WP_Query($args);
+$posts_search = new WP_Query($args);
 
 
 
 /* se query da risultiti */
-if ($query_search->have_posts()) {
+if ($posts_search->have_posts()) {
 
-    $context['title'] = 'Risultati della ricerca per: ' . get_search_query();
+    $context['title'] = 'Risultati della ricerca per: ' . $search_query;
     /* elaboro query */
-    $query_posts = new Timber\PostQuery($args);
-}
-/* se query è vuota */
-else
-{
+    $posts = new Timber\PostQuery($args);
+} /* se query è vuota */
+else {
     /*  A_SETTINGS Elaboro una query per i related incaso non la prima quesry fosse vuota */
-    $context['title'] = 'Nessun risultato trovato per: ' . get_search_query();
+    $context['title'] = 'Nessun risultato trovato per: ' . $search_query;
 
     /* query delle tassonomie alternativa
     $tax_query2 = array(
@@ -171,18 +175,18 @@ else
 
     );
     /* elaboro query con risultati alternativi */
-    $query_posts = new Timber\PostQuery($args_empty);
+    $posts = new Timber\PostQuery($args_empty);
 }
 /*  A_SETTINGS Assegno query definitiva */
-$context['posts'] = $query_posts;
+$context['posts'] = $posts;
 
 
 
 //  A_SETTINGS Gestisco la numerazione della pagine e i corrispettivi valori trovati
-$context['found_posts'] = $query_posts->found_posts;
+$context['found_posts'] = $posts->found_posts;
 $context['startpost'] = $startpost = 1;
-$context['startpost'] = $startpost =  $paginazione*($paged - 1)+1;
-$context['endpost'] = $endpost = ($paginazione * $paged < $query_posts->found_posts ? $paginazione * $paged : $query_posts->found_posts);
+$context['startpost'] = $startpost = $paginazione * ($paged - 1) + 1;
+$context['endpost'] = $endpost = ($paginazione * $paged < $posts->found_posts ? $paginazione * $paged : $posts->found_posts);
 
 //  A_SETTINGS Elaboro template a Twig
 Timber::render( $templates, $context );

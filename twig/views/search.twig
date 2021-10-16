@@ -19,7 +19,6 @@
                     <div class="col-12 py-2 my-2 bg-light ">
                         <label>Vista dei risultati da <b>{{startpost}}</b> a <b>{{endpost}}</b> di <b>{{found_posts}}</b> </label>
                     </div>
-
                     {% for post in posts %}
                         {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
                     {% endfor %}
