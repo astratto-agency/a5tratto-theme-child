@@ -1,80 +1,98 @@
-<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pt-5">
     <article class="tease tease-{{ post.post_type }}" id="tease-{{ post.ID }}">
         {% block content %}
             <h1><a href="{{ post.link }}">{{ post.title }}</a></h1>
-            <p>post.title: {{ post.title }}</p>
-            <p>post.link: {{ post.link }}</p>
-            <p>post.date: {{ post.date }} {{ post.published_at|date("d/M/Y g:ia") }}</p>
-            <hr>
-            <p>Categorie:</p>
-            <ul>
-                {% for categorie in post.terms('') %}
-                    {% if categorie.get_children %}
-                        <li>
-                            <a href="{{ categorie.slug }}"
-                               title="{{ post.title }} - {{ categorie.name }}">Cat {{ categorie.name }}</a>
-                        </li>
-                        <ul>
-                            {% for subcategorie in categorie.get_children %}
-                                {% if subcategorie %}
-                                    <li>
-                                        <a href="{{ subcategorie.slug }}"
-                                           title="{{ post.title }} - {{ subcategorie.name }}">Cat
-                                            Child {{ subcategorie.name }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
+            <p>{{ post.get_preview( split_content_post|length + 50, false, '<span>Leggi</span>', false )|apply_filters('the_content') }}</p>
 
-                        </ul>
-                    {% elseif categorie.parent %}
-                        <li>
-                            <a href="{{ categorie.slug }}" title="{{ post.title }} - {{ categorie.name }}">Cat
-                                Parent {{ categorie.name }}</a>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="{{ categorie.slug }}"
-                               title="{{ post.title }} - {{ categorie.name }}">Cat {{ categorie.name }}</a>
-                        </li>
+            <div class=" " id="accordion">
+                <div class="card-header">
+                    <p class="collapsed"
+                       data-toggle="collapse"
+                       data-target="#collapse-{{ loop.index }}"
+                       aria-expanded="true"
+                       aria-controls="collapse-{{ loop.index }}">
+                        Dettagli<i class="fa fa-angle-down"></i>
+                    </p>
+                </div>
+                <div id="collapse-{{ loop.index }}"
+                     class="collapse card-body"
+                     aria-labelledby="heading-{{ loop.index }}"
+                     data-parent="#accordion">
+                    <p>post.title: {{ post.title }}</p>
+                    <p>post.link: {{ post.link }}</p>
+                    <p>post.date: {{ post.date }} {{ post.published_at|date("d/M/Y g:ia") }}</p>
+                    <hr>
+                    <p>Categorie:</p>
+                    <ul>
+                        {% for categorie in post.terms('') %}
+                            {% if categorie.get_children %}
+                                <li>
+                                    <a href="{{ categorie.slug }}"
+                                       title="{{ post.title }} - {{ categorie.name }}">Cat {{ categorie.name }}</a>
+                                </li>
+                                <ul>
+                                    {% for subcategorie in categorie.get_children %}
+                                        {% if subcategorie %}
+                                            <li>
+                                                <a href="{{ subcategorie.slug }}"
+                                                   title="{{ post.title }} - {{ subcategorie.name }}">Cat
+                                                    Child {{ subcategorie.name }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                </ul>
+                            {% elseif categorie.parent %}
+                                <li>
+                                    <a href="{{ categorie.slug }}" title="{{ post.title }} - {{ categorie.name }}">Cat
+                                        Parent {{ categorie.name }}</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{{ categorie.slug }}"
+                                       title="{{ post.title }} - {{ categorie.name }}">Cat {{ categorie.name }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                    <p>Categorie Lista: <br>
+                        {{ post.terms('') | join(', ') }}
+                    </p>
+                    <hr>
+                    <p>Tags<br>
+                        {% for tags in post.terms('post_tag') %}
+                            <a href="{{ tags.slug }}" title="{{ post.title }} - {{ tags.name }}">{{ tags.name }}</a>
+                        {% endfor %}
+                    </p>
+                    <hr>
+                    <p>Tags Lista: <br>
+                        {{ post.terms('post_tag') | join(', ') }}
+                    </p>
+                    <hr>
+                    <p>post.preview: {{ post.preview }}</p>
+                    <p>post.intro: {{ post.intro }}</p>
+                    {% set split_content_post = post.content|split('<!--more-->') %}
+                    {{ post.get_preview( split_content_post|length + 50, false, '<span>Leggi</span>', false )|apply_filters('the_content') }}
+                    <br>
+                    {% if post.get_thumbnail %}
+                        <img src="{{ post.thumbnail.src|resize(150, 150) }}"/>
+                        <br>
+                        <p>{{ Image(post.get_thumbnail).src|resize(150, 150) }}</p>
+                        {% set height = post.thumbnail.height %}
+                        {% set width = post.thumbnail.width %}
+                        {% set sizewh = height / width %}
+                        <p>{{ height }} x {{ width }} = {{ sizewh }}</p>
+                        {% if sizewh == 1 %}
+                            <img src="{{ post.thumbnail.src|resize(200,200) }}" class="img-fluid" alt="{{ title }}"/>
+                        {% elseif sizewh < 1 %}
+                            <img src="{{ post.thumbnail.src|resize(400,300) }}" class="img-fluid" alt="{{ title }}"/>
+                        {% else %}
+                            <img src="{{ post.thumbnail.src|resize(300,400) }}" class="img-fluid" alt="{{ title }}"/>
+                        {% endif %}
                     {% endif %}
-                {% endfor %}
-            </ul>
-            <hr>
-            <p>Categorie Lista: <br>
-                {{ post.terms('') | join(', ') }}
-            </p>
-            <hr>
-            <p>Tags<br>
-                {% for tags in post.terms('post_tag') %}
-                    <a href="{{ tags.slug }}" title="{{ post.title }} - {{ tags.name }}">{{ tags.name }}</a>
-                {% endfor %}
-            </p>
-            <hr>
-            <p>Tags Lista: <br>
-                {{ post.terms('post_tag') | join(', ') }}
-            </p>
-            <hr>
-            <p>post.preview: {{ post.preview }}</p>
-            <p>post.intro: {{ post.intro }}</p>
-            {% set split_content_post = post.content|split('<!--more-->') %}
-            {{ post.get_preview( split_content_post|length + 50, false, '<span>Leggi</span>', false )|apply_filters('the_content') }}
-            <br>
-            {% if post.get_thumbnail %}
-                <img src="{{ post.thumbnail.src|resize(150, 150) }}"/>
-                <br>
-                <p>{{ Image(post.get_thumbnail).src|resize(150, 150) }}</p>
-                {% set height = post.thumbnail.height %}
-                {% set width = post.thumbnail.width %}
-                {% set sizewh = height / width %}
-                <p>{{ height }} x {{ width }} = {{ sizewh }}</p>
-                {% if sizewh == 1 %}
-                    <img src="{{ post.thumbnail.src|resize(200,200) }}" class="img-fluid" alt="{{ title }}"/>
-                {% elseif sizewh < 1 %}
-                    <img src="{{ post.thumbnail.src|resize(400,300) }}" class="img-fluid" alt="{{ title }}"/>
-                {% else %}
-                    <img src="{{ post.thumbnail.src|resize(300,400) }}" class="img-fluid" alt="{{ title }}"/>
-                {% endif %}
-            {% endif %}
+                </div>
+            </div>
         {% endblock %}
     </article>
 </div>
