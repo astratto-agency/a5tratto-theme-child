@@ -1,136 +1,124 @@
-@charset "UTF-8";
-/* TODO readme paletta colori dedicata alle note todo */
-/*
-f94144,f3722c,f8961e,f9844a,f9c74f,90be6d,43aa8b,4d908e,577590,277da1
-https://coolors.co/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-577590-277da1
-*/
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::    * A_SETTINGS Media query
-::::::::::::::
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/*
-// Small devices (landscape phones, 576px and up) 			// Extra small devices (portrait phones, less than 576px)
-@media (min-width: 576px) { ... } 							@media (max-width: 575.98px) { ... }
-
-// Medium devices (tablets, 768px and up)					// Small devices (landscape phones, 576px and up)
-@media (min-width: 768px) { ... }							@media (min-width: 576px) and (max-width: 767.98px) { ... }
-
-// Large devices (desktops, 992px and up)					// Medium devices (tablets, 768px and up)
-@media (min-width: 992px) { ... }							@media (min-width: 768px) and (max-width: 991.98px) { ... }
-
-// Extra large devices (large desktops, 1200px and up)		// Large devices (desktops, 992px and up)
-@media (min-width: 1200px) { ... }							@media (min-width: 992px) and (max-width: 1199.98px) { ... }
-
-// Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) { ... }
-
-// No media query necessary for xs breakpoint as it's effectively `@media (min-width: 0) { ... }`
-@include media-breakpoint-only(xs) { ... }	@include media-breakpoint-up(sm) { ... }	@include media-breakpoint-down(xs) { ... }
-@include media-breakpoint-only(sm) { ... }	@include media-breakpoint-up(md) { ... }	@include media-breakpoint-down(sm) { ... }
-@include media-breakpoint-only(md) { ... }	@include media-breakpoint-up(lg) { ... }	@include media-breakpoint-down(md) { ... }
-@include media-breakpoint-only(lg) { ... }	@include media-breakpoint-up(xl) { ... }	@include media-breakpoint-down(lg) { ... }
-
-*/
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * Mportal
-::::::::::::::      Impostazioni per css per M portal
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/*
-@import url("style-custom.css");
- */
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::::::::::::::    * A_SETTINGS INDEX CSS
-::::::::::::::
+:::::::::::::: -- * A_SETTINGS Import
+:::::::::::::: -- * A_SETTINGS Font
+:::::::::::::: -- * A_SETTINGS Color
+:::::::::::::: -- * A_SETTINGS Background
+:::::::::::::: -- * A_SETTINGS Color
+:::::::::::::: -- * A_SETTINGS Main Section
+:::::::::::::: -- * A_SETTINGS Paragraf
+:::::::::::::: -- * A_SETTINGS Header-1
+:::::::::::::: -- * A_SETTINGS Header-2
+:::::::::::::: -- * A_SETTINGS Sidenav
+:::::::::::::: -- * A_SETTINGS Menu mobile
+:::::::::::::: -- * A_SETTINGS Sticky-menu
+:::::::::::::: -- * A_SETTINGS Img-hover
+:::::::::::::: -- * A_SETTINGS Jarallax
+:::::::::::::: -- * A_SETTINGS Animate
+:::::::::::::: -- * A_SETTINGS Shadow
+:::::::::::::: -- * A_SETTINGS Radius custom
+:::::::::::::: -- * A_SETTINGS Button a5t
+:::::::::::::: -- * A_SETTINGS Button boostrap
+:::::::::::::: -- * A_SETTINGS CF7 contact-form-style-1
+:::::::::::::: -- * A_SETTINGS CF7 contact-form-style-2
+:::::::::::::: -- * A_SETTINGS Loader
+:::::::::::::: -- * A_SETTINGS Gototop
+:::::::::::::: -- * A_SETTINGS Magic-mouse-js
+:::::::::::::: -- * A_SETTINGS Progress-js
+:::::::::::::: -- * A_SETTINGS Equal cols
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-
-
-
-
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS Font
-::::::::::::::      Impostazioni font
+:::::::::::::: -- * A_SETTINGS Import
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Font
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 @import url("font/roboto/stylesheet.css");
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS Color
-::::::::::::::      Impostazioni colori
+:::::::::::::: -- * A_SETTINGS Color
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-:root {
-  --a5t-primary: #0000E5;
-  --a5t-secondary: #FFFF33;
-  --a5t-tertiary: #8080F2;
-  --a5t-quaternary: #CCCCFA;
-  --a5t-primary-rgb: 0, 0, 255;
-  --a5t-secondary-rgb: 255, 255, 51;
-  --a5t-primary-rgba: 0, 0, 255, 1;
-  --a5t-secondary-rgab: 255, 255, 51, 1;
-  --red-salsa: #f94144ff;
-  --orange-red: #f3722cff;
-  --yellow-orange-color-wheel: #f8961eff;
-  --mango-tango: #f9844aff;
-  --maize-crayola: #f9c74fff;
-  --pistachio: #90be6dff;
-  --zomp: #43aa8bff;
-  --cadet-blue: #4d908eff;
-  --queen-blue: #577590ff;
-  --cg-blue: #277da1ff; }
-
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS Background Color
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Background
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .bg-primary {
-  background: #0000E5 !important; }
+  background: #0000E5 !important;
+  color: #FFFF33 !important; }
+  .bg-primary a {
+    color: #8080F2 !important; }
+    .bg-primary a :hover {
+      color: #8080F2 !important; }
 
 .bg-secondary {
   background: #FFFF33 !important;
-}
+  color: #0000E5 !important; }
+  .bg-secondary a {
+    color: #8080F2 !important; }
+    .bg-secondary a :hover {
+      color: #8080F2 !important; }
 
 .bg-tertiary {
   background: #8080F2 !important;
-}
+  color: #0000E5 !important; }
+  .bg-tertiary a {
+    color: #FFFF33 !important; }
+    .bg-tertiary a :hover {
+      color: #FFFF33 !important; }
 
 .bg-quaternary {
   background: #CCCCFA !important;
-}
+  color: #0000E5 !important; }
+  .bg-quaternary a {
+    color: #FFFF33 !important; }
+    .bg-quaternary a :hover {
+      color: #FFFF33 !important; }
 
 .bg-black {
   background: #000000 !important;
-}
+  color: #FFFF33 !important; }
+  .bg-black a {
+    color: #0000E5 !important; }
+    .bg-black a :hover {
+      color: #0000E5 !important; }
 
 .bg-black-50 {
   background: #808080 !important;
-}
+  color: #FFFF33 !important; }
+  .bg-black-50 a {
+    color: #0000E5 !important; }
+    .bg-black-50 a :hover {
+      color: #0000E5 !important; }
 
 .bg-black-20 {
   background: #CCCCCC !important;
-}
+  color: #0000E5 !important; }
+  .bg-black-20 a {
+    color: #FFFF33 !important; }
+    .bg-black-20 a :hover {
+      color: #FFFF33 !important; }
 
 .bg-black-5 {
   background: #F2F2F2 !important;
-}
+  color: #0000E5 !important; }
+  .bg-black-5 a {
+    color: #FFFF33 !important; }
+    .bg-black-5 a :hover {
+      color: #FFFF33 !important; }
 
-.bg-primary-half-white {
+.bg-gradient-primary-secondary {
   background: #0000E5;
-  background: -moz-linear-gradient(0deg, #0000E5 50%, #ffffff 50%);
-  background: -webkit-linear-gradient(0deg, #0000E5 50%, #ffffff 50%);
-  background: linear-gradient(0deg, #0000E5 50%, #ffffff 50%);
-}
+  background: -moz-linear-gradient(0deg, #0000E5 50%, #FFFF33 50%);
+  background: -webkit-linear-gradient(0deg, #0000E5 50%, #FFFF33 50%);
+  background: linear-gradient(0deg, #0000E5 50%, #FFFF33 50%); }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS Text Color
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Color
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .color-primary {
-  color: #0000E5;
-}
+  color: #0000E5; }
 
 .color-secondary {
-  color: #FFFF33;
-}
+  color: #FFFF33; }
 
 .color-tertiary {
   color: #8080F2; }
@@ -138,9 +126,47 @@ https://coolors.co/f94144-f3722c-f8961e-f9844a-f9c74f-90be6d-43aa8b-4d908e-57759
 .color-quaternary {
   color: #CCCCFA; }
 
+.color-black {
+  color: #000000; }
+
+.color-black-50 {
+  color: #808080; }
+
+.color-black-20 {
+  color: #CCCCCC; }
+
+.color-black-5 {
+  color: #F2F2F2; }
+
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS Main Section
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Border
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.border-primary {
+  color: #0000E5; }
+
+.border-secondary {
+  color: #FFFF33; }
+
+.border-tertiary {
+  color: #8080F2; }
+
+.border-quaternary {
+  color: #CCCCFA; }
+
+.border-black {
+  color: #000000; }
+
+.border-black-50 {
+  color: #808080; }
+
+.border-black-20 {
+  color: #CCCCCC; }
+
+.border-black-5 {
+  color: #F2F2F2; }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Main Section
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 body {
   font-family: "Montserrat", sans-serif;
@@ -155,20 +181,15 @@ footer {
   width: 100%; }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS font
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Paragraf
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-p {
-  margin-bottom: 0; }
+.p-sx {
+  font-size: 0.6rem;
+  line-height: 0.8rem; }
 
-.a5t-p-sx {
-  font-size: 9px;
-  line-height: 11px;
-  margin-bottom: 0; }
-
-b {
-  font-weight: bold;
-  font-style: normal; }
+.p-sm {
+  font-size: 0.7rem;
+  line-height: 0.9rem; }
 
 h1, .h1,
 h2, .h2,
@@ -178,161 +199,33 @@ h5, .h5,
 h6, .h6 {
   font-family: "Aleo", sans-serif; }
 
-h1, .h1 {
-  font-weight: 300; }
-
-h2, .h2 {
-  font-weight: normal; }
-
-h2, .h2 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300; }
-
 h4, .h4,
 h5, .h5,
 h6, .h6 {
   font-family: "Montserrat", sans-serif; }
 
-h1 a, h2 a, h3 a {
-  font-weight: 300; }
-
 a {
   font-variation-settings: 'slnt' 0;
   font-weight: bold;
-  color: #0000E5;
+  color: #FFFF33;
   text-decoration: none;
   background-color: transparent;
-  transition: 0.7s all ease-in-out; }
+  transition: 0.5s all ease-in-out; }
 
 a:hover {
-  color: #FFFF33;
+  color: #0000E5;
   font-variation-settings: 'slnt' 12;
   text-decoration: none; }
 
-.bg-secondary a:hover {
-  color: #8080F2;
-}
-
-.a5t-underline {
+.a-underline {
   color: #0000E5 !important;
   text-decoration: solid;
   text-decoration-line: underline;
   text-decoration-style: inherit;
-  text-decoration-color: #0000E5;
-}
+  text-decoration-color: #0000E5; }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS img-hover
-::::::::::::::      Impostazioni per css
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-.img-hover .img-hover-inner {
-  position: relative;
-  overflow: hidden;
-}
-
-.img-hover .img-hover-inner img {
-  transition: all 0.7s;
-  transform: scale(1);
-}
-
-.img-hover:hover .img-hover-inner img {
-  transform: scale(1.1);
-}
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS jarallax
-::::::::::::::      Impostazioni per css jarallax-keep-img
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-.jarallax-keep-img {
-  position: relative;
-  z-index: 0;
-}
-
-.jarallax-keep-img > .jarallax-img {
-  position: relative;
-  display: block;
-  max-width: 100%;
-  height: auto;
-  z-index: -100;
-}
-
-.loaded .jarallax-keep-img:before {
-  content: '';
-  opacity: 0;
-  transition: 1s all ease-in-out;
-  transition-delay: 0.9s;
-  z-index: 10;
-}
-
-.jarallax-keep-img:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #0000E5;
-  opacity: 1;
-}
-
-.loaded .img-hover-inner:before {
-  content: '';
-  opacity: 0;
-  transition: 0.5s all ease-in-out;
-  transition-delay: 0.9s;
-  z-index: 10;
-}
-
-.img-hover-inner:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #0000E5;
-  opacity: 1;
-}
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS animate
-::::::::::::::      Impostazioni per css
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/* This only changes this particular animation duration */
-.animate__animated.animate__bounce {
-  --animate-duration: 2s;
-}
-
-/* This changes all the animations globally */
-:root {
-  --animate-duration: 800ms;
-  --animate-delay: 0.9s;
-}
-
-.hidden {
-  opacity: 0;
-}
-
-.visible {
-  opacity: 1;
-}
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS sticky-menu
-::::::::::::::      Impostazioni per css
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-header .sticky-fix {
-  position: fixed;
-  width: 100%;
-  top: -126px;
-  z-index: 1;
-  transition: 0.4s all ease-out 0.5s;
-  background: #ffffff;
-}
-
-header .sticky-in {
-  top: 0;
-  background: #ffffff; }
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS primary-menu
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Header-1
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .navbar-toggler {
   color: #0000E5; }
@@ -397,6 +290,9 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
 #header-1 #primary-menu .dropdown-toggle:hover:after, #header-2 #primary-menu .dropdown-toggle:hover:after {
   display: inline-block; }
 
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Header-2
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 #header-2 .nav-mobile#primary-menu li {
   display: block !important;
   text-align: center; }
@@ -407,28 +303,160 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   background-color: transparent; }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS shadow
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Sidenav
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.sidenav.sidenav-open .container {
+  opacity: 1;
+  transition-delay: 0.0s;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out; }
+
+.sidenav.sidenav-close .container {
+  opacity: 0;
+  transition-delay: 0.5s;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out; }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  background-color: #FFFF33;
+  overflow-x: hidden;
+  transition: 0.5s;
+  /*padding-top: 60px;*/
+  text-align: center; }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Menu mobile
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px; }
+
+.full-menu-logo {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0; }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Sticky-menu
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+header .sticky-fix {
+  position: fixed;
+  width: 100%;
+  top: -126px;
+  z-index: 1;
+  transition: 0.4s all ease-out 0.5s;
+  background: #ffffff; }
+
+header .sticky-in {
+  top: 0;
+  background: #ffffff; }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Img-hover
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.img-hover .img-hover-inner {
+  position: relative;
+  overflow: hidden; }
+
+.img-hover .img-hover-inner img {
+  transition: all 0.7s;
+  transform: scale(1); }
+
+.img-hover:hover .img-hover-inner img {
+  transform: scale(1.1); }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Jarallax
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.jarallax-keep-img {
+  position: relative;
+  z-index: 0; }
+
+.jarallax-keep-img > .jarallax-img {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  z-index: -100; }
+
+.loaded .jarallax-keep-img:before {
+  content: '';
+  opacity: 0;
+  transition: 1s all ease-in-out;
+  transition-delay: 0.9s;
+  z-index: 10; }
+
+.jarallax-keep-img:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #0000E5;
+  opacity: 1; }
+
+.loaded .img-hover-inner:before {
+  content: '';
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+  transition-delay: 0.9s;
+  z-index: 10; }
+
+.img-hover-inner:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #0000E5;
+  opacity: 1; }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Animate
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+/* This only changes this particular animation duration */
+.animate__animated.animate__bounce {
+  --animate-duration: 2s; }
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s; }
+
+.hidden {
+  opacity: 0; }
+
+.visible {
+  opacity: 1; }
+
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Shadow
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .a5t-shadow-1 {
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS radius
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Radius custom
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-.a5t-radius-10 {
+.radius-10 {
   border-radius: 10px; }
 
-.a5t-img-radius-top-10 {
+.radius-top-10 {
   border-radius: 0 0 10px 10px; }
 
-.a5t-img-radius-bottom-10 {
+.radius-bottom-10 {
   border-radius: 10px 10px 0 0; }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS button a5t
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Button a5t
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .a5t-btn {
   font-size: 19px;
@@ -460,8 +488,7 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   background: blue; }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS button
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Button boostrap
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 .btn {
   border-radius: 4px;
@@ -475,176 +502,224 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   line-height: 1;
   position: relative;
   font-weight: 600;
-  text-transform: uppercase;
-  /*Standard*/
-  /*
-  border-radius: 10px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 20px;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 0.375rem 1.75rem;
-  transition: all 0.3s ease-in-out;
-  */ }
+  text-transform: uppercase; }
   .btn .btn-circle {
     width: 40px;
     height: 40px;
     padding: 3px;
     border-radius: 25px;
     font-size: 22px;
-    text-align: center;
-  }
+    text-align: center; }
 
 .btn-primary {
-  color: #ffffff;
+  color: #FFFF33;
   background: #0000E5;
   border-color: #0000E5;
-  transition: all 0.3s ease;
-}
+  transition: all 0.3s ease; }
+  .btn-primary:hover {
+    color: #4c4cff;
+    background: yellow;
+    border-color: yellow; }
+  .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+    color: #4c4cff;
+    background: #999900;
+    border-color: #999900; }
+  .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle {
+    background: #00004c;
+    border-color: #00004c;
+    box-shadow: 0 0 0 0.2rem #1919ff; }
+  .btn-primary.disabled, .btn-primary:disabled {
+    opacity: 0.10;
+    color: #999900;
+    background: #00004c;
+    border-color: #00004c; }
+  .btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem #1919ff; }
 
-.btn-primary:hover {
-  color: #4c4cff;
-  background: #0000b2;
-  border-color: #0000b2;
-}
-
-.btn-primary:active {
-  background: #00004c;
-  border-color: #00004c;
-}
-
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
-  background: #00004c;
-  border-color: #00004c;
-}
-
-.btn-primary.disabled, .btn-primary:disabled {
-  opacity: 0.10;
-  background: #00004c;
-  border-color: #00004c;
-}
-
-.btn-primary.focus, .btn-primary:focus {
-  box-shadow: 0 0 0 0.2rem #1919ff;
-}
+.btn-outline-primary {
+  color: #0000E5;
+  background: rgba(0, 0, 0, 0);
+  border-color: #0000E5;
+  transition: all 0.3s ease; }
+  .btn-outline-primary:hover {
+    color: #ffff99;
+    background: rgba(0, 0, 0, 0);
+    border-color: yellow; }
+  .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show > .btn-outline-primary.dropdown-toggle {
+    color: #ffff99;
+    background: rgba(0, 0, 0, 0);
+    border-color: #999900; }
+  .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-primary.dropdown-toggle {
+    background: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0); }
+  .btn-outline-primary.disabled, .btn-outline-primary:disabled {
+    opacity: 0.10;
+    color: #00004c;
+    background: rgba(0, 0, 0, 0);
+    border-color: #00004c; }
+  .btn-outline-primary.focus, .btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0); }
 
 .btn-secondary {
-  color: #ffffff;
+  color: #0000E5;
   background: #FFFF33;
   border-color: #FFFF33;
-  transition: all 0.3s ease;
-}
+  transition: all 0.3s ease; }
+  .btn-secondary:hover {
+    color: #ffff99;
+    background: #0000b2;
+    border-color: #0000b2; }
+  .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
+    color: #ffff99;
+    background: #00004c;
+    border-color: #00004c; }
+  .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show > .btn-secondary.dropdown-toggle {
+    background: #999900;
+    border-color: #999900;
+    box-shadow: 0 0 0 0.2rem #ffff66; }
+  .btn-secondary.disabled, .btn-secondary:disabled {
+    opacity: 0.10;
+    color: #00004c;
+    background: #999900;
+    border-color: #999900; }
+  .btn-secondary.focus, .btn-secondary:focus {
+    box-shadow: 0 0 0 0.2rem #ffff66; }
 
-.btn-secondary:hover {
-  color: #ffff99;
-  background: yellow;
-  border-color: yellow;
-}
-
-.btn-secondary:active {
-  background: #999900;
-  border-color: #999900;
-}
-
-.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
-  background: #999900;
-  border-color: #999900;
-}
-
-.btn-secondary.disabled, .btn-secondary:disabled {
-  opacity: 0.10;
-  background: #999900;
-  border-color: #999900;
-}
-
-.btn-secondary.focus, .btn-secondary:focus {
-  box-shadow: 0 0 0 0.2rem #ffff66;
-}
+.btn-outline-secondary {
+  color: #FFFF33;
+  background: rgba(0, 0, 0, 0);
+  border-color: #FFFF33;
+  transition: all 0.3s ease; }
+  .btn-outline-secondary:hover {
+    color: #4c4cff;
+    background: rgba(0, 0, 0, 0);
+    border-color: #0000b2; }
+  .btn-outline-secondary:not(:disabled):not(.disabled).active, .btn-outline-secondary:not(:disabled):not(.disabled):active, .show > .btn-outline-secondary.dropdown-toggle {
+    color: #4c4cff;
+    background: rgba(0, 0, 0, 0);
+    border-color: #00004c; }
+  .btn-outline-secondary:not(:disabled):not(.disabled).active, .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-secondary.dropdown-toggle {
+    background: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0); }
+  .btn-outline-secondary.disabled, .btn-outline-secondary:disabled {
+    opacity: 0.10;
+    color: #999900;
+    background: rgba(0, 0, 0, 0);
+    border-color: #999900; }
+  .btn-outline-secondary.focus, .btn-outline-secondary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0); }
 
 .btn-tertiary {
-  color: #ffffff;
+  color: #FFFF33;
   background: #8080F2;
   border-color: #8080F2;
-  transition: all 0.3s ease;
-}
+  transition: all 0.3s ease; }
+  .btn-tertiary:hover {
+    color: #ddddfb;
+    background: yellow;
+    border-color: yellow; }
+  .btn-tertiary:not(:disabled):not(.disabled).active, .btn-tertiary:not(:disabled):not(.disabled):active, .show > .btn-tertiary.dropdown-toggle {
+    color: #ddddfb;
+    background: #999900;
+    border-color: #999900; }
+  .btn-tertiary:not(:disabled):not(.disabled).active, .btn-tertiary:not(:disabled):not(.disabled):active:focus, .show > .btn-tertiary.dropdown-toggle {
+    background: #1414c5;
+    border-color: #1414c5;
+    box-shadow: 0 0 0 0.2rem #aeaef7; }
+  .btn-tertiary.disabled, .btn-tertiary:disabled {
+    opacity: 0.10;
+    color: #999900;
+    background: #1414c5;
+    border-color: #1414c5; }
+  .btn-tertiary.focus, .btn-tertiary:focus {
+    box-shadow: 0 0 0 0.2rem #aeaef7; }
 
-.btn-tertiary:hover {
-  color: #ddddfb;
-  background: #5252ed;
-  border-color: #5252ed;
-}
-
-.btn-tertiary:active {
-  background: #1414c5;
-  border-color: #1414c5;
-}
-
-.btn-tertiary:not(:disabled):not(.disabled).active, .btn-tertiary:not(:disabled):not(.disabled):active, .show > .btn-tertiary.dropdown-toggle {
-  background: #1414c5;
-  border-color: #1414c5;
-}
-
-.btn-tertiary.disabled, .btn-tertiary:disabled {
-  opacity: 0.10;
-  background: #1414c5;
-  border-color: #1414c5;
-}
-
-.btn-tertiary.focus, .btn-tertiary:focus {
-  box-shadow: 0 0 0 0.2rem #aeaef7;
-}
+.btn-outline-tertiary {
+  color: #8080F2;
+  background: rgba(0, 0, 0, 0);
+  border-color: #8080F2;
+  transition: all 0.3s ease; }
+  .btn-outline-tertiary:hover {
+    color: #ffff99;
+    background: rgba(0, 0, 0, 0);
+    border-color: yellow; }
+  .btn-outline-tertiary:not(:disabled):not(.disabled).active, .btn-outline-tertiary:not(:disabled):not(.disabled):active, .show > .btn-outline-tertiary.dropdown-toggle {
+    color: #ffff99;
+    background: rgba(0, 0, 0, 0);
+    border-color: #999900; }
+  .btn-outline-tertiary:not(:disabled):not(.disabled).active, .btn-outline-tertiary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-tertiary.dropdown-toggle {
+    background: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0); }
+  .btn-outline-tertiary.disabled, .btn-outline-tertiary:disabled {
+    opacity: 0.10;
+    color: #1414c5;
+    background: rgba(0, 0, 0, 0);
+    border-color: #1414c5; }
+  .btn-outline-tertiary.focus, .btn-outline-tertiary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0); }
 
 .btn-quaternary {
-  color: #ffffff;
+  color: #0000E5;
   background: #CCCCFA;
   border-color: #CCCCFA;
-  transition: all 0.3s ease;
-}
+  transition: all 0.3s ease; }
+  .btn-quaternary:hover {
+    color: white;
+    background: #0000b2;
+    border-color: #0000b2; }
+  .btn-quaternary:not(:disabled):not(.disabled).active, .btn-quaternary:not(:disabled):not(.disabled):active, .show > .btn-quaternary.dropdown-toggle {
+    color: white;
+    background: #00004c;
+    border-color: #00004c; }
+  .btn-quaternary:not(:disabled):not(.disabled).active, .btn-quaternary:not(:disabled):not(.disabled):active:focus, .show > .btn-quaternary.dropdown-toggle {
+    background: #4141ec;
+    border-color: #4141ec;
+    box-shadow: 0 0 0 0.2rem #fafaff; }
+  .btn-quaternary.disabled, .btn-quaternary:disabled {
+    opacity: 0.10;
+    color: #00004c;
+    background: #4141ec;
+    border-color: #4141ec; }
+  .btn-quaternary.focus, .btn-quaternary:focus {
+    box-shadow: 0 0 0 0.2rem #fafaff; }
 
-.btn-quaternary:hover {
-  color: white;
-  background: #9e9ef5;
-  border-color: #9e9ef5;
-}
-
-.btn-quaternary:active {
-  background: #4141ec;
-  border-color: #4141ec;
-}
-
-.btn-quaternary:not(:disabled):not(.disabled).active, .btn-quaternary:not(:disabled):not(.disabled):active, .show > .btn-quaternary.dropdown-toggle {
-  background: #4141ec;
-  border-color: #4141ec;
-}
-
-.btn-quaternary.disabled, .btn-quaternary:disabled {
-  opacity: 0.10;
-  background: #4141ec;
-  border-color: #4141ec;
-}
-
-.btn-quaternary.focus, .btn-quaternary:focus {
-  box-shadow: 0 0 0 0.2rem #fafaff;
-}
+.btn-outline-quaternary {
+  color: #CCCCFA;
+  background: rgba(0, 0, 0, 0);
+  border-color: #CCCCFA;
+  transition: all 0.3s ease; }
+  .btn-outline-quaternary:hover {
+    color: #4c4cff;
+    background: rgba(0, 0, 0, 0);
+    border-color: #0000b2; }
+  .btn-outline-quaternary:not(:disabled):not(.disabled).active, .btn-outline-quaternary:not(:disabled):not(.disabled):active, .show > .btn-outline-quaternary.dropdown-toggle {
+    color: #4c4cff;
+    background: rgba(0, 0, 0, 0);
+    border-color: #00004c; }
+  .btn-outline-quaternary:not(:disabled):not(.disabled).active, .btn-outline-quaternary:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-quaternary.dropdown-toggle {
+    background: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0); }
+  .btn-outline-quaternary.disabled, .btn-outline-quaternary:disabled {
+    opacity: 0.10;
+    color: #4141ec;
+    background: rgba(0, 0, 0, 0);
+    border-color: #4141ec; }
+  .btn-outline-quaternary.focus, .btn-outline-quaternary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0); }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS cf7
-::::::::::::::      Impostazioni per css
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS cf7
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS CF7 contact-form-style-1
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 #contact-form-style-1 label {
   display: block;
   font-size: 20px;
   font-weight: 400;
   line-height: 23px;
-  width: 100%;
-}
+  width: 100%; }
 #contact-form-style-1 .wpcf7-form-control,
 #contact-form-style-1 input,
 #contact-form-style-1 .form-control {
@@ -659,13 +734,11 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   background-clip: padding-box;
   border: none;
   border-radius: 3px;
-  transition: all 0.8s ease-in-out;
-}
+  transition: all 0.8s ease-in-out; }
 #contact-form-style-1 .form-check-input {
   position: absolute;
   margin-top: .3rem;
-  margin-left: -1.1rem;
-}
+  margin-left: -1.1rem; }
 #contact-form-style-1 input[type="text"],
 #contact-form-style-1 .wpcf7-text,
 #contact-form-style-1 input[type="textarea"],
@@ -676,8 +749,7 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
 #contact-form-style-1 .wpcf7-tel {
   border: none;
   border-bottom: solid 3px #808080;
-  background: #F2F2F2;
-}
+  background: #F2F2F2; }
 #contact-form-style-1 .wpcf7-select,
 #contact-form-style-1 input[type="select"],
 #contact-form-style-1 .wpcf7-date,
@@ -687,8 +759,7 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
 #contact-form-style-1 .wpcf7-radio,
 #contact-form-style-1 input[type="radio"] {
   width: auto;
-  border: none;
-}
+  border: none; }
 #contact-form-style-1 .wpcf7-form-control:focus,
 #contact-form-style-1 input:focus,
 #contact-form-style-1 .form-control:focus {
@@ -696,8 +767,7 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   color: #000000;
   border-bottom: 3px solid #000000;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(204, 204, 204, 0.5) !important;
-}
+  box-shadow: 0 0 0 0.2rem rgba(204, 204, 204, 0.5) !important; }
 #contact-form-style-1 .wpcf7-select:focus,
 #contact-form-style-1 input[type="select"]:focus,
 #contact-form-style-1 .wpcf7-date:focus,
@@ -709,50 +779,41 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
 #contact-form-style-1 .wpcf7-file:hover,
 #contact-form-style-1 input[type="file"]:focus {
   border: none;
-  box-shadow: 0 0 0 0.2rem rgba(204, 204, 204, 0);
-}
+  box-shadow: 0 0 0 0.2rem rgba(204, 204, 204, 0); }
 #contact-form-style-1 .wpcf7-list-item {
-  display: block;
-}
+  display: block; }
 #contact-form-style-1 .wpcf7-acceptance .wpcf7-list-item {
   display: inline-block;
-  margin: 0 0 0 2em;
-}
+  margin: 0 0 0 2em; }
 #contact-form-style-1 .wpcf7-select,
 #contact-form-style-1 input[type="select"],
 #contact-form-style-1 .wpcf7-date,
 #contact-form-style-1 input[type="date"] {
   border: none;
   border-bottom: solid 3px #808080;
-  background: #F2F2F2;
-}
+  background: #F2F2F2; }
 #contact-form-style-1 .wpcf7-select:focus,
 #contact-form-style-1 input[type="select"]:focus,
 #contact-form-style-1 .wpcf7-date:focus,
 #contact-form-style-1 input[type="date"]:focus {
   border-bottom: 3px solid #000000;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(204, 204, 204, 0.5) !important;
-}
+  box-shadow: 0 0 0 0.2rem rgba(204, 204, 204, 0.5) !important; }
 #contact-form-style-1 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #808080;
   opacity: 1;
-  /* Firefox */
-}
+  /* Firefox */ }
 #contact-form-style-1 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #808080;
-  opacity: 1;
-}
+  opacity: 1; }
 #contact-form-style-1 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #808080;
-  opacity: 1;
-}
+  opacity: 1; }
 #contact-form-style-1 .wpcf7 .ajax-loader::before {
-  display: none;
-}
+  display: none; }
 #contact-form-style-1 .wpcf7 .ajax-loader {
   background: url("../img/loading.gif") no-repeat center center;
   -webkit-background-size: cover;
@@ -763,19 +824,19 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   height: 36px;
   bottom: -15px;
   border-radius: 0;
-  display: inline-block;
-}
+  display: inline-block; }
 #contact-form-style-1 .wpcf7-submit {
-  width: auto;
-}
+  width: auto; }
 
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS CF7 contact-form-style-2
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 #contact-form-style-2 label {
   display: block;
   font-size: 20px;
   font-weight: 400;
   line-height: 23px;
-  width: 100%;
-}
+  width: 100%; }
 #contact-form-style-2 .wpcf7-form-control,
 #contact-form-style-2 input,
 #contact-form-style-2 .form-control {
@@ -791,13 +852,11 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   background-clip: padding-box;
   border: none;
   border-radius: 0;
-  transition: all 0.8s ease-in-out;
-}
+  transition: all 0.8s ease-in-out; }
 #contact-form-style-2 .form-check-input {
   position: absolute;
   margin-top: .3rem;
-  margin-left: -1.1rem;
-}
+  margin-left: -1.1rem; }
 #contact-form-style-2 input[type="text"],
 #contact-form-style-2 .wpcf7-text,
 #contact-form-style-2 input[type="textarea"],
@@ -807,8 +866,7 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
 #contact-form-style-2 input[type="tel"],
 #contact-form-style-2 .wpcf7-tel {
   border: none;
-  border-bottom: solid 3px #FFFF33;
-}
+  border-bottom: solid 3px #FFFF33; }
 #contact-form-style-2 .wpcf7-select,
 #contact-form-style-2 input[type="select"],
 #contact-form-style-2 .wpcf7-date,
@@ -818,8 +876,7 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
 #contact-form-style-2 .wpcf7-radio,
 #contact-form-style-2 input[type="radio"] {
   width: auto;
-  border: none;
-}
+  border: none; }
 #contact-form-style-2 .wpcf7-form-control:focus,
 #contact-form-style-2 input:focus,
 #contact-form-style-2 .form-control:focus {
@@ -827,8 +884,7 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   color: #0000E5;
   border-bottom: 3px solid #0000E5;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.5) !important;
-}
+  box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.5) !important; }
 #contact-form-style-2 .wpcf7-select:focus,
 #contact-form-style-2 input[type="select"]:focus,
 #contact-form-style-2 .wpcf7-date:focus,
@@ -840,22 +896,18 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
 #contact-form-style-2 .wpcf7-file:hover,
 #contact-form-style-2 input[type="file"]:focus {
   border: none;
-  box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0);
-}
+  box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0); }
 #contact-form-style-2 .wpcf7-list-item {
-  display: block;
-}
+  display: block; }
 #contact-form-style-2 .wpcf7-acceptance .wpcf7-list-item {
   display: inline-block;
-  margin: 0 0 0 2em;
-}
+  margin: 0 0 0 2em; }
 #contact-form-style-2 .wpcf7-select,
 #contact-form-style-2 input[type="select"],
 #contact-form-style-2 .wpcf7-date,
 #contact-form-style-2 input[type="date"] {
   border: none;
-  border-bottom: solid 3px #FFFF33;
-}
+  border-bottom: solid 3px #FFFF33; }
 #contact-form-style-2 .wpcf7-select:focus,
 #contact-form-style-2 input[type="select"]:focus,
 #contact-form-style-2 .wpcf7-date:focus,
@@ -864,27 +916,22 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   color: #0000E5;
   border-bottom: 3px solid #0000E5;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.5) !important;
-}
+  box-shadow: 0 0 0 0.2rem rgba(var(--a5t-secondary-rgb), 0.5) !important; }
 #contact-form-style-2 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #0000E5;
   opacity: 1;
-  /* Firefox */
-}
+  /* Firefox */ }
 #contact-form-style-2 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #0000E5;
-  opacity: 1;
-}
+  opacity: 1; }
 #contact-form-style-2 ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #0000E5;
-  opacity: 1;
-}
+  opacity: 1; }
 #contact-form-style-2 .wpcf7 .ajax-loader::before {
-  display: none;
-}
+  display: none; }
 #contact-form-style-2 .wpcf7 .ajax-loader {
   background: url("../img/loading.gif") no-repeat center center;
   -webkit-background-size: cover;
@@ -895,23 +942,17 @@ button.navbar-toggler:focus, button.navbar-toggler:focus-visible {
   height: 36px;
   bottom: -15px;
   border-radius: 0;
-  display: inline-block;
-}
+  display: inline-block; }
 #contact-form-style-2 .wpcf7-submit {
-  width: auto;
-}
+  width: auto; }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS loader
-::::::::::::::      impostazioni per modificare il loader
-::::::::::::::      effetto al caricamento della pagina composto da logo sezioni e loader
-::::::::::::::      L'evento che fa avviare è la classe 'loaded' posizionato nel body
+:::::::::::::: -- * A_SETTINGS Loader
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 #main-content {
   filter: blur(13px);
   -webkit-filter: blur(13px);
-  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1); }
 
 .loaded #main-content {
   filter: unset;
@@ -1084,8 +1125,7 @@ header {
   margin-top: unset; }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS gototop
-::::::::::::::      Impostazioni per css
+:::::::::::::: -- * A_SETTINGS Gototop
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 #gototop-btn {
   display: none;
@@ -1104,91 +1144,7 @@ header {
   border-radius: 50%; }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS sidenav
-::::::::::::::      Impostazioni per css
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-.sidenav.sidenav-open .container {
-  opacity: 1;
-  transition-delay: 0.0s;
-  -webkit-transition: all 0.7s ease-in-out;
-  transition: all 0.7s ease-in-out; }
-
-.sidenav.sidenav-close .container {
-  opacity: 0;
-  transition-delay: 0.5s;
-  -webkit-transition: all 0.7s ease-in-out;
-  transition: all 0.7s ease-in-out; }
-
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  right: 0;
-  background-color: #FFFF33;
-  overflow-x: hidden;
-  transition: 0.5s;
-  /*padding-top: 60px;*/
-  text-align: center; }
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS menu mobile
-::::::::::::::      Impostazioni per css
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-.overlay-content {
-  position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px; }
-
-.full-menu-logo {
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0; }
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS equal cols
-::::::::::::::      Impostazioni per css
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-.row.equal-cols {
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -webkit-flex-wrap: wrap !important;
-  -ms-flex-wrap: wrap !important;
-  flex-wrap: wrap; }
-
-.row.equal-cols:before,
-.row.equal-cols:after {
-  display: block; }
-
-.row.equal-cols > [class*='col-'] {
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column; }
-
-.row.equal-cols > [class*='col-'] > * {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto; }
-
-.row.equal-cols .tease {
-  display: -webkit-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column; }
-
-/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS magic-mouse-js
-::::::::::::::      Impostazioni per togliere il cursore definitivamente
+:::::::::::::: -- * A_SETTINGS Magic-mouse-js
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 body #magicMouseCursor {
   position: fixed;
@@ -1249,43 +1205,52 @@ body .magic-hover:hover {
   cursor: none; }
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:::::::::::::: 11 * A_SETTINGS progress-js
-::::::::::::::      Impostazioni per togliere il cursore definitivamente
+:::::::::::::: -- * A_SETTINGS Progress-js
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 #nprogress .bar {
-  background: #FFFF33;
-}
+  background: #FFFF33; }
 
 #nprogress .peg {
-  box-shadow: 0 0 10px #FFFF33, 0 0 5px #FFFF33;
-}
+  box-shadow: 0 0 10px #FFFF33, 0 0 5px #FFFF33; }
 
 #nprogress .spinner-icon {
   border-top-color: #FFFF33;
-  border-left-color: #FFFF33;
-}
+  border-left-color: #FFFF33; }
 
-/*
-####################################################
-M E D I A  Q U E R I E S
-####################################################
-*/
-/*
-::::::::::::::::::::::::::::::::::::::::::::::::::::
-Bootstrap 4 breakpoints
-*/
-/*
-Extra small devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap because it is "mobile first"
-*/
-/* Small devices (landscape phones, 576px and up) */
-/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-/* Large devices (desktops, 992px and up) */
-/* Extra large devices (large desktops, 1200px and up) */
-/*
-::::::::::::::::::::::::::::::::::::::::::::::::::::
-Custom media queries
-*/
-/* Set width to make card deck cards 100% width */
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::: -- * A_SETTINGS Equal cols
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+.row.equal-cols {
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-flex-wrap: wrap !important;
+  -ms-flex-wrap: wrap !important;
+  flex-wrap: wrap; }
+
+.row.equal-cols:before,
+.row.equal-cols:after {
+  display: block; }
+
+.row.equal-cols > [class*='col-'] {
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.row.equal-cols > [class*='col-'] > * {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto; }
+
+.row.equal-cols .tease {
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
 
 /*# sourceMappingURL=main.css.map */
