@@ -12,18 +12,18 @@
 # http://kernel.org/pub/software/scm/git/docs/gitignore.html
 
 # Ignore everything in the root except the "wp-content" directory.
-/*
-!.gitignore
-!wp-content/
+#/*
+#!.gitignore
+# !wp-content/
 
 # Ignore everything in the "wp-content" directory , except the "plugins"
 # and "themes" directories.
-wp-content/*
-!wp-content/plugins/
-!wp-content/themes/
-!wp-content/uploads/
-/wp-content/themes/a5tratto-theme/assets/.sass-cache/
-/wp-content/themes/a5tratto-theme-child/assets/.sass-cache/
+#wp-content/*
+#!wp-content/plugins/
+#!wp-content/themes/
+#!wp-content/uploads/
+#/wp-content/themes/a5tratto-theme/assets/.sass-cache/
+#/wp-content/themes/a5tratto-theme-child/assets/.sass-cache/
 
 # Ignore everything in the "plugins" directory, except the plugins you
 # specify (see the commented-out examples for hints on how to do this.)
@@ -35,10 +35,10 @@ wp-content/*
 # specify (see the commented-out example for a hint on how to do this.)
 # wp-content/themes/*
 # !wp-content/themes/my-theme/wp-content/upgrade/*
-wp-content/backup-db/*
-wp-content/cache/*
-wp-content/cache/supercache/*
-wp-content/w3tc-cache/*
+#wp-content/backup-db/*
+#wp-content/cache/*
+#wp-content/cache/supercache/*
+#wp-content/w3tc-cache/*
 
 # ignore node dependency directories
 node_modules/
