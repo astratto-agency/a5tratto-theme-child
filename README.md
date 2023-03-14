@@ -202,7 +202,7 @@
 					<ul>
 						<li id="60">Assets
 							<ul>
-								<li id="61">boostrap-4.3.1-dist</li>
+								<li id="61">bootstrap-4.6.2-dist</li>
 								<li id="62">custom.js</li>
 								<li id="63">animate.js</li>
 								<li id="64">credits.js</li>
